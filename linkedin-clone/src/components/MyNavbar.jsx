@@ -11,12 +11,9 @@ import { BiUserCircle } from "react-icons/bi";
 import { BsFillGrid3X3GapFill, BsFillBellFill } from "react-icons/bs";
 import { MdOutlineMenuBook } from "react-icons/md";
 import { TbFileAnalytics } from "react-icons/tb";
-import { FaCompass,FaUsers } from "react-icons/fa";
-import {ImUserCheck } from "react-icons/im";
-import {FcAdvertising,FcTemplate } from "react-icons/fc";
-
-
-
+import { FaCompass, FaUsers } from "react-icons/fa";
+import { ImUserCheck } from "react-icons/im";
+import { FcAdvertising, FcTemplate } from "react-icons/fc";
 
 import Button from "react-bootstrap/esm/Button";
 import NavLink from "react-bootstrap/esm/NavLink";
@@ -108,16 +105,18 @@ const MyNavbar = () => {
                       Notifiche
                     </p>
                   </Nav.Link>
-
-                  
                 </div>
                 <Nav.Link href="#">
-                    
                   <div className="d-flex flex-column align-items-center">
-                  <img src="https://images.pexels.com/photos/3361739/pexels-photo-3361739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="cane" className='rounded-pill' 
-                  width={40} />
+                    <img
+                      src="https://images.pexels.com/photos/3361739/pexels-photo-3361739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                      alt="cane"
+                      className="rounded-pill"
+                      width={25}
+                      height={25}
+                    />
                     <NavDropdown title="tu" id="navbarScrollingDropdown">
-                      <NavDropdown.Item href="#action3">
+                      <NavDropdown.Item href="#action3" >
                         <div className="d-flex">
                           <p className="fs-1 ">
                             <BiUserCircle />
@@ -132,7 +131,11 @@ const MyNavbar = () => {
                       </NavDropdown.Item>
 
                       <NavDropdown.Item href="#action4">
-                        <Button className=" d-flex justify-content-center align-items-center  rounded-pill w-100 px-auto " variant="outline-primary" style={{height:"25px"}}>
+                        <Button
+                          className=" d-flex justify-content-center align-items-center  rounded-pill w-100 px-auto "
+                          variant="outline-primary"
+                          style={{ height: "25px" }}
+                        >
                           visualizza profilo
                         </Button>
                       </NavDropdown.Item>
@@ -345,8 +348,8 @@ const MyNavbar = () => {
                 </NavDropdown.Item>
               </NavDropdown>
             </div>
-            <div className="ms-5 mb-4">
-              <NavLink className="fw-medium">Prova Premium per 0 EUR</NavLink>
+            <div className="">
+              <NavLink className="fw-medium text-center px-1 " style={{width:"100px"}}>Prova Premium per 0 EUR</NavLink>
             </div>
           </div>
         </Col>
