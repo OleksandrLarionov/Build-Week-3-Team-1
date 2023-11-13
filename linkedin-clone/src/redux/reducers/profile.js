@@ -1,7 +1,9 @@
 import { GET_PROFILE_DATA } from '../action';
+import { SET_MODAL } from '../action';
 
 const initialState = {
 	profileData: [],
+	modal: false,
 };
 
 const profileDataReducer = (state = initialState, action) => {
@@ -10,6 +12,11 @@ const profileDataReducer = (state = initialState, action) => {
 			return {
 				...state,
 				profileData: [action.payload],
+			};
+		case SET_MODAL:
+			return {
+				...state,
+				modal: [action.payload],
 			};
 
 		default:

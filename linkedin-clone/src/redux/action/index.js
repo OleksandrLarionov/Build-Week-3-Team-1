@@ -1,5 +1,10 @@
 export const GET_PROFILE_DATA = 'GET_PROFILE_DATA';
 export const GET_USER_DATA = 'GET_USER_DATA';
+export const SET_MODAL = 'SET_MODAL';
+export const changeModalAction = (state) => ({
+	type: SET_MODAL,
+	payload: state,
+});
 export const key =
 	'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTdiYmM1NWU3ZTAwMThmODNiZmIiLCJpYXQiOjE2OTk4NjY1NTYsImV4cCI6MTcwMTA3NjE1Nn0.0n8X0s6yl9NBb7CzEgnDxCdlw4P1RRcSjfwOeqmGSzM';
 

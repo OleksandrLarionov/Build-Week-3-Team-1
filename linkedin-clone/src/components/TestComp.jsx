@@ -117,6 +117,7 @@ const TestComp = () => {
 						}}
 					/>
 				</Form.Group>
+
 				<Form.Group md='12'>
 					<Form.Control
 						required
@@ -129,10 +130,20 @@ const TestComp = () => {
 						}}
 					/>
 				</Form.Group>
-
-				<Form.Group controlId='formFile' className='mb-3'>
-					<Form.Control type='file' />
+				<Form.Group md='12'>
+					<Form.Control
+						type='text'
+						placeholder='imgUrl'
+						value={dataUser.image}
+						onChange={(e) => {
+							e.preventDefault();
+							setDataUser({ ...dataUser, image: e.target.value });
+						}}
+					/>
 				</Form.Group>
+				{/* <Form.Group controlId='formFile' className='mb-3'>
+					<Form.Control type='file' />
+				</Form.Group> */}
 				<Button type='submit'>Sub</Button>
 			</Form>
 		</Container>

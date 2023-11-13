@@ -1,79 +1,44 @@
-import { Button, Col, Row } from 'react-bootstrap'
-import { BsPersonAdd, BsPersonCircle } from 'react-icons/bs'
+import { Col, ListGroup, Row } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import OneUser from './oneUser';
+import ModalProfiles from './modal/ModarlProfiles';
 
+import { changeModalAction } from '../redux/action';
+import { useEffect } from 'react';
 const People = () => {
-  return (
-    <>
-      <Col className="border rounded-3 p-3 m-2">
-        <Row className="flex-column">
-          <Col>
-            <h5>Persone che potresti conoscere</h5>
-            <p className="text-secondary">Dalla tua scuola o università</p>
-          </Col>
-          <Col>
-            <div className="d-flex">
-              <div>
-                <BsPersonCircle className="fs-1 me-2 mt-2" />
-              </div>
-              <div className="lh-1">
-                <p className="fw-bold">Gustavo Oliveira</p>
-                <p>Full-Stack Web Developer</p>
-                <Button
-                  variant="light"
-                  className="text-secondary bg-white border border-black rounded-pill px-3"
-                >
-                  <BsPersonAdd className="me-2" />
-                  Collegati
-                </Button>
-              </div>
-            </div>
-            <hr />
-            <div className="d-flex">
-              <div>
-                <BsPersonCircle className="fs-1 me-2 mt-2" />
-              </div>
-              <div className="lh-1">
-                <p className="fw-bold">Laura Gaudencio Rose</p>
-                <p>
-                  {' '}
-                  Junior Full stack Developer | Java | SpringBoot | Angular
-                </p>
-                <Button
-                  variant="light"
-                  className="text-secondary bg-white border border-black rounded-pill px-3"
-                >
-                  <BsPersonAdd className="me-2" />
-                  Collegati
-                </Button>
-              </div>
-            </div>
-            <hr />
-            <div className="d-flex">
-              <div>
-                <BsPersonCircle className="fs-1 me-2 mt-2" />
-              </div>
-              <div className="lh-1">
-                <p className="fw-bold">Adiener Lopez</p>
-                <p> Junior Full-Stack Developer</p>
-                <Button
-                  variant="light"
-                  className="text-secondary bg-white border border-black rounded-pill px-3"
-                >
-                  <BsPersonAdd className="me-2" />
-                  Collegati
-                </Button>
-              </div>
-            </div>
-          </Col>
-          <Col className="border-top mt-2 bottom-part">
-            <h5 className="text-center text-secondary mt-4 pb-3">
-              Mostra tutto
-            </h5>
-          </Col>
-        </Row>
-      </Col>
-    </>
-  )
-}
+	const profiles = useSelector(
+		(state) => state.profile.profileData && state.profile.profileData[0]
+	);
+	const modal = useSelector((state) => state.profile.modal && state.profile.modal);
+	const dispatch = useDispatch();
 
-export default People
+	const toggleModal = () => {
+		dispatch(changeModalAction(!modal[0]));
+	};
+	return (
+		<>
+			<Col className='border rounded-3 p-3 m-2'>
+				<Row className='flex-column'>
+					<Col>
+						<h5>Persone che potresti conoscere</h5>
+						<p className='text-secondary'>Dalla tua scuola o università</p>
+					</Col>
+					<ListGroup>
+						{profiles &&
+							profiles
+								.map((profile) => {
+									return <OneUser user={profile} key={profile._id} />;
+								})
+								.slice(0, 5)}
+					</ListGroup>
+					{modal && <ModalProfiles />}
+					<Col className='border-top mt-2 bottom-part' onClick={toggleModal}>
+						<h5 className='text-center text-secondary mt-4 pb-3'>Mostra tutto</h5>
+					</Col>
+				</Row>
+			</Col>
+		</>
+	);
+};
+
+export default People;
