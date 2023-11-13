@@ -49,7 +49,7 @@ const Resources = () => {
         </Col>
       </Row>
       <Row className=" mx-0 w-100 d-flex text-center border-top py-2">
-        <p className="mb-0">
+        <p className="mb-0 fw-bold text-secondary">
           Mostra tutte le risorse (5) <BsArrowRight />{" "}
         </p>
       </Row>
