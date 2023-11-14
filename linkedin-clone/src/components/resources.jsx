@@ -5,8 +5,8 @@ import { BsPeopleFill, BsArrowRight } from "react-icons/bs";
 
 const Resources = () => {
   return (
-    <Row className="elements">
-      <p className="fw-bold fs-5 pt-3 mb-0">Consigliato per te</p>
+    <Row className="elements my-1">
+      <p className="fw-bold fs-5 pt-3 mb-0">Risorse</p>
       <p
         className="text-secondary d-flex align-items-center"
         style={{ fontSize: "0.9rem" }}
@@ -49,7 +49,7 @@ const Resources = () => {
         </Col>
       </Row>
       <Row className=" mx-0 w-100 d-flex text-center border-top py-2">
-        <p className="mb-0 fw-bold text-secondary">
+        <p className="mb-0 fw-bold text-secondary"  style={{fontSize:'0.9rem'}}>
           Mostra tutte le risorse (5) <BsArrowRight />{" "}
         </p>
       </Row>

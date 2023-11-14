@@ -35,7 +35,7 @@ const MainCard = () => {
               />
             </div>
             <Row>
-              <Col className="col-7">
+              <Col className="col-7 lh-1">
                 <Card.Title
                   className="fw-bold mb-0"
                   style={{ fontSize: "1.4rem" }}
@@ -49,7 +49,7 @@ const MainCard = () => {
                   className="mb-0 text-secondary"
                   style={{ fontSize: "0.8rem" }}
                 >
-                  Where u live ·
+                  Where u live <span className='fs-5'>· </span>
                   <span className="text-primary fw-bold">
                     Informazioni di contatto
                   </span>

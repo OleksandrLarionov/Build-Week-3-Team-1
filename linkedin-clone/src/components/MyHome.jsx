@@ -3,6 +3,10 @@ import Visited from "./Visited";
 import MainCard from "./MainCard";
 import Suggested from "./Suggested";
 import Resources from "./Resources";
+import Activities from "./Activities";
+import Experience from "./Experience";
+import Education from "./Education";
+import Competencies from "./Competencies";
 
 const MyHome = () => {
   return (
@@ -10,13 +14,17 @@ const MyHome = () => {
       <Visited />
       <MainCard />
       <Suggested />
-      <Resources />
+      <Resources /> 
+      <Activities/>
+      <Experience/> 
+      <Education/> 
+       <Competencies/>
       {/*   
         
-         <Activities/>
-         <Experience/>
-         <Education/>
-         <Competencies/>
+        
+        
+       
+       
          <Referencies/>
          <Languages/>
          <Interests/> */}
