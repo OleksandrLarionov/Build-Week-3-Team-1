@@ -9,8 +9,8 @@ import Competencies from "./MyProfileComponents/Competencies";
 const SelectedProfile = () => {
   return (
     <Col className="col-xs-12 col-md-8 col-lg-7 justify-content-center">
-      <Visited />
-      <MainCard />
+      <Visited/>
+      <MainCard/>
       <Activities/>
       <Experience/> 
       <Education/> 

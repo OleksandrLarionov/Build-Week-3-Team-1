@@ -25,7 +25,7 @@ function App() {
           <Routes>
             <Route element={<Jobs />} path="/Jobs" />
             <Route element={<MyProfile />} path="/Profilo" />
-            <Route element={<SelectedProfile />} path="/nomeuser" />
+            <Route element={<SelectedProfile/>} path="/SelectedProfile" />
             </Routes>
               
               <Aside />
