@@ -21,14 +21,9 @@ code {
 }
 
 .modal-content {
-	max-width: 700px;
-	min-width: 400px;
+	min-width: 600px;
 	height: 700px;
-	/* overflow-y: scroll; */
 }
-.scroll-modal {
-}
-/* Navbar */
 
 #navbarScrollingDropdown {
 	padding-top: 0 !important;

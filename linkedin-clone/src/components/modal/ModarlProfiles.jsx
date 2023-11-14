@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import OneUser from '../oneUser';
-import { Button, ListGroup, Modal } from 'react-bootstrap';
+import { ListGroup, Modal } from 'react-bootstrap';
 import { changeModalAction } from '../../redux/action';
-
 const ModalProfiles = () => {
 	const dispatch = useDispatch();
 	const modal = useSelector((state) => state.profile.modal && state.profile.modal[0]);
@@ -10,8 +9,6 @@ const ModalProfiles = () => {
 		(state) => state.profile.profileData && state.profile.profileData[0]
 	);
 	const handleClose = () => dispatch(changeModalAction(!modal));
-	const handleShow = () => dispatch(changeModalAction(!modal));
-
 	return (
 		<>
 			<Modal show={modal} onHide={handleClose} scrollable='true'>
@@ -26,10 +23,8 @@ const ModalProfiles = () => {
 							})}
 					</ListGroup>{' '}
 				</Modal.Body>
-				<Modal.Footer></Modal.Footer>
 			</Modal>
 		</>
 	);
 };
-
 export default ModalProfiles;
