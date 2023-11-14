@@ -14,21 +14,19 @@ const ModalProfiles = () => {
 
 	return (
 		<>
-			<Modal show={modal} onHide={handleClose}>
+			<Modal show={modal} onHide={handleClose} scrollable='true'>
 				<Modal.Header closeButton>
 					<Modal.Title>Persone che potresti conoscere</Modal.Title>
 				</Modal.Header>
-				<Modal.Body>Dalla tua azienda | Dal tuo settore</Modal.Body>
-				<Modal.Footer>
-					<div className='scroll-modal'>
-						<ListGroup>
-							{profiles &&
-								profiles.map((profile) => {
-									return <OneUser user={profile} key={profile._id} />;
-								})}
-						</ListGroup>
-					</div>
-				</Modal.Footer>
+				<Modal.Body>
+					<ListGroup>
+						{profiles &&
+							profiles.map((profile) => {
+								return <OneUser user={profile} key={profile._id} />;
+							})}
+					</ListGroup>{' '}
+				</Modal.Body>
+				<Modal.Footer></Modal.Footer>
 			</Modal>
 		</>
 	);
