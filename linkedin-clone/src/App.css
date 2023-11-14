@@ -1,5 +1,11 @@
 
-#color-placeholder{background-color: #EDF3F8;}
+#color-placeholder{
+  background-color: #EDF3F8;
+ 
+}
+#color-placeholder:hover{
+border: solid 2px black;
+}
 p{margin-bottom:0px !important;}
 
 .App {
