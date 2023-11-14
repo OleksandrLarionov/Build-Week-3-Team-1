@@ -4,6 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Container } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
+import { key } from '../redux/action';
+
 const TestComp = () => {
 	const prevviuousDataUser = useSelector((state) => state.user.userData && state.user.userData[0]);
 	const [dataUser, setDataUser] = useState({
@@ -14,8 +16,9 @@ const TestComp = () => {
 		bio: '',
 		title: '',
 		area: '',
-		image: '', // SERVER GENERATED, modificabile
 	});
+
+	const [formImg, setFormImg] = useState(null);
 
 	useEffect(() => {
 		if (prevviuousDataUser) {
@@ -27,7 +30,6 @@ const TestComp = () => {
 				bio: prevviuousDataUser.bio,
 				title: prevviuousDataUser.title,
 				area: prevviuousDataUser.area,
-				image: '', // SERVER GENERATED, modificabile
 			});
 		}
 	}, [prevviuousDataUser]);
@@ -130,21 +132,39 @@ const TestComp = () => {
 						}}
 					/>
 				</Form.Group>
-				<Form.Group md='12'>
+				<Form.Group className='mb-3'>
 					<Form.Control
-						type='text'
-						placeholder='imgUrl'
-						value={dataUser.image}
+						type='file'
 						onChange={(e) => {
-							e.preventDefault();
-							setDataUser({ ...dataUser, image: e.target.value });
+							const file = e.target.files[0];
+							if (file) {
+								const formData = new FormData();
+								formData.append('profile', file);
+								setFormImg(formData);
+							}
 						}}
 					/>
 				</Form.Group>
-				{/* <Form.Group controlId='formFile' className='mb-3'>
-					<Form.Control type='file' />
-				</Form.Group> */}
-				<Button type='submit'>Sub</Button>
+				<Button
+					type='submit'
+					onClick={async () => {
+						const id = '6551e7bbc55e7e0018f83bfb';
+						const userApiList = `https://striveschool-api.herokuapp.com/api/profile/${id}/picture`;
+
+						try {
+							const imageData = await fetch(userApiList, {
+								method: 'POST',
+								body: formImg,
+								headers: {
+									Authorization: key,
+								},
+							});
+						} catch (error) {
+							console.log('Errore', error);
+						}
+					}}>
+					Sub
+				</Button>
 			</Form>
 		</Container>
 	);

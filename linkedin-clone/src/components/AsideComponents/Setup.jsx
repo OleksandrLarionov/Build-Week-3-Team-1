@@ -4,11 +4,11 @@ import { BsFillPencilFill } from 'react-icons/bs'
 const Setup = () => {
   return (
     <>
-      <Col className="m-2 border rounded-3 p-3">
+      <Col className="m-2 mt-0 border rounded-3 p-3  elements">
         <div>
           <div className="d-flex justify-content-between">
             <div>
-              <h5>Lingua del profilo</h5>
+              <h6 className='fw-bold'>Lingua del profilo</h6>
               <p className="text-secondary">Italiano</p>
             </div>
             <div>
@@ -18,7 +18,7 @@ const Setup = () => {
           <hr />
           <div className="d-flex justify-content-between">
             <div>
-              <h5>Public profile & URL</h5>
+              <h6 className='fw-bold'>Public profile & URL</h6>
               <p className="text-secondary">www.linkedin.com/</p>
             </div>
             <div>

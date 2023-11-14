@@ -1,3 +1,4 @@
+export const GET_JOBS = 'GET_JOBS'
 export const GET_PROFILE_DATA = 'GET_PROFILE_DATA'
 export const GET_USER_DATA = 'GET_USER_DATA'
 export const SET_MODAL = 'SET_MODAL'
@@ -83,6 +84,30 @@ export const getUserDataAction = () => {
       }
     } catch (error) {
       console.log('Errore', error)
+    }
+  }
+}
+
+export const handleSubmitAction = (query) => {
+  return async (dispatch) => {
+    try {
+      const res = await fetch(
+        'https://strive-benchmark.herokuapp.com/api/jobs?search=' +
+          query +
+          '&limit=20'
+      )
+      if (res.ok) {
+        const { data } = await res.json()
+        console.log(data)
+        dispatch({
+          type: GET_JOBS,
+          payload: data,
+        })
+      } else {
+        throw new Error('Error fetching results')
+      }
+    } catch (error) {
+      console.log(error)
     }
   }
 }

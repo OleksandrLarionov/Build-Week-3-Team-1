@@ -5,20 +5,35 @@ import Footer from './components/Footer'
 import TestComp from './components/TestComp'
 import ModalProfiles from './components/modal/ModarlProfiles'
 import { useSelector } from 'react-redux'
-import Home from './components/Home'
+import MyCentral from './components/MyCentral'
+import { Row } from 'react-bootstrap'
+import MyNavbar from './components/MyNavbar'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Jobs from './components/Jobs'
+
 function App() {
   const modal = useSelector(
     (state) => state.profile.modal && state.profile.modal[0]
   )
   return (
     <>
-      <div className={modal ? 'active-modal' : ''}>
-        {/* <Aside />
-				<ModalProfiles />
-				<Footer />
-				<TestComp /> */}
-        <Home />
-      </div>
+      <BrowserRouter>
+        <div className={modal ? 'active-modal' : ''}>
+          <MyNavbar />
+          <Routes>
+            <Route element={<Jobs />} path="/Jobs" />
+          </Routes>
+          <Row className="justify-content-center">
+            <MyCentral />
+            <Aside />
+          </Row>
+          <Footer />
+
+          <ModalProfiles />
+
+          <TestComp />
+        </div>
+      </BrowserRouter>
     </>
   )
 }
