@@ -14,10 +14,10 @@ const Experience = () => {
             <ImPencil/>
             </div>
             </Col>
-            <Col className="col-1 display-4">
+            <Col className="col-2 display-4">
             <FcCalendar />
             </Col>
-            <Col className="col-6">
+            <Col className="col-7">
             <p className="fw-bold mb-0" style={{ fontSize: "0.9rem" }}>
                 Sviluppo professionale
               </p>

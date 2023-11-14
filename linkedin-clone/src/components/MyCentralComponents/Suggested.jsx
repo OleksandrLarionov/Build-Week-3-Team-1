@@ -33,7 +33,7 @@ const Suggested = () => {
               <Button
                 variant="outline-secondary"
                 className="rounded-pill fw-bold mt-3 "
-                style={{ width: "180px" }}
+                style={{ maxWidth: "180px" }}
               >
                 Aggiungi posizione
               </Button>
@@ -50,7 +50,7 @@ const Suggested = () => {
               <Button
                 variant="outline-secondary"
                 className="rounded-pill fw-bold mt-3 "
-                style={{ width: "200px" }}
+                style={{ maxWidth: "200px" }}
               >
                 Aggiungi un riepilogo
               </Button>

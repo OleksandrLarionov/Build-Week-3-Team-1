@@ -23,7 +23,7 @@ function App() {
           <Routes>
             <Route element={<Jobs />} path="/Jobs" />
           </Routes>
-          <Row className="justify-content-center">
+          <Row className="justify-content-center mx-0">
             <MyCentral />
             <Aside />
           </Row>

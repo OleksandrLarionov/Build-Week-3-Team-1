@@ -1,4 +1,4 @@
-import { Col, Container, Form, Row } from 'react-bootstrap'
+import { Col, Form, Row } from 'react-bootstrap'
 import {
   BsFillCaretDownFill,
   BsFillQuestionCircleFill,
@@ -8,31 +8,30 @@ import {
 
 const Footer = () => {
   return (
-    <>
         <Row className="mx-0 mt-5 text-secondary" style={{fontSize:'0.8rem'}}>
           <Col className='col-7 lh-1' >
             <Row className='justify-content-around fw-bold '>
-              <Col sm={3}>
-                <p>Informazioni</p>
-                <p>Linee guida della community</p>
-                <p>
+              <Col sm={4}>
+                <a href='#'>Informazioni</a>
+                <a href='#'>Linee guida della community</a>
+                <a href='#'>
                   Privacy e condizioni <BsFillCaretDownFill style={{fontSize:'0.5rem'}}/>
                   
-                </p>
-                <p>Sales Solutions</p>
-                <p>Centro sicurezza</p>
+                </a>
+                <a href='#'>Sales Solutions</a>
+                <a href='#'>Centro sicurezza</a>
               </Col>
-              <Col sm={3}>
-                <p>Accessibilità</p>
-                <p>Carriera</p>
-                <p>Opzioni per gli annunci pubblicitari</p>
-                <p>Mobile</p>
+              <Col sm={4}>
+                <a href='#'>Accessibilità</a>
+                <a href='#'>Carriera</a>
+                <a href='#'>Opzioni per gli annunci pubblicitari</a>
+                <a href='#'>Mobile</a>
               </Col>
-              <Col sm={3}>
-                <p>Talent Solutions</p>
-                <p>Soluzioni di marketing</p>
-                <p>Pubblicità</p>
-                <p>Piccole imprese</p>
+              <Col sm={4}>
+                <a href='#'>Talent Solutions</a>
+                <a href='#'>Soluzioni di marketing</a>
+                <a href='#'>Pubblicità</a>
+                <a href='#'>Piccole imprese</a>
               </Col>
             </Row>
           </Col>
@@ -93,7 +92,6 @@ const Footer = () => {
             <p>LinkedIn Corporation © {new Date().getFullYear()}</p>
           </Col>
         </Row>
-    </>
   )
 }
 

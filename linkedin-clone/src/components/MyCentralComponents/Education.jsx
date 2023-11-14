@@ -14,10 +14,10 @@ const Education = () => {
         <ImPencil/>
         </div>
         </Col>
-        <Col className="col-1 display-5">
+        <Col className="col-2 display-5">
           <PiStudent/>
         </Col>
-        <Col className="col-6">
+        <Col className="col-7">
         <p className="fw-bold mb-0" style={{ fontSize: "0.9rem" }}>
             SCHOOL
           </p>
