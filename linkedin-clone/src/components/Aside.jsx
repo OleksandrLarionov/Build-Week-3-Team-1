@@ -1,8 +1,8 @@
-import { Col } from 'react-bootstrap'
-import People from './People'
-import Setup from './Setup'
-import InLearning from './InLearning'
-import Advertising from './Advertising'
+import { Col } from "react-bootstrap";
+import People from "./AsideComponents/People";
+import Setup from "./AsideComponents/Setup";
+import InLearning from "./AsideComponents/InLearning";
+import Advertising from "./AsideComponents/Advertising";
 
 const Aside = () => {
   return (
@@ -14,7 +14,7 @@ const Aside = () => {
         <Advertising />
       </Col>
     </>
-  )
-}
+  );
+};
 
-export default Aside
+export default Aside;
