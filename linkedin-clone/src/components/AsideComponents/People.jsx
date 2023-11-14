@@ -23,7 +23,7 @@ const People = () => {
             <h6 className="fw-bold">Persone che potresti conoscere</h6>
             <p className="text-secondary lh-1" style={{fontSize:'0.8rem'}}>Dalla tua scuola o università</p>
          
-          <ListGroup className="">
+          <ListGroup>
             {profiles &&
               profiles
                 .map((profile) => {

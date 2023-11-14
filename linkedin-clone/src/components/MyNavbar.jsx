@@ -1,30 +1,38 @@
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { AiFillHome, AiFillMessage } from 'react-icons/ai';
+import {
+	Col,
+	Row,
+	Offcanvas,
+	Button,
+	NavLink,
+	Form,
+	Nav,
+	Navbar,
+	NavDropdown,
+} from 'react-bootstrap';
 import { HiMiniUsers } from 'react-icons/hi2';
-import { PiHandbagSimpleFill } from 'react-icons/pi';
-import { BsFillGrid3X3GapFill, BsFillBellFill } from 'react-icons/bs';
-import { MdOutlineMenuBook } from 'react-icons/md';
-import { TbFileAnalytics } from 'react-icons/tb';
-import { FaCompass, FaUsers } from 'react-icons/fa';
-import { ImUserCheck } from 'react-icons/im';
-import { FcAdvertising, FcTemplate } from 'react-icons/fc';
-import Button from 'react-bootstrap/esm/Button';
+import { PiHandbagSimpleFill, PiVideoFill } from 'react-icons/pi';
+import { BsFillGrid3X3GapFill, BsFillBellFill, BsPlus } from 'react-icons/bs';
+import { MdArrowDropDown } from 'react-icons/md';
+import { FaCompass } from 'react-icons/fa';
+import { FaMoneyBillTrendUp } from 'react-icons/fa6';
+import { FcAdvertising, FcTemplate, FcCollaboration, FcBarChart } from 'react-icons/fc';
+import { AiFillHome, AiFillMessage } from 'react-icons/ai';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { handleSubmitAction } from '../redux/action';
-import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 const MyNavbar = () => {
+	const [showOffcanvas, setShowOffcanvas] = useState(false);
+
+	const toggleOffcanvas = () => {
+		setShowOffcanvas(!showOffcanvas);
+	};
+
 	const [query, setQuery] = useState('');
 	const dispatch = useDispatch();
 	const location = useLocation();
-	// console.log('OGGETTO LOCATION', location);
+	console.log('OGGETTO LOCATION', location);
 	const user = useSelector((state) => state.user.userData);
 
 	const handleChange = (e) => {
@@ -34,7 +42,7 @@ const MyNavbar = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		dispatch(handleSubmitAction(query));
-		// location.href = 'localhost:3000/Jobs';
+		location.href = 'localhost:3000/Jobs';
 	};
 
 	return (
@@ -57,7 +65,7 @@ const MyNavbar = () => {
 													viewBox='0 0 24 24'
 													data-supported-dps='24x24'
 													fill='currentColor'
-													className='mercado-match'
+													class='mercado-match'
 													width='45'
 													height='45'
 													focusable='false'
@@ -95,12 +103,12 @@ const MyNavbar = () => {
 											</div>
 
 											<div className='d-flex flex-column '>
-												<Link to='/' className='nav-link'>
+												<Nav.Link href='#'>
 													<p className='text-center mb-0'>
 														<HiMiniUsers className='fs-4 text-secondary' />
 														Rete
 													</p>
-												</Link>
+												</Nav.Link>
 											</div>
 
 											<div className='d-flex flex-column  ms-2 '>
@@ -119,24 +127,24 @@ const MyNavbar = () => {
 											</div>
 
 											<div className='d-flex flex-column  ms-2 '>
-												<Link to='/' className='nav-link'>
+												<Nav.Link href='#'>
 													<p className='text-center mb-0'>
 														<AiFillMessage className='fs-4 text-secondary' />
 														Messaggistica
 													</p>
-												</Link>
+												</Nav.Link>
 											</div>
 
 											<div>
-												<Link to='/' className='nav-link'>
+												<Nav.Link href='#'>
 													<p className='text-center mb-0'>
 														<BsFillBellFill className='fs-4 text-secondary' />
 														Notifiche
 													</p>
-												</Link>
+												</Nav.Link>
 											</div>
 
-											<Link to='/' className='nav-link'>
+											<Nav.Link href='#'>
 												<div className='d-flex flex-column align-items-center me-4 '>
 													<img
 														src={user[0]?.image}
@@ -148,248 +156,246 @@ const MyNavbar = () => {
 													<NavDropdown
 														title='tu'
 														id='navbarScrollingDropdown'
-														className='dpdown dropdown-left'>
+														className='custom-dropdown'>
 														<NavDropdown.Item href='#action3'>
-															<div className='d-flex'>
-																<p className='fs-1 '>
+															<div className='d-flex align-items-center'>
+																<p className='fs-1 me-2'>
 																	<img
 																		src={user[0]?.image}
 																		alt='profileImage'
-																		className='rounded-pill'
+																		className='rounded-pill border'
 																		width={55}
 																		height={55}
 																	/>
 																</p>
 																<div className='d-flex flex-column'>
-																	<p className='d-flex  align-items-center mt-3  '>
+																	<p
+																		className='d-flex lh-1 align-items-center mt-1 mb-1 fw-bold'
+																		style={{ fontSize: '1.2rem' }}>
 																		{user[0]?.name} {user[0]?.surname}
 																	</p>
-																	<p>--</p>
+																	<p className='lh-1'>{user[0]?.title}</p>
 																</div>
 															</div>
 														</NavDropdown.Item>
 
 														<NavDropdown.Item href='#action4'>
-															{/* <Button
+															<Button
 																className=' d-flex justify-content-center align-items-center  rounded-pill w-100 px-auto '
 																variant='outline-primary'
 																style={{ height: '25px' }}>
 																visualizza profilo
-															</Button> */}
+															</Button>
 														</NavDropdown.Item>
-														{/* <NavDropdown.Item href='#action5'>
-															<h6>Account</h6>
-															<Link to='/' className='p-1 nav-link'>
-																<p>Prova Premium per 0 EUR</p>
-															</Link>
-															<Link to='/' className='p-1 nav-link'>
-																<p>impostazione e privacy</p>
-															</Link>
-															<Link to='/' className='p-1 nav-link'>
-																<p>Guida</p>
-															</Link>
-															<Link to='/' className='p-1 nav-link'>
-																<p>Lingua</p>
-															</Link>
-															<h6 className='p pt-3 '>Gestisci</h6>
-															<Link to='/' className='p-1 nav-link'>
-																<p>Post è attività</p>
-															</Link>
-															<Link to='/' className='p-1 nav-link'>
-																<p>
-																	Account per la pubblicazione di offerte di lavoro
+														<NavDropdown.Item href='#action5'>
+															<h6 className='fw-bold border-top pt-2'>Account</h6>
+															<NavLink
+																className='p-1 '
+																style={{ fontSize: '0.9rem' }}>
+																<p className='lh-1 mb-0'>Prova Premium per 0 EUR</p>
+															</NavLink>
+															<NavLink
+																className='p-1 '
+																style={{ fontSize: '0.9rem' }}>
+																<p className='lh-1 mb-0'>Impostazione e privacy</p>
+															</NavLink>
+															<NavLink
+																className='p-1 '
+																style={{ fontSize: '0.9rem' }}>
+																<p className='lh-1 mb-0'>Guida</p>
+															</NavLink>
+															<NavLink
+																className='p-1 border-bottom'
+																style={{ fontSize: '0.9rem' }}>
+																<p className='lh-1 mb-2'> Lingua</p>
+															</NavLink>
+															<h6
+																className='pt-3 fw-bold'
+																style={{ fontSize: '0.9rem' }}>
+																Gestisci
+															</h6>
+															<NavLink
+																className='p-1 '
+																style={{ fontSize: '0.9rem' }}>
+																<p className='lh-1 mb-0'>Post è attività</p>
+															</NavLink>
+															<NavLink
+																className='p-1 '
+																style={{ fontSize: '0.9rem' }}>
+																<p className='lh-1 mb-2'>
+																	Account per la pubblicazione di
+																	<br /> offerte di lavoro
 																</p>
-															</Link>
-															<Link to='/' className='p-1 nav-link'>
-																<p>Esci</p>
-															</Link>
-														</NavDropdown.Item> */}
+															</NavLink>
+															<h6 className='pt-3 fw-bold border-top pt-2'>Esci</h6>
+														</NavDropdown.Item>
 													</NavDropdown>
 												</div>
-											</Link>
+											</Nav.Link>
 										</div>
 									</Nav>
 								</Navbar.Collapse>
 							</div>
 						</Col>
 
-						<Col className='col-3 d-flex align-items-center'>
+						<Col className='col-3 d-flex align-items-center position-relative'>
 							<div className='d-flex justify-content-between align-items-center '>
-								<div className='d-flex flex-column align-items-center mt-1 '>
-									<BsFillGrid3X3GapFill className='fs-4 text-secondary ' />
-									<NavDropdown
-										title='Per le aziende'
-										id='navbarScrollingDropdown'
-										className='mb-2'>
-										<h5 className='mt-0'>Per le aziende</h5>
-										<h6 className='text-start ms-3'>Scopri altri prodotti LinkedIn</h6>
-										<NavDropdown.Item href='#action3'>
-											{/* primo div principale delle icone dentro il dropdown per le aziende*/}
-											<div className='d-flex justify-content-between ms-4 mt-4 '>
-												{/* prima icona dentro il dropdown per le aziende */}
-												<div className='d-flex flex-column align align-items-center'>
-													<Link to='/' className='nav-link'>
-														<MdOutlineMenuBook className=' d-flex  flex-column text-info fs-3  ' />
-													</Link>
-													<Link to='/' className='nav-link'>
-														<p>Learning</p>
-													</Link>
+								<div className='d-flex justify-content-end mt-3'>
+									<div className='text-center' onClick={toggleOffcanvas}>
+										<BsFillGrid3X3GapFill className='fs-4 text-secondary' />
+										<p>
+											Per le aziende
+											<MdArrowDropDown />
+										</p>
+									</div>
+								</div>
+								<Offcanvas
+									placement='end'
+									show={showOffcanvas}
+									onHide={() => setShowOffcanvas(false)}>
+									<Offcanvas.Header closeButton>
+										<Offcanvas.Title className='fw-bold'>Per le aziende</Offcanvas.Title>
+									</Offcanvas.Header>
+									<Offcanvas.Body>
+										<Row className='d-flex border rounded mx-2 '>
+											<Col className=' col-12 d-flex pt-2 justify-content-between'>
+												<div className='text-center' style={{ width: '100px' }}>
+													<PiVideoFill className='text-primary fs-1 border' />
+													<p className='lh-1 pt-2' style={{ fontSize: '0.9rem' }}>
+														Learning
+													</p>
 												</div>
-												{/* seconda icona dentro il dropdown per le aziende */}
-												<div className='d-flex flex-column align align-items-center ms-3'>
-													<Link to='/' className='nav-link'>
-														<TbFileAnalytics className=' d-flex  flex-column text-info fs-3  ' />
-													</Link>
-													<Link to='/' className='nav-link'>
-														<p>
-															Talent <br /> Insights
-														</p>
-													</Link>
+												<div className='text-center' style={{ width: '100px' }}>
+													<FcBarChart className='fs-1  border  ' />
+													<p className='lh-1 pt-2' style={{ fontSize: '0.9rem' }}>
+														Talent Insights
+													</p>
 												</div>
-												{/* terza icona dentro il dropdown per le aziende */}
-												<div className='d-flex flex-column align align-items-center ms-2 '>
-													<Link to='/' className='nav-link'>
-														<FcTemplate className=' d-flex  flex-column text-info fs-3  ' />
-													</Link>
-													<Link to='/' className='nav-link'>
-														<p>
-															Pubblica <br />
-															un’offerta <br />
-															di lavoro
-														</p>
-													</Link>
+												<div className='text-center' style={{ width: '100px' }}>
+													<FcTemplate className='text-info fs-1  border ' />
+													<p className='lh-1 pt-2' style={{ fontSize: '0.9rem' }}>
+														Pubblica un’offerta di lavoro
+													</p>
 												</div>
-												{/* quarta icona dentro il dropdown per le aziende */}
-												<div className='d-flex flex-column align align-items-center me-3 '>
-													<Link to='/' className='nav-link'>
-														<FcAdvertising className=' d-flex  flex-column text-info fs-3  ' />
-													</Link>
-													<Link to='/' className='nav-link'>
-														<p>Pubblicizza</p>
-													</Link>
+												<div className='text-center' style={{ width: '100px' }}>
+													<FcAdvertising className='text-info fs-1  border ' />
+													<p className='lh-1 pt-2' style={{ fontSize: '0.9rem' }}>
+														Pubblicizza
+													</p>
 												</div>
+											</Col>
+											<Col className=' col-12 d-flex justify-content-start'>
+												<div className='text-center' style={{ width: '85px' }}>
+													<FaCompass className='text-info fs-1  border ' />
+													<p className='lh-1 pt-2' style={{ fontSize: '0.9rem' }}>
+														Trova nuovi clienti
+													</p>
+												</div>
+												<div className='text-center' style={{ width: '70px' }}>
+													<FcCollaboration className='text-info fs-1  border ' />
+													<p className='lh-1 pt-2' style={{ fontSize: '0.9rem' }}>
+														Gruppi
+													</p>
+												</div>
+												<div className='text-center' style={{ width: '95px' }}>
+													<FaMoneyBillTrendUp className='text-info fs-1  border ' />
+													<p className='lh-1 pt-2' style={{ fontSize: '0.9rem' }}>
+														Marketplace dei servizi
+													</p>
+												</div>
+											</Col>
+										</Row>
+										<Row className='border rounded-top mx-2 mt-2'>
+											<div className='border-bottom ps-0'>
+												<h6 className='text-start mt-2 fw-bold ps-4'>
+													Scopri altro per il business
+												</h6>
 											</div>
-										</NavDropdown.Item>
-										<NavDropdown.Item href='#action3'>
-											{/* secondo div principale delle icone dentro il dropdown per le aziende*/}
-											<div className='d-flex justify-content-start mt-3 ms-3  '>
-												{/* prima icona dentro il dropdown per le aziende */}
-												<div className='d-flex flex-column align align-items-center'>
-													<Link to='/' className='nav-link'>
-														<FaCompass className=' d-flex  flex-column text-info fs-3  ' />
-													</Link>
-													<Link to='/' className='nav-link'>
-														<p>vendi</p>
-													</Link>
-												</div>
-												{/* seconda icona dentro il dropdown per le aziende */}
-												<div className='d-flex flex-column align align-items-center ms-3 '>
-													<Link to='/' className='nav-link'>
-														<FaUsers className=' d-flex  flex-column text-info fs-3  ' />
-													</Link>
-													<Link to='/' className='nav-link'>
-														<p>Gruppi</p>
-													</Link>
-												</div>
-												{/* terza icona  dentro il dropdown per le aziende */}
-												<div className='d-flex flex-column align align-items-center ms-3 '>
-													<Link to='/' className='nav-link'>
-														<ImUserCheck className=' d-flex  flex-column text-info fs-3  ' />
-													</Link>
-													<Link to='/' className='nav-link'>
-														<p>
-															Marketplace <br /> dei servizi
-														</p>
-													</Link>
-												</div>
-											</div>
-											<h6 className='text-start mt-5 ms-4 '>
-												Scopri altro per il business
-											</h6>
-											{/* terzo div dentro il dropdown per le aziende */}
-											<div className='mt-3 text-start ms-4 fs-6'>
-												{/*  1 Link to='/' del 3 terzo div dentro il dropdown per le aziende */}
-												<Link to='/' className='mb-2 nav-link'>
-													<p>
-														{' '}
-														<span className='fw-medium '>
+											<div className=' ps-4 pt-2'>
+												<div className='fw-bold'>
+													<div>
+														<p className='lh-1 mb-1' style={{ fontSize: '0.9rem' }}>
+															{' '}
 															Assumi su LinkedIn
-														</span>{' '}
-														<br />
-														Trova, attrai e assumi
-													</p>
-												</Link>
-
-												{/*  2 Link to='/' del 3 terzo div dentro il dropdown per le aziende */}
-												<Link to='/' className='mb-2 nav-link'>
-													<p>
-														<span className='fw-medium '>Vendi con LinkedIn</span>{' '}
-														<br />
-														Costruisci relazioni con i buyer
-													</p>
-												</Link>
-
-												{/*  3 Link to='/' del 3 terzo div dentro il dropdown per le aziende */}
-												<Link to='/' className='mb-2 nav-link'>
-													<p>
-														{' '}
-														<span className='fw-medium'>
+														</p>
+														<p
+															className='fw-normal lh-1'
+															style={{ fontSize: '0.8rem' }}>
+															Trova, attrai e assumi
+														</p>
+													</div>
+													<div>
+														<p className='lh-1 mb-1' style={{ fontSize: '0.9rem' }}>
+															Vendi con LinkedIn
+														</p>
+														<p
+															className='fw-normal lh-1'
+															style={{ fontSize: '0.8rem' }}>
+															Costruisci relazioni con i buyer
+														</p>
+													</div>
+													<div>
+														<p className='lh-1 mb-1' style={{ fontSize: '0.9rem' }}>
 															Offerta di lavoro gratuita
-														</span>{' '}
-														<br /> Offerta di lavoro gratuita <br />
-														Trova candidati di qualità
-													</p>
-												</Link>
-
-												{/*  4 Link to='/' del 3 terzo div dentro il dropdown per le aziende */}
-												<Link to='/' className='mb-2 nav-link'>
-													<p>
-														{' '}
-														<span className='fw-medium '>
+														</p>
+														<p
+															className='fw-normal lh-1'
+															style={{ fontSize: '0.8rem' }}>
+															{' '}
+															Trova candidati di qualità
+														</p>
+													</div>
+													<div>
+														<p className='lh-1 mb-1' style={{ fontSize: '0.9rem' }}>
 															Fai pubblicità su LinkedIn
-														</span>{' '}
-														<br />
-														Acquisisci clienti e fai crescere la tua azienda
-													</p>
-												</Link>
-
-												{/*  5 Link to='/' del 3 terzo div dentro il dropdown per le aziende */}
-												<Link to='/' className='mb-2 nav-link'>
-													<p>
-														{' '}
-														<span className='fw-medium'>Impara con LinkedIn </span>
-														<br />
-														Corsi per formare i tuoi dipendenti
-													</p>
-												</Link>
-
-												{/*  6 Link to='/' del 3 terzo div dentro il dropdown per le aziende */}
-												<Link to='/' className='mb-3 nav-link'>
-													<p>
-														{' '}
-														<span className='fw-medium '>Centro amministrazione</span>
-														<br />
-														Gestisci i dettagli di fatturazione e account
-													</p>
-												</Link>
-												{/*  7 Link to='/' del 3 terzo div dentro il dropdown per le aziende */}
-												<Link to='/' className='mb-4 nav-link'>
-													<p className='fw-medium'>
-														Crea una pagina aziendale <span className='fs-5'>+</span>
-													</p>
-												</Link>
+														</p>
+														<p
+															className='fw-normal lh-1'
+															style={{ fontSize: '0.8rem' }}>
+															Acquisisci clienti e fai crescere la tua azienda
+														</p>
+													</div>
+													<div>
+														<p className='lh-1 mb-1' style={{ fontSize: '0.9rem' }}>
+															Impara con LinkedIn
+														</p>
+														<p
+															className='fw-normal lh-1'
+															style={{ fontSize: '0.8rem' }}>
+															{' '}
+															Corsi per formare i tuoi dipendenti
+														</p>
+													</div>
+													<div>
+														<p className='lh-1 mb-1' style={{ fontSize: '0.9rem' }}>
+															Centro amministrazione
+														</p>
+														<p
+															className='fw-normal lh-1'
+															style={{ fontSize: '0.8rem' }}>
+															Gestisci i dettagli di fatturazione e account
+														</p>
+													</div>
+												</div>
 											</div>
-										</NavDropdown.Item>
-									</NavDropdown>
-								</div>
-								<div className=''>
-									<Link
-										to
-										className='fw-medium text-center px-1 different '
-										style={{ width: '100px' }}>
-										Prova Premium per 0 EUR
-									</Link>
-								</div>
+										</Row>
+										<Row className='border border-top-0 rounded-bottom mx-2 ps-4'>
+											<p
+												className='lh-1 mb-1 fw-bold py-2'
+												style={{ fontSize: '0.9rem' }}>
+												Crea una pagina aziendale <BsPlus className='fs-4' />
+											</p>
+										</Row>
+									</Offcanvas.Body>
+								</Offcanvas>
+							</div>
+
+							<div className=''>
+								<NavLink
+									className='fw-medium text-center px-1 different '
+									style={{ width: '100px' }}>
+									Prova Premium per 0 EUR
+								</NavLink>
 							</div>
 						</Col>
 					</Row>
