@@ -14,6 +14,7 @@ import { TbFileAnalytics } from "react-icons/tb";
 import { FaCompass, FaUsers } from "react-icons/fa";
 import { ImUserCheck } from "react-icons/im";
 import { FcAdvertising, FcTemplate } from "react-icons/fc";
+import {Link} from 'react-router-dom'
 
 import Button from "react-bootstrap/esm/Button";
 import NavLink from "react-bootstrap/esm/NavLink";
@@ -67,12 +68,12 @@ const MyNavbar = () => {
                 {/* 2 Div principale Navbar */}
                 <div className="d-flex justify-content-around align-items-center border-end">
                   <div className="d-flex flex-column ">
-                    <Nav.Link href="#" >
+                    <Link to='/' className="nav-link" >
                       <p className="text-center mb-0">
                         <AiFillHome className="fs-4 text-secondary" />
                         Home
                       </p>
-                    </Nav.Link>
+                    </Link>
                   </div>
 
                   <div className="d-flex flex-column ">
