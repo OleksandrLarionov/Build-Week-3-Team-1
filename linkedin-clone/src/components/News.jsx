@@ -60,9 +60,9 @@ const News = () => {
         </Row>
       </Col>
       <Col className="mt-2 ms-4">
-        <h5 className="text-secondary bottom-part w-50">
+        <p className="text-secondary bottom-part w-50 fw-bold">
           Show more <BsChevronCompactDown />
-        </h5>
+        </p>
       </Col>
     </Row>
   )

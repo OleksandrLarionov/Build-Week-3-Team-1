@@ -25,17 +25,16 @@ const CreatePost = () => {
         <Row className="w-100 flex-md-column text-secondary">
           <Col className="d-flex justify-content-md-around">
             <div className="d-flex align-items-center">
-              <FcPicture className="mb-3 me-2" />
+              <FcPicture className="mb-3 me-2 fs-4" />
               <p>Contenuti multimediali</p>
             </div>
             <div className="d-flex align-items-center">
-              <FcCalendar className="mb-3 me-2" />
+              <FcCalendar className="mb-3 me-2 fs-4" />
               <p>Evento</p>
             </div>
           </Col>
-
-          <Col className="d-flex align-items-center">
-            <FcTemplate className="mb-3 me-2" />
+          <Col className="d-flex align-items-center justify-content-center">
+            <FcTemplate className="mb-3 me-2 fs-4" />
             <p>Scrivi un articolo</p>
           </Col>
         </Row>

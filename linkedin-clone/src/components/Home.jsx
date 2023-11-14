@@ -3,12 +3,13 @@ import ShowProfile from './ShowProfile'
 import DiscoverMore from './DiscoverMore'
 import CreatePost from './CreatePost'
 import News from './News'
+import FooterHome from './FooterHome'
 
 const Home = () => {
   return (
     <Container>
       <Row>
-        <Col sm={12} md={3}>
+        <Col sm={12} md={3} className="d-flex flex-column align-items-center">
           <ShowProfile />
           <DiscoverMore />
         </Col>
@@ -17,6 +18,7 @@ const Home = () => {
         </Col>
         <Col sm={12} md={3}>
           <News />
+          <FooterHome />
         </Col>
       </Row>
     </Container>

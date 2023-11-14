@@ -3,7 +3,7 @@ import { BsPlusLg } from 'react-icons/bs'
 
 const DiscoverMore = () => {
   return (
-    <Row className="px-0 mb-1 border rounded-3 m-1 flex-column w-100">
+    <Row className="w-100 mb-1 border rounded-3  flex-column ">
       <Col className="p-3 d-flex justify-content-between align-items-center">
         <div className="text-primary fw-bold  ">
           <p>Gruppi</p>
