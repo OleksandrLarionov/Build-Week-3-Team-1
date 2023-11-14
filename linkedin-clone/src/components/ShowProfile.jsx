@@ -5,7 +5,7 @@ import { BsBookmarkFill } from 'react-icons/bs'
 const ShowProfile = () => {
   return (
     <Row>
-      <Col className="px-0 elements mb-1 border rounded-3 m-2">
+      <Col className="px-0 mb-1 border rounded-3 m-2">
         <Card
           className="position-relative border-0"
           style={{ border: '1px solid rgb(223,222,219)' }}
@@ -65,7 +65,7 @@ const ShowProfile = () => {
               </Col>
               <hr className="m-0" />
               <Col className="bottom-part pt-3 d-flex align-items-center">
-                <BsBookmarkFill className="text-secondary me-2" />
+                <BsBookmarkFill className="text-secondary me-2 mb-3" />
                 <p>I miei elementi</p>
               </Col>
             </Row>

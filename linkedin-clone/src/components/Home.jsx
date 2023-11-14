@@ -1,5 +1,6 @@
 import { Col, Container, Row } from 'react-bootstrap'
 import ShowProfile from './ShowProfile'
+import DiscoverMore from './DiscoverMore'
 
 const Home = () => {
   return (
@@ -7,6 +8,7 @@ const Home = () => {
       <Row>
         <Col>
           <ShowProfile />
+          <DiscoverMore />
         </Col>
         <Col></Col>
         <Col></Col>
