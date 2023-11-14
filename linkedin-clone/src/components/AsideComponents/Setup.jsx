@@ -4,7 +4,7 @@ import { BsFillPencilFill } from 'react-icons/bs'
 const Setup = () => {
   return (
     <>
-      <Col className="m-2 mt-0 border rounded-3 p-3  elements">
+      <Col className=" mt-0 border rounded-3 p-3  elements mb-1">
         <div>
           <div className="d-flex justify-content-between">
             <div>

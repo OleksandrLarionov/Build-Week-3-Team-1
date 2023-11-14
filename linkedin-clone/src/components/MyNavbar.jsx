@@ -7,7 +7,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { AiFillHome, AiFillMessage } from 'react-icons/ai';
 import { HiMiniUsers } from 'react-icons/hi2';
 import { PiHandbagSimpleFill } from 'react-icons/pi';
-import { BiUserCircle } from 'react-icons/bi';
 import { BsFillGrid3X3GapFill, BsFillBellFill } from 'react-icons/bs';
 import { MdOutlineMenuBook } from 'react-icons/md';
 import { TbFileAnalytics } from 'react-icons/tb';
@@ -20,12 +19,14 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { handleSubmitAction } from '../redux/action';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 const MyNavbar = () => {
 	const [query, setQuery] = useState('');
 	const dispatch = useDispatch();
 	const location = useLocation();
 	console.log('OGGETTO LOCATION', location);
+	const user = useSelector((state) => state.user.userData);
 
 	const handleChange = (e) => {
 		setQuery(e.target.value);
@@ -38,14 +39,14 @@ const MyNavbar = () => {
 	};
 
 	return (
-		<Row className='justify-content-cente mb-3'>
-			<Col className='col-xs-12'>
+		<Row className='justify-content-cente mb-3 mx-auto'>
+			<Col className='p-0'>
 				<Navbar
 					expand='md'
-					className='bg-white justify-content-center  align-items-center '
+					className='bg-white justify-content-center  align-items-center w-100'
 					style={{ fontSize: '0.7rem', height: '60px' }}>
-					<Row className='d-flex justify-content-center'>
-						<Col className='col-8 d-flex align-items-center'>
+					<Row className='d-flex justify-content-center '>
+						<Col className='col-9 d-flex align-items-center pe-0'>
 							<div className='d-flex align-items-center '>
 								<Navbar.Toggle aria-controls='navbarScroll' />
 								<Navbar.Collapse id='navbarScroll'>
@@ -57,7 +58,7 @@ const MyNavbar = () => {
 													viewBox='0 0 24 24'
 													data-supported-dps='24x24'
 													fill='currentColor'
-													className='mercado-match'
+													class='mercado-match'
 													width='45'
 													height='45'
 													focusable='false'
@@ -82,7 +83,9 @@ const MyNavbar = () => {
 											</Form>
 										</div>
 										{/* 2 Div principale Navbar */}
-										<div className='d-flex justify-content-around align-items-center border-end'>
+										<div
+											className='d-flex justify-content-around align-items-center border-end'
+											style={{ height: '50px' }}>
 											<div className='d-flex flex-column '>
 												<Link to='/' className='nav-link'>
 													<p className='text-center mb-0'>
@@ -137,21 +140,30 @@ const MyNavbar = () => {
 											<Nav.Link href='#'>
 												<div className='d-flex flex-column align-items-center me-4 '>
 													<img
-														src='https://images.pexels.com/photos/3361739/pexels-photo-3361739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-														alt='cane'
+														src={user[0]?.image}
+														alt='profileImage'
 														className='rounded-pill'
 														width={25}
 														height={25}
 													/>
-													<NavDropdown title='tu' id='navbarScrollingDropdown'>
+													<NavDropdown
+														title='tu'
+														id='navbarScrollingDropdown'
+														className='dpdown dropdown-left'>
 														<NavDropdown.Item href='#action3'>
 															<div className='d-flex'>
 																<p className='fs-1 '>
-																	<BiUserCircle />
+																	<img
+																		src={user[0]?.image}
+																		alt='profileImage'
+																		className='rounded-pill'
+																		width={55}
+																		height={55}
+																	/>
 																</p>
 																<div className='d-flex flex-column'>
 																	<p className='d-flex  align-items-center mt-3  '>
-																		Turiddu Assennato
+																		{user[0]?.name} {user[0]?.surname}
 																	</p>
 																	<p>--</p>
 																</div>
@@ -202,7 +214,7 @@ const MyNavbar = () => {
 							</div>
 						</Col>
 
-						<Col className=' col-3 d-flex align-items-center'>
+						<Col className='col-3 d-flex align-items-center'>
 							<div className='d-flex justify-content-between align-items-center '>
 								<div className='d-flex flex-column align-items-center mt-1 '>
 									<BsFillGrid3X3GapFill className='fs-4 text-secondary ' />
@@ -373,7 +385,7 @@ const MyNavbar = () => {
 								</div>
 								<div className=''>
 									<NavLink
-										className='fw-medium text-center px-1 '
+										className='fw-medium text-center px-1 different '
 										style={{ width: '100px' }}>
 										Prova Premium per 0 EUR
 									</NavLink>

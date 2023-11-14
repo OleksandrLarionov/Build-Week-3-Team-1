@@ -10,7 +10,7 @@ import Competencies from "./MyCentralComponents/Competencies";
 
 const MyCentral = () => {
   return (
-    <Col className="col-xs-12 col-md-8 col-lg-7 justify-content-center">
+    <Col className="col-xs-12 col-md-5 col-lg-7 justify-content-center">
       <Visited />
       <MainCard />
       <Suggested />

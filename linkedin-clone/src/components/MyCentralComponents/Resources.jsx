@@ -16,9 +16,9 @@ const Resources = () => {
       </p>
       <Row>
         <Col className="col-1">
-          <GiRadarDish className="fs-5" />
+          <GiRadarDish className="fs-5 " />
         </Col>
-        <Col className="col-11 ps-0">
+        <Col className="col-10 ps-2">
           <p className="fw-bold lh-2 mb-0" style={{ fontSize: "1rem" }}>
             Modalità creazione di contenuti
             <span
@@ -38,7 +38,7 @@ const Resources = () => {
         <Col className="col-1">
           <BsPeopleFill className="fs-5" />
         </Col>
-        <Col className="col-11 ps-0">
+        <Col className="col-10 ps-2">
           <p className="fw-bold lh-2 mb-0" style={{ fontSize: "1rem" }}>
             La mia rete
           </p>
