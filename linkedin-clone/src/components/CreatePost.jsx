@@ -3,7 +3,7 @@ import { FcCalendar, FcPicture, FcTemplate } from 'react-icons/fc'
 
 const CreatePost = () => {
   return (
-    <Row className="px-0 mb-1 border rounded-3 m-2 flex-column py-3">
+    <Row className="px-0 mb-1 border rounded-3 m-2 flex-column py-3 elements">
       <Col className="d-flex align-items-center">
         <img
           src="https://platinumlist.net/guide/wp-content/uploads/2023/03/IMG-worlds-of-adventure.webp"

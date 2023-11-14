@@ -3,7 +3,7 @@ import { BsChevronCompactDown, BsDot, BsInfoSquareFill } from 'react-icons/bs'
 
 const News = () => {
   return (
-    <Row className="px-0 mb-1 border rounded-3 m-2 w-100 flex-column">
+    <Row className="px-0 mb-1 border rounded-3 m-2 w-100 flex-column elements">
       <Col className="d-flex justify-content-between align-items-center mt-2">
         <h5>LinkedIn Notizie</h5>
         <BsInfoSquareFill />
