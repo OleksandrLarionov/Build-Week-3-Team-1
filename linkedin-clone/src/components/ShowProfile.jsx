@@ -64,7 +64,7 @@ const ShowProfile = () => {
                 </div>
               </Col>
               <hr className="m-0" />
-              <Col className="bottom-part pt-3 d-flex align-items-center">
+              <Col className="bottom-part pt-3 d-flex align-items-center justify-content-start">
                 <BsBookmarkFill className="text-secondary me-2 mb-3" />
                 <p>I miei elementi</p>
               </Col>
