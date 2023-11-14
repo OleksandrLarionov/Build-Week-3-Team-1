@@ -14,11 +14,32 @@ import { TbFileAnalytics } from "react-icons/tb";
 import { FaCompass, FaUsers } from "react-icons/fa";
 import { ImUserCheck } from "react-icons/im";
 import { FcAdvertising, FcTemplate } from "react-icons/fc";
-
 import Button from "react-bootstrap/esm/Button";
 import NavLink from "react-bootstrap/esm/NavLink";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link, useLocation } from 'react-router-dom'
+import { handleSubmitAction } from "../redux/action";
+
+
 
 const MyNavbar = () => {
+  const [query, setQuery] = useState("");
+  const dispatch = useDispatch()
+  const location = useLocation()
+  console.log('OGGETTO LOCATION', location)
+
+  const handleChange = e => {
+    setQuery(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(handleSubmitAction(query));
+    location.href = "localhost:3000/Jobs";
+  }
+
+
   return (
 <Row className="justify-content-cente mb-3">
     <Col className="col-xs-12">
@@ -54,13 +75,16 @@ const MyNavbar = () => {
                     </svg>
                   </Navbar.Brand>
 
-                  <Form style={{width:'99%'}} className="me-5">
+                  <Form style={{width:'99%'}} className="me-5" 
+                        onSubmit={handleSubmit}>
                     <Form.Control
                       type="search"
                       placeholder="Cerca"
                       className="me-4 ms-1 ps-3"
                       aria-label="Search"
                       id="color-placeholder"
+                      value={query}
+                      onChange={handleChange}
                     />
                   </Form>
                 </div>
@@ -85,12 +109,13 @@ const MyNavbar = () => {
                   </div>
 
                   <div className="d-flex flex-column  ms-2 ">
-                    <Nav.Link href="#">
+                    <Link className={location.pathname === '/Jobs' ? 'nav-link active' : 'nav-link'}
+                          to="/Jobs">
                       <p className="text-center mb-0">
                         <PiHandbagSimpleFill className="fs-4 text-secondary" />
                         Lavoro
                       </p>
-                    </Nav.Link>
+                    </Link>
                   </div>
 
                   <div className="d-flex flex-column  ms-2 ">
