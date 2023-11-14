@@ -268,40 +268,40 @@ const MyNavbar = () => {
         </div>
         <Offcanvas placement="end" show={showOffcanvas} onHide={() => setShowOffcanvas(false)}>
           <Offcanvas.Header closeButton>
-            <Offcanvas.Title>Per le aziende</Offcanvas.Title>
+            <Offcanvas.Title className='fw-bold'>Per le aziende</Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
 			<Row className="d-flex border rounded mx-2 ">
 				<Col className=" col-12 d-flex pt-2 justify-content-between">
 				<div className="text-center" style={{width:'100px'}}>
-                  <MdOutlineMenuBook className="text-info fs-3  " />
-					<p>Learning</p>
+                  <MdOutlineMenuBook className="text-info fs-1 border " />
+					<p className="lh-1 pt-2" style={{fontSize:'0.9rem'}}>Learning</p>
                 </div>
 				<div className="text-center" style={{width:'100px'}}>
-                  <TbFileAnalytics className="text-info fs-3  " />
-					<p>Talent Insights</p>
+                  <TbFileAnalytics className="text-info fs-1  border " />
+					<p className="lh-1 pt-2" style={{fontSize:'0.9rem'}}>Talent Insights</p>
                 </div>
 				<div className="text-center" style={{width:'100px'}}>
-                  <FcTemplate className="text-info fs-3  " />
-					<p>Pubblica un’offerta di lavoro</p>
+                  <FcTemplate className="text-info fs-1  border " />
+					<p className="lh-1 pt-2" style={{fontSize:'0.9rem'}}>Pubblica un’offerta di lavoro</p>
                 </div>
 				<div className="text-center" style={{width:'100px'}}>
-                  <FcAdvertising className="text-info fs-3  " />
-					<p>Pubblicizza</p>
+                  <FcAdvertising className="text-info fs-1  border " />
+					<p className="lh-1 pt-2" style={{fontSize:'0.9rem'}}>Pubblicizza</p>
                 </div>
 				</Col>
 				<Col className=" col-12 d-flex justify-content-start" >
-				<div className="text-center" style={{width:'100px'}}>
-                  <FaCompass  className="text-info fs-3  " />
-					<p>Trova nuovi clienti</p>
+				<div className="text-center" style={{width:'85px'}}>
+                  <FaCompass  className="text-info fs-1  border " />
+					<p className="lh-1 pt-2" style={{fontSize:'0.9rem'}}>Trova nuovi clienti</p>
                 </div>
-				<div className="text-center" style={{width:'110px'}}>
-                  <FaUsers className="text-info fs-3  " />
-					<p>Gruppi</p>
+				<div className="text-center" style={{width:'70px'}}>
+                  <FaUsers className="text-info fs-1  border " />
+					<p className="lh-1 pt-2" style={{fontSize:'0.9rem'}}>Gruppi</p>
                 </div>
-				<div className="text-center" style={{width:'110px'}}>
-                  <ImUserCheck className="text-info fs-3  " />
-					<p>Marketplace dei servizi</p>
+				<div className="text-center" style={{width:'95px'}}>
+                  <ImUserCheck className="text-info fs-1  border " />
+					<p className="lh-1 pt-2" style={{fontSize:'0.9rem'}}>Marketplace dei servizi</p>
                 </div>
 				</Col>
 			</Row>
