@@ -28,14 +28,25 @@ code {
 }
 /*  nav dropdown */
 .custom-dropdown .dropdown-menu {
-	left: auto !important;
-	right: 0;
+	left:auto!important;
+	right: -100%;
 	transform-origin: top right;
   }
   .custom-dropdown .dropdown-menu.show {
 	transform: translateX(calc(-5%)), translateY(calc(-100%)) !important;
+	width: 250px;
   }
-
+  .modal {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	margin-right: 0;
+  }
+  
+  .modal-dialog {
+	margin: 0;
+  }
 
 
 /* Navbar */
