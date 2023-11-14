@@ -11,7 +11,7 @@ const Footer = () => {
         <Row className="mx-0 mt-5 text-secondary" style={{fontSize:'0.8rem'}}>
           <Col className='col-7 lh-1' >
             <Row className='justify-content-around fw-bold '>
-              <Col sm={4}>
+              <Col sm={4} className='here'>
                 <a href='#'>Informazioni</a>
                 <a href='#'>Linee guida della community</a>
                 <a href='#'>
@@ -21,13 +21,13 @@ const Footer = () => {
                 <a href='#'>Sales Solutions</a>
                 <a href='#'>Centro sicurezza</a>
               </Col>
-              <Col sm={4}>
+              <Col sm={4} className='here'>
                 <a href='#'>Accessibilità</a>
                 <a href='#'>Carriera</a>
                 <a href='#'>Opzioni per gli annunci pubblicitari</a>
                 <a href='#'>Mobile</a>
               </Col>
-              <Col sm={4}>
+              <Col sm={4} className='here'>
                 <a href='#'>Talent Solutions</a>
                 <a href='#'>Soluzioni di marketing</a>
                 <a href='#'>Pubblicità</a>

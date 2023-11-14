@@ -214,14 +214,17 @@ const MyNavbar = () => {
 							</div>
 						</Col>
 
-						<Col className='col-3 d-flex align-items-center'>
+						<Col className='col-3 d-flex align-items-center position-relative'>
 							<div className='d-flex justify-content-between align-items-center '>
 								<div className='d-flex flex-column align-items-center mt-1 '>
 									<BsFillGrid3X3GapFill className='fs-4 text-secondary ' />
 									<NavDropdown
 										title='Per le aziende'
 										id='navbarScrollingDropdown'
-										className='mb-2'>
+										className='mb-2 custom-dropdown'
+										drop="left"
+									>
+										
 										<h5 className='mt-0'>Per le aziende</h5>
 										<h6 className='text-start ms-3'>Scopri altri prodotti LinkedIn</h6>
 										<NavDropdown.Item href='#action3'>

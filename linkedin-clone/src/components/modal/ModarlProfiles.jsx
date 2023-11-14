@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import OneUser from '../oneUser';
-import { Button, ListGroup, Modal } from 'react-bootstrap';
+import {ListGroup, Modal } from 'react-bootstrap';
 import { changeModalAction } from '../../redux/action';
 
 const ModalProfiles = () => {
@@ -15,7 +15,7 @@ const ModalProfiles = () => {
 	return (
 		<>
 			<Modal show={modal} onHide={handleClose}>
-				<Modal.Header closeButton>
+				<Modal.Header closeButton className='position-relative'>
 					<Modal.Title>Persone che potresti conoscere</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>Dalla tua azienda | Dal tuo settore</Modal.Body>

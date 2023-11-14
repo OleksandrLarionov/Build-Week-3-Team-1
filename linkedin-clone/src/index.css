@@ -26,8 +26,18 @@ code {
 	height: 700px;
 	overflow-y: scroll;
 }
-.scroll-modal {
-}
+/*  nav dropdown */
+.custom-dropdown .dropdown-menu {
+	left: auto !important;
+	right: 0;
+	transform-origin: top right;
+  }
+  .custom-dropdown .dropdown-menu.show {
+	transform: translateX(calc(-5%)), translateY(calc(-100%)) !important;
+  }
+
+
+
 /* Navbar */
 
 #navbarScrollingDropdown {
@@ -50,13 +60,13 @@ code {
 }
 /* FOOTER */
 
-a {
+.here > a {
 	text-decoration: none !important;
 	display: block;
 	line-height: 1.8rem;
 	color: rgb(99, 105, 113) !important;
 }
-a:hover {
+.here > a:hover {
 	text-decoration: underline !important;
 	color: blue !important;
 }
