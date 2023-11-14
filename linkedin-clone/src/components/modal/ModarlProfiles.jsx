@@ -13,25 +13,23 @@ const ModalProfiles = () => {
 	const toggleModal = () => {
 		dispatch(changeModalAction(!modal));
 	};
-
+	console.log('eccomi', modal);
 	return (
-		modal && (
-			<div className='modal'>
-				<div className='overlay' onCanPlay={toggleModal}></div>
-				<div className='modal-content bg-white'>
-					<h2>hello</h2>{' '}
-					<ListGroup>
-						{profiles &&
-							profiles.map((profile) => {
-								return <OneUser user={profile} key={profile._id} />;
-							})}
-					</ListGroup>
-					<button onClick={toggleModal} className='close-modal'>
-						close
-					</button>
-				</div>
+		<div className='modal show'>
+			<div className='overlay' onCanPlay={toggleModal}></div>
+			<div className='modal-content bg-white'>
+				<h2>hello</h2>{' '}
+				<ListGroup>
+					{profiles &&
+						profiles.map((profile) => {
+							return <OneUser user={profile} key={profile._id} />;
+						})}
+				</ListGroup>
+				<button onClick={toggleModal} className='close-modal'>
+					close
+				</button>
 			</div>
-		)
+		</div>
 	);
 };
 
