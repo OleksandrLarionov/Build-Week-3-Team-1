@@ -1,7 +1,7 @@
 import { ImPencil } from "react-icons/im";
 import {FcWikipedia } from 'react-icons/fc'
 import { BsPlus, BsArrowRight } from "react-icons/bs";
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col} from "react-bootstrap";
 
 const Competencies = () => {
   return (
