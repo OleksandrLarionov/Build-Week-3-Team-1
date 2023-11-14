@@ -50,3 +50,7 @@
 .bottom-part:hover {
   background-color: rgb(216, 216, 216);
 }
+
+.text-size {
+  font-size: 13px;
+}
