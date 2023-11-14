@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import MyCentral from "./components/MyCentral";
 import { Row } from "react-bootstrap";
 import MyNavbar from "./components/MyNavbar";
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Jobs from "./components/Jobs";
 
 function App() {
@@ -16,27 +16,27 @@ function App() {
     (state) => state.profile.modal && state.profile.modal[0]
   );
   return (
-	<>
+    <>
       <BrowserRouter>
+        <MyNavbar />
+        <Routes>
+          <Route element={<Jobs />} path="/Jobs" />
+        </Routes>
         <div className={modal ? "active-modal" : ""}>
-          <MyNavbar />
-          <Routes>
-            <Route element={<Jobs />} path="/Jobs" />
-            </Routes>
-            <Row className="justify-content-center mx-0">
-              <MyCentral />
-              <Aside />
-            </Row>
-            <Footer />
-
+          <Row className="justify-content-center mx-0">
             <ModalProfiles />
-
-            <TestComp />
-          
+            <MyCentral />
+            <Aside />
+          </Row>{" "}
         </div>
-      </BrowserRouter>
-	  </>
 
+        <Footer />
+
+        
+
+        <TestComp />
+      </BrowserRouter>
+    </>
   );
 }
 

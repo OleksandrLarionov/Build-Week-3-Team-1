@@ -7,27 +7,20 @@ import Activities from "./MyCentralComponents/Activities";
 import Experience from "./MyCentralComponents/Experience";
 import Education from "./MyCentralComponents/Education";
 import Competencies from "./MyCentralComponents/Competencies";
+import Languages from "./MyCentralComponents/Languages";
 
 const MyCentral = () => {
   return (
-    <Col className="col-xs-12 col-md-5 col-lg-7 justify-content-center">
+    <Col className="col-xs-12 col-md-5 col-lg-7 justify-content-center me-md-3">
       <Visited />
       <MainCard />
       <Suggested />
-      <Resources /> 
-      <Activities/>
-      <Experience/> 
-      <Education/> 
-       <Competencies/>
-      {/*   
-        
-        
-        
-       
-       
-         <Referencies/>
-         <Languages/>
-         <Interests/> */}
+      <Resources />
+      <Activities />
+      <Experience />
+      <Education />
+      <Competencies />
+      <Languages />
     </Col>
   );
 };
