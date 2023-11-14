@@ -17,7 +17,7 @@ const People = () => {
   };
   return (
     <>
-      <Col className="rounded-3 m-2 pt-4 elements">
+      <Col className="rounded-3 pt-4 elements mb-1">
         <Row className="flex-column m-0">
           <Col >
             <h6 className="fw-bold">Persone che potresti conoscere</h6>

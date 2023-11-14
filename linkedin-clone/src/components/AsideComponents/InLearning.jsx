@@ -3,7 +3,7 @@ import { Col } from 'react-bootstrap'
 const InLearning = () => {
   return (
     <>
-      <Col className="border rounded-3 p-3 m-2 elements">
+      <Col className="border rounded-3 p-3 mb-1 elements">
         <div>
           <h5 className="font-monospace fs-6 lh-1">
             <svg

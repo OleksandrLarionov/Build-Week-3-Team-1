@@ -3,8 +3,10 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { ImPencil } from "react-icons/im";
 import { PiStudent } from "react-icons/pi";
+import {useSelector } from "react-redux/es/hooks/useSelector";
 
 const MainCard = () => {
+  const user = useSelector((state)=>state.user.userData )
   return (
     <Row>
       <Col className="px-0 elements mb-1">
@@ -35,21 +37,21 @@ const MainCard = () => {
               />
             </div>
             <Row>
-              <Col className="col-7 lh-1">
+              <Col className="col-8 lh-1">
                 <Card.Title
                   className="fw-bold mb-0"
                   style={{ fontSize: "1.4rem" }}
                 >
-                  NAME
+                  {user[0]?.name}  {user[0]?.surname}
                 </Card.Title>
                 <Card.Text className="mb-0" style={{ fontSize: "0.9rem" }}>
-                  PROFESSION
+                {user[0]?.title}
                 </Card.Text>
                 <Card.Text
                   className="mb-0 text-secondary"
                   style={{ fontSize: "0.8rem" }}
                 >
-                  Where u live <span className='fs-5'>· </span>
+                  {user[0]?.area} <span className='fs-5'>· </span>
                   <span className="text-primary fw-bold">
                     Informazioni di contatto
                   </span>
@@ -73,21 +75,21 @@ const MainCard = () => {
                 <Button
                   variant="primary"
                   className="rounded-pill fw-bold me-2"
-                  style={{ width: "150px" }}
+                  style={{ maxWidth: "150px" }}
                 >
                   Disponibile per
                 </Button>
                 <Button
                   variant="outline-primary"
                   className="rounded-pill fw-bold  me-2"
-                  style={{ width: "250px" }}
+                  style={{maxWidth: "250px" }}
                 >
                   Aggiungi sezione del profilo
                 </Button>
                 <Button
                   variant="outline-secondary"
                   className="rounded-pill fw-bold"
-                  style={{ width: "70px" }}
+                  style={{ maxWidth: "70px" }}
                 >
                   Altro
                 </Button>

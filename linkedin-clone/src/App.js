@@ -16,14 +16,14 @@ function App() {
     (state) => state.profile.modal && state.profile.modal[0]
   );
   return (
-    <>
+	<>
       <BrowserRouter>
         <div className={modal ? "active-modal" : ""}>
           <MyNavbar />
           <Routes>
             <Route element={<Jobs />} path="/Jobs" />
             </Routes>
-            <Row className="justify-content-center">
+            <Row className="justify-content-center mx-0">
               <MyCentral />
               <Aside />
             </Row>
@@ -35,7 +35,8 @@ function App() {
           
         </div>
       </BrowserRouter>
-    </>
+	  </>
+
   );
 }
 

@@ -10,17 +10,10 @@ const Competencies = () => {
         className="col-12 d-flex
         align-items-center  justify-content-between pb-3"
       >
-        <span className="fw-bold fs-5 pt-3 mb-0">Competenze</span>
-        <div className="text-secondary me-3 mt-3">
-          <Button
-            variant="outline-primary"
-            className="rounded-pill fw-bold lh-1 me-2"
-            style={{ width: "250px", fontSize: "0.9rem" }}
-          >
-            Quiz valutazione competenze
-          </Button>
-          <BsPlus className="fs-3 mx-3" />
-          <ImPencil />
+        <div className="fw-bold fs-5 pt-3 mb-0 me-2">Competenze</div>
+        <div className="text-secondary me-3">
+        <BsPlus className="fs-3 mx-3"/>
+        <ImPencil/>
         </div>
       </Col>
 
