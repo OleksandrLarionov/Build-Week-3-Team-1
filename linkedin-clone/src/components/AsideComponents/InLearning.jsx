@@ -3,15 +3,15 @@ import { Col } from 'react-bootstrap'
 const InLearning = () => {
   return (
     <>
-      <Col className="border rounded-3 p-3 m-2">
+      <Col className="border rounded-3 p-3 m-2 elements">
         <div>
-          <h5 className="font-monospace fs-6">
+          <h5 className="font-monospace fs-6 lh-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
               y="0px"
-              width="20"
-              height="20"
+              width="25"
+              height="25"
               viewBox="0 0 48 48"
             >
               <path
@@ -33,7 +33,7 @@ const InLearning = () => {
             </svg>{' '}
             LEARNING
           </h5>
-          <p>Aggiungi nuove competenze con questi corsi, gratuiti per 24 ore</p>
+          <p className='lh-1 mb-4' style={{fontSize:'0.9rem'}}>Aggiungi nuove competenze con questi corsi, gratuiti per 24 ore</p>
           <div className="d-flex">
             <img
               src="https://media.licdn.com/dms/image/C4E0DAQGde-PgGw0jSw/learning-public-crop_60_100/0/1567117664433?e=1700474400&v=beta&t=wGX-4xoiPxoyJlXopQ4YhF2SrwbC0BlkWjqjdcERvJ8"
@@ -41,10 +41,10 @@ const InLearning = () => {
               className="me-2"
             />
             <div>
-              <p className="fw-bold lh-1 mb-2">
+              <p className="fw-bold lh-1 mb-2" style={{fontSize:'0.9rem'}}>
                 Excel: formule e funzioni avanzate
               </p>
-              <p className="text-secondary mb-0">68.480 visualizzazioni</p>
+              <p className="text-secondary mb-0 lh-1" style={{fontSize:'0.8rem'}}>68.480 visualizzazioni</p>
             </div>
           </div>
           <hr />
@@ -55,10 +55,10 @@ const InLearning = () => {
               className="me-2"
             />
             <div>
-              <p className="fw-bold lh-1 mb-2">
+              <p className="fw-bold lh-1 mb-2" style={{fontSize:'0.9rem'}}>
                 Formazione essenziale su Excel 2016
               </p>
-              <p className="text-secondary mb-0">4.744 visualizzazioni</p>
+              <p className="text-secondary mb-0 lh-1"  style={{fontSize:'0.8rem'}}>4.744 visualizzazioni</p>
             </div>
           </div>
           <hr />
@@ -69,14 +69,14 @@ const InLearning = () => {
               className="me-2"
             />
             <div>
-              <p className="fw-bold lh-1 mb-2">
+              <p className="fw-bold lh-1 mb-2" style={{fontSize:'0.9rem'}}>
                 Excel: VLOOKUP e XLOOKUP per...
               </p>
-              <p className="text-secondary mb-0">17.168 visualizzazioni</p>
+              <p className="text-secondary mb-0 lh-1"  style={{fontSize:'0.8rem'}}>17.168 visualizzazioni</p>
             </div>
           </div>
-          <h5 className="pt-2  text-center border-top text-secondary mt-4">
-            Visualizza i miei suggerimenti
+          <h5 className="mb-0 fw-bold text-secondary text-center border-top mt-3 py-2"  style={{fontSize:'0.9rem'}}>
+            Visualizza suggerimenti
           </h5>
         </div>
       </Col>
