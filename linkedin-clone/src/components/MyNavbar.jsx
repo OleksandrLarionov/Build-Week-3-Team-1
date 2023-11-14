@@ -51,7 +51,7 @@ const MyNavbar = () => {
   };
 
   return (
-    <Row className="justify-content-cente mb-3 mx-auto">
+    <Row className="justify-content-cente mb-3 mx-auto mynav">
       <Col className="p-0">
         <Navbar
           expand="md"

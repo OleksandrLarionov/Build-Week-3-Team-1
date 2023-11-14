@@ -23,7 +23,7 @@ const MainCard = () => {
                 style={{ position: "absolute", right: "20px", top: "220px" }}
               />
               <img
-                src="https://platinumlist.net/guide/wp-content/uploads/2023/03/IMG-worlds-of-adventure.webp"
+                src={user[0]?.image}
                 alt="profile"
                 style={{
                   height: "150px",

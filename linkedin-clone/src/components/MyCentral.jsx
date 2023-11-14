@@ -9,9 +9,11 @@ import Education from "./MyCentralComponents/Education";
 import Competencies from "./MyCentralComponents/Competencies";
 import Languages from "./MyCentralComponents/Languages";
 
+
 const MyCentral = () => {
   return (
-    <Col className="col-xs-12 col-md-5 col-lg-7 justify-content-center me-md-3">
+    <Col className="col-xs-12 col-md-5 col-lg-7 justify-content-center me-md-3 position-relative">
+     
       <Visited />
       <MainCard />
       <Suggested />

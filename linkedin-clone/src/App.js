@@ -10,14 +10,17 @@ import { Row } from 'react-bootstrap';
 import MyNavbar from './components/MyNavbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Jobs from './components/Jobs';
+import ProfileEffect from './components/MyCentralComponents/ProfileEffect';
 
 function App() {
 	const modal = useSelector((state) => state.profile.modal && state.profile.modal[0]);
 	return (
 		<>
 			<BrowserRouter>
+			<div className='position-relative'>
 				<div className={modal ? 'active-modal' : ''}>
-					<MyNavbar />
+					<MyNavbar/>
+					<ProfileEffect/>
 					<Routes>
 						<Route element={<Jobs />} path='/Jobs' />
 					</Routes>
@@ -30,6 +33,7 @@ function App() {
 					<ModalProfiles />
 
 					<TestComp />
+				</div>
 				</div>
 			</BrowserRouter>
 		</>

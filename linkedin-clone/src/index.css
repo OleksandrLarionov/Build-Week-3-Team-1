@@ -25,6 +25,8 @@ code {
 	height: 700px;
 }
 
+/* NAVBAR */
+
 #navbarScrollingDropdown {
 	padding-top: 0 !important;
 	padding-bottom: 0 !important;
@@ -43,6 +45,35 @@ code {
 	text-decoration: none !important;
 	color: black !important;
 }
+.mynav{
+	position:sticky;
+	top:0;
+	z-index:30;
+}
+
+/* ELEMENTO A SCOMPARSA */
+
+.notVisible{
+	position:absolute;
+	top:0;
+	opacity:0;
+	width:100%;
+	
+}
+.scrolled{
+	position:sticky;
+	top:60px;
+	z-index:20;
+	transition: 1s ease-in-out
+}
+
+/* ASIDE */
+
+.adv{
+	position: sticky;
+	top:110px
+}
+
 /* FOOTER */
 
 .here > a {
