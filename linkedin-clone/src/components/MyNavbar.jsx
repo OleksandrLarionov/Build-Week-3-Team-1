@@ -1,33 +1,26 @@
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import { AiFillHome, AiFillMessage } from "react-icons/ai";
+import {Col,Row, Offcanvas, Button, NavLink, Form, Nav, Navbar,NavDropdown} from 'react-bootstrap'
 import { HiMiniUsers } from "react-icons/hi2";
 import { PiHandbagSimpleFill } from "react-icons/pi";
-import { BsFillGrid3X3GapFill, BsFillBellFill,BsPlus } from "react-icons/bs";
+import { BsFillGrid3X3GapFill, BsFillBellFill ,BsPlus } from "react-icons/bs";
 import { MdOutlineMenuBook,MdArrowDropDown } from "react-icons/md";
 import { TbFileAnalytics } from "react-icons/tb";
 import { FaCompass, FaUsers } from "react-icons/fa";
 import { ImUserCheck } from "react-icons/im";
 import { FcAdvertising, FcTemplate } from "react-icons/fc";
-import Button from "react-bootstrap/esm/Button";
-import NavLink from "react-bootstrap/esm/NavLink";
+import { AiFillHome, AiFillMessage } from 'react-icons/ai'
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { handleSubmitAction } from "../redux/action";
-import { useSelector } from "react-redux/es/hooks/useSelector";
-import { Modal } from "react-bootstrap";
+
+
 
 const MyNavbar = () => {
-	const [showModal, setShowModal] = useState(false);
+  const [showOffcanvas, setShowOffcanvas] = useState(false);
 
-	const toggleModal = () => {
-	  setShowModal(!showModal);
-	};
+  const toggleOffcanvas = () => {
+    setShowOffcanvas(!showOffcanvas);
+  };
 
   const [query, setQuery] = useState("");
   const dispatch = useDispatch();
@@ -266,100 +259,91 @@ const MyNavbar = () => {
             </Col>
 
             <Col className="col-3 d-flex align-items-center position-relative">
-              <div className="d-flex justify-content-between align-items-center ">
-			  <div className="d-flex justify-content-end mt-3">
-             <div onClick={toggleModal} className="text-center"><BsFillGrid3X3GapFill className="fs-4 text-secondary " /><p>Per ler aziende<MdArrowDropDown /></p></div>
-      			<Modal show={showModal} onHide={toggleModal} centered={false}>
-      		  <Modal.Header closeButton>
-       	   <Modal.Title>Modale Attaccato al Lato</Modal.Title>
-     	   </Modal.Header>
-      	  <Modal.Body>
-			<h5 className="mt-0">Per le aziende</h5>
-                    <h6 className="text-start ms-3">
-                      Scopri altri prodotti LinkedIn
-                    </h6>
-			<div>
-				<div className="d-flex flex-column align align-items-center">
+      <div className="d-flex justify-content-between align-items-center ">
+        <div className="d-flex justify-content-end mt-3">
+          <div className="text-center" onClick={toggleOffcanvas}>
+            <BsFillGrid3X3GapFill className="fs-4 text-secondary" />
+            <p>Per le aziende<MdArrowDropDown /></p>
+          </div>
+        </div>
+        <Offcanvas placement="end" show={showOffcanvas} onHide={() => setShowOffcanvas(false)}>
+          <Offcanvas.Header closeButton>
+            <Offcanvas.Title>Per le aziende</Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+			<Row className="d-flex border rounded mx-2 ">
+				<Col className=" col-12 d-flex pt-2 justify-content-between">
+				<div className="text-center" style={{width:'100px'}}>
                   <MdOutlineMenuBook className="text-info fs-3  " />
 					<p>Learning</p>
                 </div>
-				<div className="d-flex flex-column align align-items-center">
+				<div className="text-center" style={{width:'100px'}}>
                   <TbFileAnalytics className="text-info fs-3  " />
 					<p>Talent Insights</p>
                 </div>
-
-				<div className="d-flex flex-column align align-items-center">
+				<div className="text-center" style={{width:'100px'}}>
                   <FcTemplate className="text-info fs-3  " />
-					<p>Pubblica <br />un’offerta <br />di lavoro</p>
+					<p>Pubblica un’offerta di lavoro</p>
                 </div>
-				<div className="d-flex flex-column align align-items-center">
+				<div className="text-center" style={{width:'100px'}}>
                   <FcAdvertising className="text-info fs-3  " />
 					<p>Pubblicizza</p>
                 </div>
-				<div className="d-flex flex-column align align-items-center">
+				</Col>
+				<Col className=" col-12 d-flex justify-content-start" >
+				<div className="text-center" style={{width:'100px'}}>
                   <FaCompass  className="text-info fs-3  " />
 					<p>Trova nuovi clienti</p>
                 </div>
-				<div className="d-flex flex-column align align-items-center">
+				<div className="text-center" style={{width:'110px'}}>
                   <FaUsers className="text-info fs-3  " />
 					<p>Gruppi</p>
                 </div>
-				<div className="d-flex flex-column align align-items-center">
+				<div className="text-center" style={{width:'110px'}}>
                   <ImUserCheck className="text-info fs-3  " />
 					<p>Marketplace dei servizi</p>
                 </div>
-			</div>
-			<div>
-			<h6 className="text-start mt-5 ms-4 ">
+				</Col>
+			</Row>
+			<Row className="border rounded-top mx-2 mt-2 ps-4" >
+			<h6 className="text-start mt-2 fw-bold ">
                         Scopri altro per il business
                       </h6>
-			<div>
-               <div>
-				<h5> Assumi su LinkedIn</h5>
-				<p>Trova, attrai e assumi</p>
+			<div className="fw-bold">
+               <div >
+				<p  className="lh-1 mb-1" style={{fontSize:'0.9rem'}}> Assumi su LinkedIn</p>
+				<p className="fw-normal lh-1" style={{fontSize:'0.8rem'}}>Trova, attrai e assumi</p>
 			   </div>
                <div>
-				<h5>Vendi con LinkedIn</h5>
-				<p>Costruisci relazioni con i buyer</p>
+				<p className="lh-1 mb-1" style={{fontSize:'0.9rem'}}>Vendi con LinkedIn</p>
+				<p className="fw-normal lh-1" style={{fontSize:'0.8rem'}}>Costruisci relazioni con i buyer</p>
 			   </div>
                <div>
-				<h5>Offerta di lavoro gratuita</h5>
-				<p> Trova candidati di qualità</p>
+				<p className="lh-1 mb-1" style={{fontSize:'0.9rem'}}>Offerta di lavoro gratuita</p>
+				<p className="fw-normal lh-1" style={{fontSize:'0.8rem'}}> Trova candidati di qualità</p>
 			   </div>
                <div>
-				<h5>Fai pubblicità su LinkedIn</h5>
-				<p>Acquisisci clienti e fai crescere la tua azienda</p>
+				<p className="lh-1 mb-1" style={{fontSize:'0.9rem'}}>Fai pubblicità su LinkedIn</p>
+				<p className="fw-normal lh-1" style={{fontSize:'0.8rem'}}>Acquisisci clienti e fai crescere la tua azienda</p>
 			   </div>
                <div>
-				<h5>Impara con LinkedIn</h5>
-				<p> Corsi per formare i tuoi dipendenti</p>
+				<p className="lh-1 mb-1" style={{fontSize:'0.9rem'}}>Impara con LinkedIn</p>
+				<p className="fw-normal lh-1" style={{fontSize:'0.8rem'}}> Corsi per formare i tuoi dipendenti</p>
 			   </div>
                <div>
-				<h5>Centro amministrazione</h5>
-				<p>Gestisci i dettagli di fatturazione e account</p>
+				<p className="lh-1 mb-1" style={{fontSize:'0.9rem'}}>Centro amministrazione</p>
+				<p className="fw-normal lh-1" style={{fontSize:'0.8rem'}}>Gestisci i dettagli di fatturazione e account</p>
 			   </div>
 			</div>
-			<h5>Crea una pagina aziendale <BsPlus/></h5>
-			</div>
-          Contenuto del tuo modale...
-       		 </Modal.Body>
-       		 <Modal.Footer>
-          <Button variant="secondary" onClick={toggleModal}>
-            Chiudi
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </div>
-               {/*  <div className="d-flex flex-column align-items-center mt-1 ">
-                  
-                  <NavDropdown
-                    title="Per le aziende"
-                    id="navbarScrollingDropdown"
-                    className="mb-2 custom-dropdown"
-						>*/}
-                   
 
-                    
+			</Row>
+			<Row className="border border-top-0 rounded-bottom mx-2 ps-4" >
+			<p className="lh-1 mb-1 fw-bold py-2" style={{fontSize:'0.9rem'}}>Crea una pagina aziendale <BsPlus className="fs-4"/></p>
+			</Row >
+			</Offcanvas.Body>
+        </Offcanvas>
+      </div>
+   
                 <div className="">
                   <NavLink
                     className="fw-medium text-center px-1 different "
@@ -368,7 +352,7 @@ const MyNavbar = () => {
                     Prova Premium per 0 EUR
                   </NavLink>
                 </div>
-              </div>
+              
             </Col>
           </Row>
         </Navbar>

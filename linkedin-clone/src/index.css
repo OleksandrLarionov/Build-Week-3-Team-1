@@ -20,12 +20,13 @@ code {
 	border-radius: 8px;
 }
 
-.modal-content {
-	max-width: 700px;
+.modal-content.people {
+	max-width: 600px;
 	min-width: 400px;
-	height: 700px;
-	/* overflow-y: scroll; */
+	height: 600px;
 }
+
+
 /*  nav dropdown */
 .custom-dropdown .dropdown-menu {
 	left:auto!important;
@@ -36,19 +37,7 @@ code {
 	transform: translateX(calc(-5%)), translateY(calc(-100%)) !important;
 	width: 250px;
   }
-  .modal {
-	position: absolute;
-	right: 0;
-	top: 50%;
-	transform: translateY(-50%);
-	margin-right: 0;
-  }
-  
-  .modal-dialog {
-	margin: 0;
-  }
-
-
+ 
 /* Navbar */
 
 #navbarScrollingDropdown {
