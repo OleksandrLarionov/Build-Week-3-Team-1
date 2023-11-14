@@ -14,11 +14,14 @@ import { TbFileAnalytics } from "react-icons/tb";
 import { FaCompass, FaUsers } from "react-icons/fa";
 import { ImUserCheck } from "react-icons/im";
 import { FcAdvertising, FcTemplate } from "react-icons/fc";
-
 import Button from "react-bootstrap/esm/Button";
 import NavLink from "react-bootstrap/esm/NavLink";
-
+import { Link, useLocation } from 'react-router-dom'
 const MyNavbar = () => {
+
+  const location = useLocation()
+  console.log('OGGETTO LOCATION', location)
+
   return (
     <Navbar
       expand="lg"
@@ -88,14 +91,16 @@ const MyNavbar = () => {
                 </div>
 
                 <div className="d-flex flex-column  ms-2 ">
-                  <Nav.Link href="#">
+                  <Link  className={location.pathname === '/Jobs' ? 'nav-link active' : 'nav-link'
+                    }
+              to="/Jobs">
                     <p className="text-center">
                       <PiHandbagSimpleFill className="fs-4 text-secondary" />
                       Lavoro
                     </p>
-                  </Nav.Link>
+                  </Link>
                 </div>
-
+                 
                 <div className="d-flex flex-column  ms-2 ">
                   <Nav.Link href="#">
                     <p className="text-center">
