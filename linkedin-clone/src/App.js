@@ -1,12 +1,12 @@
 import './App.css';
-import MyHome from './components/MyHome';
+import MyCentral from './components/MyCentral';
 import { Row, Container } from 'react-bootstrap';
 
 function App() {
   return (
     <Container fluid >
     <Row className='justify-content-center'>
-    <MyHome/>
+    <MyCentral/>
     </Row>
     </Container>
   );
