@@ -20,6 +20,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useLocation } from 'react-router-dom'
 import { handleSubmitAction } from "../redux/action";
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -39,6 +40,11 @@ const MyNavbar = () => {
     location.href = "localhost:3000/Jobs";
   }
 
+  const navigate = useNavigate();
+
+  const NavBtnProf = () => {
+    navigate('/Profilo');
+  };
 
   return (
 <Row className="justify-content-cente mb-3">
@@ -166,6 +172,7 @@ const MyNavbar = () => {
                           className=" d-flex justify-content-center align-items-center  rounded-pill w-100 px-auto "
                           variant="outline-primary"
                           style={{ height: "25px" }}
+                          onClick={NavBtnProf}
                         >
                           visualizza profilo
                         </Button>
