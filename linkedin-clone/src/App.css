@@ -37,11 +37,6 @@
   }
 }
 
-.placeholder {
-  width: 100px;
-  height: 60px;
-  background-color: grey;
-}
 
 .footer-text {
   font-size: 12px;
@@ -49,4 +44,8 @@
 
 .bottom-part:hover {
   background-color: rgb(216, 216, 216);
+}
+
+.text-size {
+  font-size: 13px;
 }
