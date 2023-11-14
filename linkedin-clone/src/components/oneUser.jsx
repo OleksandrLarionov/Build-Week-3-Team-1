@@ -1,6 +1,6 @@
-import { Button, Col } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { BsPersonAdd, BsPersonCircle } from 'react-icons/bs';
+import { BsPersonAdd } from 'react-icons/bs';
 
 const OneUser = ({ user }) => {
 	return (

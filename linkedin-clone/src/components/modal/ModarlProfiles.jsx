@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import OneUser from '../oneUser';
 import { ListGroup } from 'react-bootstrap';
 import { changeModalAction } from '../../redux/action';
-import { useEffect } from 'react';
 
 const ModalProfiles = () => {
 	const dispatch = useDispatch();
@@ -17,7 +16,7 @@ const ModalProfiles = () => {
 
 	return (
 		modal && (
-			<div className='d-flex justify-content-center'>
+			<div className='modal'>
 				<div className='overlay' onCanPlay={toggleModal}></div>
 				<div className='modal-content bg-white'>
 					<h2>hello</h2>{' '}

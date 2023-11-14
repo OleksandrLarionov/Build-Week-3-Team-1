@@ -1,10 +1,8 @@
 import { Col, ListGroup, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import OneUser from './oneUser';
-import ModalProfiles from './modal/ModarlProfiles';
-
 import { changeModalAction } from '../redux/action';
-import { useEffect } from 'react';
+
 const People = () => {
 	const profiles = useSelector(
 		(state) => state.profile.profileData && state.profile.profileData[0]
@@ -31,7 +29,6 @@ const People = () => {
 								})
 								.slice(0, 5)}
 					</ListGroup>
-					{modal && <ModalProfiles />}
 					<Col className='border-top mt-2 bottom-part' onClick={toggleModal}>
 						<h5 className='text-center text-secondary mt-4 pb-3'>Mostra tutto</h5>
 					</Col>

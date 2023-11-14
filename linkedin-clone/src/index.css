@@ -9,9 +9,12 @@ body {
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+body.active-modal {
+	overflow-y: hidden;
+}
 
-.modal,
-.overlay {
+.overlay,
+.modal {
 	width: 100vw;
 	height: 100vh;
 	top: 0;
@@ -26,15 +29,18 @@ code {
 }
 
 .modal-content {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	position: absolute !important;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	line-height: 1.4;
-	background-color: white;
+	background: #f1f1f1;
 	padding: 14px 28px;
 	border-radius: 3px;
-	max-width: 600px;
+	max-width: 700px;
 	min-width: 300px;
+	height: 700px;
+	overflow: scroll;
 }
 .close-modal {
 	position: absolute;
