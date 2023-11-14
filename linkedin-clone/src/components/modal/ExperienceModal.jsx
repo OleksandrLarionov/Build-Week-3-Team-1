@@ -241,7 +241,9 @@ const ExperienceModal = (props) => {
 											} catch (error) {
 												console.log('Errore', error);
 											}
-										}}></Button>
+										}}>
+										carica
+									</Button>
 								</Form.Group>
 							</Form>
 						</Col>
