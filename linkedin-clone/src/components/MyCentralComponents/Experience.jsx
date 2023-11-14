@@ -1,19 +1,21 @@
 import { Row, Col, DropdownButton, Dropdown, Button } from 'react-bootstrap';
 import { ImPencil } from 'react-icons/im';
 import { BsPlus } from 'react-icons/bs';
-import { FcCalendar } from 'react-icons/fc';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getUserExperience } from '../../redux/action/experience';
 import { FaBriefcase } from 'react-icons/fa';
 import { BsCalendarDate } from 'react-icons/bs';
 import ExperienceModal from '../modal/ExperienceModal';
+import { parseISO, format } from 'date-fns';
+import { it } from 'date-fns/locale';
 
 const Experience = () => {
 	const dispatch = useDispatch();
+	const getExp = useSelector((state) => state.experience.experienceData[0]);
 	useEffect(() => {
 		dispatch(getUserExperience());
-	}, {});
+	}, []);
 	const [modalShow, setModalShow] = useState(false);
 	return (
 		<Row className='elements mb-1 pb-3'>
@@ -42,23 +44,26 @@ const Experience = () => {
 					</div>
 				</div>
 			</Col>
-
-			<Col className='col-2 display-4'>
-				<FcCalendar />
-			</Col>
-			<Col className='col-7'>
-				<p className='fw-bold mb-0' style={{ fontSize: '0.9rem' }}>
-					Sviluppo professionale
-				</p>
-				<p className='mb-0 ' style={{ fontSize: '0.8rem' }}>
-					Pausa lavorativa
-				</p>
-				<p className='mb-0 text-secondary' style={{ fontSize: '0.8rem' }}>
-					mag 2023 - mar 2024 · 10 mesi
-					<br />
-					Milano, Lombardia <br />
-				</p>
-			</Col>
+			{getExp && (
+				<>
+					<Col className='col-2 display-4'>
+						<img src={getExp.image} alt={getExp.description} width={100} />
+					</Col>
+					<Col className='col-7'>
+						<p className='fw-bold mb-0' style={{ fontSize: '0.9rem' }}>
+							{getExp.role}
+						</p>
+						<p className='mb-0 ' style={{ fontSize: '0.8rem' }}>
+							{getExp.company}
+						</p>
+						<p className='mb-0 text-secondary' style={{ fontSize: '0.8rem' }}>
+							{format(parseISO(getExp.startDate), 'd MMM yyyy ', { locale: it })}
+							<br />
+							{getExp.area} <br />
+						</p>
+					</Col>
+				</>
+			)}
 		</Row>
 	);
 };

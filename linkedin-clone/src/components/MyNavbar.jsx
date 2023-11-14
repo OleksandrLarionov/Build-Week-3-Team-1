@@ -14,7 +14,6 @@ import { FaCompass, FaUsers } from 'react-icons/fa';
 import { ImUserCheck } from 'react-icons/im';
 import { FcAdvertising, FcTemplate } from 'react-icons/fc';
 import Button from 'react-bootstrap/esm/Button';
-import NavLink from 'react-bootstrap/esm/NavLink';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
@@ -25,7 +24,7 @@ const MyNavbar = () => {
 	const [query, setQuery] = useState('');
 	const dispatch = useDispatch();
 	const location = useLocation();
-	console.log('OGGETTO LOCATION', location);
+	// console.log('OGGETTO LOCATION', location);
 	const user = useSelector((state) => state.user.userData);
 
 	const handleChange = (e) => {
@@ -35,7 +34,7 @@ const MyNavbar = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		dispatch(handleSubmitAction(query));
-		location.href = 'localhost:3000/Jobs';
+		// location.href = 'localhost:3000/Jobs';
 	};
 
 	return (
@@ -58,7 +57,7 @@ const MyNavbar = () => {
 													viewBox='0 0 24 24'
 													data-supported-dps='24x24'
 													fill='currentColor'
-													class='mercado-match'
+													className='mercado-match'
 													width='45'
 													height='45'
 													focusable='false'
@@ -96,12 +95,12 @@ const MyNavbar = () => {
 											</div>
 
 											<div className='d-flex flex-column '>
-												<Nav.Link href='#'>
+												<Link to='/' className='nav-link'>
 													<p className='text-center mb-0'>
 														<HiMiniUsers className='fs-4 text-secondary' />
 														Rete
 													</p>
-												</Nav.Link>
+												</Link>
 											</div>
 
 											<div className='d-flex flex-column  ms-2 '>
@@ -120,24 +119,24 @@ const MyNavbar = () => {
 											</div>
 
 											<div className='d-flex flex-column  ms-2 '>
-												<Nav.Link href='#'>
+												<Link to='/' className='nav-link'>
 													<p className='text-center mb-0'>
 														<AiFillMessage className='fs-4 text-secondary' />
 														Messaggistica
 													</p>
-												</Nav.Link>
+												</Link>
 											</div>
 
 											<div>
-												<Nav.Link href='#'>
+												<Link to='/' className='nav-link'>
 													<p className='text-center mb-0'>
 														<BsFillBellFill className='fs-4 text-secondary' />
 														Notifiche
 													</p>
-												</Nav.Link>
+												</Link>
 											</div>
 
-											<Nav.Link href='#'>
+											<Link to='/' className='nav-link'>
 												<div className='d-flex flex-column align-items-center me-4 '>
 													<img
 														src={user[0]?.image}
@@ -171,43 +170,43 @@ const MyNavbar = () => {
 														</NavDropdown.Item>
 
 														<NavDropdown.Item href='#action4'>
-															<Button
+															{/* <Button
 																className=' d-flex justify-content-center align-items-center  rounded-pill w-100 px-auto '
 																variant='outline-primary'
 																style={{ height: '25px' }}>
 																visualizza profilo
-															</Button>
+															</Button> */}
 														</NavDropdown.Item>
-														<NavDropdown.Item href='#action5'>
+														{/* <NavDropdown.Item href='#action5'>
 															<h6>Account</h6>
-															<NavLink className='p-1 '>
+															<Link to='/' className='p-1 nav-link'>
 																<p>Prova Premium per 0 EUR</p>
-															</NavLink>
-															<NavLink className='p-1 '>
+															</Link>
+															<Link to='/' className='p-1 nav-link'>
 																<p>impostazione e privacy</p>
-															</NavLink>
-															<NavLink className='p-1 '>
+															</Link>
+															<Link to='/' className='p-1 nav-link'>
 																<p>Guida</p>
-															</NavLink>
-															<NavLink className='p-1 '>
+															</Link>
+															<Link to='/' className='p-1 nav-link'>
 																<p>Lingua</p>
-															</NavLink>
+															</Link>
 															<h6 className='p pt-3 '>Gestisci</h6>
-															<NavLink className='p-1 '>
+															<Link to='/' className='p-1 nav-link'>
 																<p>Post è attività</p>
-															</NavLink>
-															<NavLink className='p-1 '>
+															</Link>
+															<Link to='/' className='p-1 nav-link'>
 																<p>
 																	Account per la pubblicazione di offerte di lavoro
 																</p>
-															</NavLink>
-															<NavLink className='p-1 '>
+															</Link>
+															<Link to='/' className='p-1 nav-link'>
 																<p>Esci</p>
-															</NavLink>
-														</NavDropdown.Item>
+															</Link>
+														</NavDropdown.Item> */}
 													</NavDropdown>
 												</div>
-											</Nav.Link>
+											</Link>
 										</div>
 									</Nav>
 								</Navbar.Collapse>
@@ -229,45 +228,45 @@ const MyNavbar = () => {
 											<div className='d-flex justify-content-between ms-4 mt-4 '>
 												{/* prima icona dentro il dropdown per le aziende */}
 												<div className='d-flex flex-column align align-items-center'>
-													<NavLink>
+													<Link to='/' className='nav-link'>
 														<MdOutlineMenuBook className=' d-flex  flex-column text-info fs-3  ' />
-													</NavLink>
-													<NavLink>
+													</Link>
+													<Link to='/' className='nav-link'>
 														<p>Learning</p>
-													</NavLink>
+													</Link>
 												</div>
 												{/* seconda icona dentro il dropdown per le aziende */}
 												<div className='d-flex flex-column align align-items-center ms-3'>
-													<NavLink>
+													<Link to='/' className='nav-link'>
 														<TbFileAnalytics className=' d-flex  flex-column text-info fs-3  ' />
-													</NavLink>
-													<NavLink>
+													</Link>
+													<Link to='/' className='nav-link'>
 														<p>
 															Talent <br /> Insights
 														</p>
-													</NavLink>
+													</Link>
 												</div>
 												{/* terza icona dentro il dropdown per le aziende */}
 												<div className='d-flex flex-column align align-items-center ms-2 '>
-													<NavLink>
+													<Link to='/' className='nav-link'>
 														<FcTemplate className=' d-flex  flex-column text-info fs-3  ' />
-													</NavLink>
-													<NavLink>
+													</Link>
+													<Link to='/' className='nav-link'>
 														<p>
 															Pubblica <br />
 															un’offerta <br />
 															di lavoro
 														</p>
-													</NavLink>
+													</Link>
 												</div>
 												{/* quarta icona dentro il dropdown per le aziende */}
 												<div className='d-flex flex-column align align-items-center me-3 '>
-													<NavLink>
+													<Link to='/' className='nav-link'>
 														<FcAdvertising className=' d-flex  flex-column text-info fs-3  ' />
-													</NavLink>
-													<NavLink>
+													</Link>
+													<Link to='/' className='nav-link'>
 														<p>Pubblicizza</p>
-													</NavLink>
+													</Link>
 												</div>
 											</div>
 										</NavDropdown.Item>
@@ -276,32 +275,32 @@ const MyNavbar = () => {
 											<div className='d-flex justify-content-start mt-3 ms-3  '>
 												{/* prima icona dentro il dropdown per le aziende */}
 												<div className='d-flex flex-column align align-items-center'>
-													<NavLink>
+													<Link to='/' className='nav-link'>
 														<FaCompass className=' d-flex  flex-column text-info fs-3  ' />
-													</NavLink>
-													<NavLink>
+													</Link>
+													<Link to='/' className='nav-link'>
 														<p>vendi</p>
-													</NavLink>
+													</Link>
 												</div>
 												{/* seconda icona dentro il dropdown per le aziende */}
 												<div className='d-flex flex-column align align-items-center ms-3 '>
-													<NavLink>
+													<Link to='/' className='nav-link'>
 														<FaUsers className=' d-flex  flex-column text-info fs-3  ' />
-													</NavLink>
-													<NavLink>
+													</Link>
+													<Link to='/' className='nav-link'>
 														<p>Gruppi</p>
-													</NavLink>
+													</Link>
 												</div>
 												{/* terza icona  dentro il dropdown per le aziende */}
 												<div className='d-flex flex-column align align-items-center ms-3 '>
-													<NavLink>
+													<Link to='/' className='nav-link'>
 														<ImUserCheck className=' d-flex  flex-column text-info fs-3  ' />
-													</NavLink>
-													<NavLink>
+													</Link>
+													<Link to='/' className='nav-link'>
 														<p>
 															Marketplace <br /> dei servizi
 														</p>
-													</NavLink>
+													</Link>
 												</div>
 											</div>
 											<h6 className='text-start mt-5 ms-4 '>
@@ -309,8 +308,8 @@ const MyNavbar = () => {
 											</h6>
 											{/* terzo div dentro il dropdown per le aziende */}
 											<div className='mt-3 text-start ms-4 fs-6'>
-												{/*  1 Navlink del 3 terzo div dentro il dropdown per le aziende */}
-												<NavLink className='mb-2 '>
+												{/*  1 Link to='/' del 3 terzo div dentro il dropdown per le aziende */}
+												<Link to='/' className='mb-2 nav-link'>
 													<p>
 														{' '}
 														<span className='fw-medium '>
@@ -319,19 +318,19 @@ const MyNavbar = () => {
 														<br />
 														Trova, attrai e assumi
 													</p>
-												</NavLink>
+												</Link>
 
-												{/*  2 Navlink del 3 terzo div dentro il dropdown per le aziende */}
-												<NavLink className='mb-2'>
+												{/*  2 Link to='/' del 3 terzo div dentro il dropdown per le aziende */}
+												<Link to='/' className='mb-2 nav-link'>
 													<p>
 														<span className='fw-medium '>Vendi con LinkedIn</span>{' '}
 														<br />
 														Costruisci relazioni con i buyer
 													</p>
-												</NavLink>
+												</Link>
 
-												{/*  3 Navlink del 3 terzo div dentro il dropdown per le aziende */}
-												<NavLink className='mb-2'>
+												{/*  3 Link to='/' del 3 terzo div dentro il dropdown per le aziende */}
+												<Link to='/' className='mb-2 nav-link'>
 													<p>
 														{' '}
 														<span className='fw-medium'>
@@ -340,10 +339,10 @@ const MyNavbar = () => {
 														<br /> Offerta di lavoro gratuita <br />
 														Trova candidati di qualità
 													</p>
-												</NavLink>
+												</Link>
 
-												{/*  4 Navlink del 3 terzo div dentro il dropdown per le aziende */}
-												<NavLink className='mb-2'>
+												{/*  4 Link to='/' del 3 terzo div dentro il dropdown per le aziende */}
+												<Link to='/' className='mb-2 nav-link'>
 													<p>
 														{' '}
 														<span className='fw-medium '>
@@ -352,43 +351,44 @@ const MyNavbar = () => {
 														<br />
 														Acquisisci clienti e fai crescere la tua azienda
 													</p>
-												</NavLink>
+												</Link>
 
-												{/*  5 Navlink del 3 terzo div dentro il dropdown per le aziende */}
-												<NavLink className='mb-2'>
+												{/*  5 Link to='/' del 3 terzo div dentro il dropdown per le aziende */}
+												<Link to='/' className='mb-2 nav-link'>
 													<p>
 														{' '}
 														<span className='fw-medium'>Impara con LinkedIn </span>
 														<br />
 														Corsi per formare i tuoi dipendenti
 													</p>
-												</NavLink>
+												</Link>
 
-												{/*  6 Navlink del 3 terzo div dentro il dropdown per le aziende */}
-												<NavLink className='mb-3'>
+												{/*  6 Link to='/' del 3 terzo div dentro il dropdown per le aziende */}
+												<Link to='/' className='mb-3 nav-link'>
 													<p>
 														{' '}
 														<span className='fw-medium '>Centro amministrazione</span>
 														<br />
 														Gestisci i dettagli di fatturazione e account
 													</p>
-												</NavLink>
-												{/*  7 Navlink del 3 terzo div dentro il dropdown per le aziende */}
-												<NavLink className='mb-4'>
+												</Link>
+												{/*  7 Link to='/' del 3 terzo div dentro il dropdown per le aziende */}
+												<Link to='/' className='mb-4 nav-link'>
 													<p className='fw-medium'>
 														Crea una pagina aziendale <span className='fs-5'>+</span>
 													</p>
-												</NavLink>
+												</Link>
 											</div>
 										</NavDropdown.Item>
 									</NavDropdown>
 								</div>
 								<div className=''>
-									<NavLink
+									<Link
+										to
 										className='fw-medium text-center px-1 different '
 										style={{ width: '100px' }}>
 										Prova Premium per 0 EUR
-									</NavLink>
+									</Link>
 								</div>
 							</div>
 						</Col>
