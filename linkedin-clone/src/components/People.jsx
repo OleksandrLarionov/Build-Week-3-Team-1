@@ -4,7 +4,7 @@ import { BsPersonAdd, BsPersonCircle } from 'react-icons/bs'
 const People = () => {
   return (
     <>
-      <Col className="border rounded-3 p-3 m-2">
+      <Col className="border rounded-3 pt-3 px-3 m-2">
         <Row className="flex-column">
           <Col>
             <h5>Persone che potresti conoscere</h5>
