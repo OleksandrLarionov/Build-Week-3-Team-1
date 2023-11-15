@@ -27,11 +27,10 @@ const User = ({ user }) => {
                     width: '75px',
                     borderRadius: '75px',
                     border: '3px solid white',
-                    position: 'absolute',
-                    left: '195px',
-                    top: '-75px',
+
+                    top: '-50px',
                   }}
-                  className="z-1 bg-white"
+                  className="z-1 bg-white position-absolute  start-50 translate-middle"
                 />
               </div>
               <Row>
