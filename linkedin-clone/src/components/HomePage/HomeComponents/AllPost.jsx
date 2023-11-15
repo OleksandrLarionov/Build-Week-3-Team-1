@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Form, Button , Row , Col} from 'react-bootstrap';
 import { FcCalendar, FcPicture, FcTemplate } from 'react-icons/fc';
+import { useSelector } from 'react-redux';
 
 const API_URL = 'https://striveschool-api.herokuapp.com/api/posts/';
 
 const MyPostComponents = () => {
   const [posts, setPosts] = useState([]);
   const [newPostText, setNewPostText] = useState('');
+  const user = useSelector((state) => state.user.userData);
 
   const fetchPosts = () => {
     fetch(API_URL, {
@@ -65,7 +67,7 @@ const MyPostComponents = () => {
 <Row className="px-0 mb-1 border rounded-3 m-2 flex-column py-3 elements">
       <Col className="d-flex align-items-center">
         <img
-          src="https://platinumlist.net/guide/wp-content/uploads/2023/03/IMG-worlds-of-adventure.webp"
+          src={user[0]?.image}
           alt="profile"
           style={{
             height: '50px',
