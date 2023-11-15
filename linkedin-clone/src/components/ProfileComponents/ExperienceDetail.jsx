@@ -24,8 +24,7 @@ const ExperienceDetail = () => {
 
 	return (
 		<Row>
-			<ExperienceModal show={modalSnow} onHide={() => setModalSnow(false)} />
-			<Col md={3}></Col>
+			<ExperienceModal show={modalSnow} onHide={() => setModalSnow(false)} />;<Col md={3}></Col>
 			<Col md={6}>
 				{' '}
 				<Row className='elements mb-1 pb-3'>
@@ -42,7 +41,7 @@ const ExperienceDetail = () => {
 								drop='start'
 								variant=''
 								title={<BsPlus className='fs-3' />}>
-								<Dropdown.Item onClick={() => setModalShow(true)}>
+								<Dropdown.Item onClick={() => setModalSnow(true)}>
 									<FaBriefcase className='me-2 fs-4' />
 									Aggiungi Posizione Lavorativa
 								</Dropdown.Item>
