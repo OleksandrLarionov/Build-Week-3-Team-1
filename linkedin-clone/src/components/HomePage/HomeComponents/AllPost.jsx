@@ -89,8 +89,8 @@ const MyPostComponents = () => {
       </Col>
       
       <Col className="d-flex  w-100 justify-content-center pt-3">
-        <Row className="w-100 flex-md-column text-secondary">
-          <Col className="d-flex justify-content-md-around">
+      <Row className="w-100 text-secondary">
+          <Col className="d-flex justify-content-between">
             <div className="d-flex align-items-center">
               <FcPicture className="mb-3 me-2 fs-4" />
               <p>Contenuti multimediali</p>
@@ -99,10 +99,10 @@ const MyPostComponents = () => {
               <FcCalendar className="mb-3 me-2 fs-4" />
               <p>Evento</p>
             </div>
-          </Col>
-          <Col className="d-flex align-items-center justify-content-center">
-            <FcTemplate className="mb-3 me-2 fs-4" />
-            <p>Scrivi un articolo</p>
+            <div className="d-flex align-items-center">
+              <FcTemplate className="mb-3 me-2 fs-4" />
+              <p>Scrivi un articolo</p>
+            </div>
           </Col>
         </Row>
       </Col>

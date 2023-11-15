@@ -18,11 +18,8 @@ const ShowProfile = () => {
   
 
   return (
-    <Row>
-      <Col className="px-0 mb-1 border rounded-3 m-3 w-100">
-        {mainUser && <User user={mainUser} />}
-      </Col>
-    </Row>
+  <> {mainUser && <User user={mainUser} />}</>
+   
   );
 };
 
