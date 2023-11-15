@@ -83,6 +83,7 @@ const ExperienceModal = (props) => {
 								<Form.Group md='12' className='my-3'>
 									<Form.Label>Qualifica*</Form.Label>
 									<Form.Control
+										className='mb-2'
 										required
 										type='text'
 										placeholder='Esempio: Retail Sales Manager'
@@ -96,6 +97,7 @@ const ExperienceModal = (props) => {
 								<Form.Group md='12' className='my-3'>
 									<Form.Label>Nome azienda*</Form.Label>
 									<Form.Control
+										className='mb-3'
 										required
 										type='text'
 										placeholder='Esempio: Microsoft'
@@ -109,6 +111,7 @@ const ExperienceModal = (props) => {
 								<Form.Group md='12' className='my-3'>
 									<Form.Label>Località*</Form.Label>
 									<Form.Control
+										className='mb-3'
 										required
 										type='text'
 										placeholder='Esempio: Milano, Italia'

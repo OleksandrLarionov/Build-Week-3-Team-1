@@ -3,7 +3,7 @@ import { Col } from 'react-bootstrap'
 const Advertising = () => {
   return (
     <>
-      <Col className="border rounded-3 overflow-hidden">
+      <Col className="border rounded-3 overflow-hidden adv">
         <img
           src="https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAADVuOvKzTF-3RD6j-qFPqhubBQ.png"
           alt="advise"
