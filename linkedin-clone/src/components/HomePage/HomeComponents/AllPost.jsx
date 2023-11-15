@@ -112,7 +112,8 @@ const MyPostComponents = () => {
     {
       posts.map((data) => (<Col className='col-12' key={data._id}>
         <Card className="mb-2">
-            <Row className='p-3 '><Col xs={1}> <img
+            <Row className='p-3 '>
+                <Col xs={1}> <img
                 src={data.user.image}
                 alt="profile"
                 style={{
@@ -125,7 +126,7 @@ const MyPostComponents = () => {
               <p className="fw-bold mb-0" style={{fontSize:'0.9rem'}}>
               {data.user.username}
               </p>
-              <p className="text-secondary lh-1 mb-0" style={{fontSize:'0.8rem'}}> {user[0]?.title}</p>
+              <p className="text-secondary lh-1 mb-0" style={{fontSize:'0.8rem'}}> {data.user.title}</p>
               </Col>
               </Row>
         
