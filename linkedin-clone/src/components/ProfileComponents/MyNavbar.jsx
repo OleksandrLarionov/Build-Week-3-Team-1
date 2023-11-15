@@ -32,7 +32,6 @@ const MyNavbar = () => {
 	const [query, setQuery] = useState('');
 	const dispatch = useDispatch();
 	const location = useLocation();
-	console.log('OGGETTO LOCATION', location);
 	const user = useSelector((state) => state.user.userData);
 
 	const handleChange = (e) => {

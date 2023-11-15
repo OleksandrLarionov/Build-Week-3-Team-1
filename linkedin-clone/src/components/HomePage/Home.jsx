@@ -4,6 +4,7 @@ import DiscoverMore from "./HomeComponents/DiscoverMore";
 import CreatePost from "./HomeComponents/CreatePost";
 import News from "./HomeComponents/News";
 import FooterHome from "./HomeComponents/FooterHome";
+import AllPost from "./HomeComponents/AllPost";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
         </Col>
         <Col sm={12} md={6}>
           <CreatePost />
+          <AllPost/>
         </Col>
         <Col sm={12} md={3}>
           <News />

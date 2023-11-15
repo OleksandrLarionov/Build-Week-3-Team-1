@@ -1,7 +1,34 @@
-import { Col, Form, Row } from 'react-bootstrap'
-import { FcCalendar, FcPicture, FcTemplate } from 'react-icons/fc'
+import { Col, Form, Row } from 'react-bootstrap';
+import { FcCalendar, FcPicture, FcTemplate } from 'react-icons/fc';
+import { useState } from 'react';
 
 const CreatePost = () => {
+  const API_URL = 'https://striveschool-api.herokuapp.com/api/posts/';
+  const [postText, setPostText] = useState('');
+
+  const postCreation = () => {
+    fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization':
+          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTdiYmM1NWU3ZTAwMThmODNiZmIiLCJpYXQiOjE2OTk4NjY1NTYsImV4cCI6MTcwMTA3NjE1Nn0.0n8X0s6yl9NBb7CzEgnDxCdlw4P1RRcSjfwOeqmGSzM',
+      },
+      body: JSON.stringify({ text: postText }),
+    })
+    .then((response) => {
+      if (response.ok) {
+        console.log('Post creato con successo');
+      } else {
+        console.error('Impossibile creare il post');
+      }
+    })
+    .catch((error) => {
+      console.error('Errore nella creazione del post:', error);
+    });
+  };
+  
+
   return (
     <Row className="px-0 mb-1 border rounded-3 m-2 flex-column py-3 elements">
       <Col className="d-flex align-items-center">
@@ -19,8 +46,12 @@ const CreatePost = () => {
           type="text"
           placeholder="Avvia un post"
           className="rounded-pill w-100 ms-2"
+          value={postText}
+          onChange={(e) => setPostText(e.target.value)}
         />
+        <button onClick={postCreation}>Crea Post</button>
       </Col>
+      
       <Col className="d-flex  w-100 justify-content-center pt-3">
         <Row className="w-100 flex-md-column text-secondary">
           <Col className="d-flex justify-content-md-around">

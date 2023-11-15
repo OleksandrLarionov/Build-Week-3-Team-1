@@ -3,12 +3,14 @@ import profileDataReducer from '../reducers/profile';
 import userDataReducer from '../reducers/user';
 import jobsReducer from '../reducers/job';
 import experienceReducer from '../reducers/experience';
+import postsReducer from '../reducers/post'
 
 const allReducers = combineReducers({
 	profile: profileDataReducer,
 	user: userDataReducer,
 	job: jobsReducer,
 	experience: experienceReducer,
+	post: postsReducer,
 });
 const store = configureStore({
 	reducer: allReducers,
