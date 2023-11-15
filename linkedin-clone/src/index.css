@@ -51,6 +51,23 @@ code {
 	z-index:30;
 }
 
+.black:hover {
+	color: black !important;
+	font-size: 30px !important;
+  }
+  #link {color: #5c3b09;
+	text-decoration:underline
+  }
+  #link:hover{
+	color: black !important;
+	text-decoration:underline !important
+  
+  }
+  #moreBig:hover{
+	width: 30px ;
+	height: 30px ;
+  }
+
 @media screen and (max-width: 766px) {
 .small{
 position:absolute;

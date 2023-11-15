@@ -104,22 +104,26 @@ const MyNavbar = () => {
 											style={{ height: '50px' }}>
 											<div className='d-flex flex-column '>
 												<Link className={
-														location.pathname === '/Home'
+														location.pathname === '/'
 															? 'nav-link active'
 															: 'nav-link'
 													}
 													to='/'>
-													<p className='text-center mb-0'>
-														<AiFillHome className='fs-4 text-secondary' />
+													<p className='text-center mb-0 '>
+														<AiFillHome className='fs-4 text-secondary black' />
 														Home
 													</p>
 												</Link>
 											</div>
 
 											<div className='d-flex flex-column '>
-												<Nav.Link href='#'>
-													<p className='text-center mb-0 py-0'>
-														<HiMiniUsers className='fs-4 text-secondary' /><br/>
+												<Nav.Link href='#' className={
+														location.pathname === '/ret'
+															? 'nav-link active'
+															: 'nav-link'
+													}>
+													<p className='text-center mb-0 py-0 '>
+														<HiMiniUsers className='fs-4 text-secondary black' /><br/>
 														Rete
 													</p>
 												</Nav.Link>
@@ -133,37 +137,48 @@ const MyNavbar = () => {
 															: 'nav-link'
 													}
 													to='/Jobs'>
-													<p className='text-center mb-0 py-0'>
-														<PiHandbagSimpleFill className='fs-4 text-secondary' /><br/>
+													<p className='text-center mb-0 py-0 '>
+														<PiHandbagSimpleFill className='fs-4 text-secondary black' /><br/>
 														Lavoro
 													</p>
 												</Link>
 											</div>
 
 											<div className='d-flex flex-column  ms-2 '>
-												<Nav.Link href='#'>
-													<p className='text-center mb-0 py-0'>
-														<AiFillMessage className='fs-4 text-secondary' /><br/>
+												<Nav.Link href='#' className={
+														location.pathname === '/messagistica'
+															? 'nav-link active'
+															: 'nav-link'
+													}>
+													<p className='text-center mb-0 py-0 '>
+														<AiFillMessage className='fs-4 text-secondary black' /><br/>
 														Messaggistica
 													</p>
 												</Nav.Link>
 											</div>
 
-											<div>
-												<Nav.Link href='#'>
+											<div >
+												<Nav.Link href='#' className=
+												'nav-link'
+													>
 													<p className='text-center mb-0 py-0'>
-														<BsFillBellFill className='fs-4 text-secondary' /><br/>
+														<BsFillBellFill className='fs-4 text-secondary black' /><br/>
 														Notifiche
 													</p>
 												</Nav.Link>
 											</div>
 
-											<Nav.Link href='#' className='py-0'>
+											<Nav.Link href='#' className={
+														location.pathname === '/MyProfile'
+															? 'py-0 nav-link active'
+															: 'py-0 nav-link'
+													}>
 												<div className='d-flex flex-column align-items-center justify-content-center me-2'>
 													<img
 														src={user[0]?.image}
-														alt='profileImage'
-														className='rounded-pill'
+														alt='profileImage moreBig'
+														className='rounded-pill '
+														id='moreBig'
 														width={25}
 														height={25}
 													/>
@@ -258,8 +273,8 @@ const MyNavbar = () => {
 			<Col className='col-3 d-flex align-items-center position-relative toHide'>
 							<div className='d-flex justify-content-between align-items-center'>
 								<div className='d-flex justify-content-end mt-3'>
-									<div className='text-center smallTwo' onClick={toggleOffcanvas}>
-										<BsFillGrid3X3GapFill className='fs-4 text-secondary ' />
+									<div className='text-center smallTwo ' onClick={toggleOffcanvas}>
+										<BsFillGrid3X3GapFill className='fs-4 text-secondary black' />
 										<p>
 											Per le aziende
 											<MdArrowDropDown />
@@ -410,7 +425,7 @@ const MyNavbar = () => {
 
 							<div className='smallOne'>
 								<NavLink
-									className='fw-medium text-center px-1 different '
+									className='fw-medium text-center px-1 different' id='link'
 									style={{ width: '100px' }}>
 									Prova Premium per 0 EUR
 								</NavLink>
