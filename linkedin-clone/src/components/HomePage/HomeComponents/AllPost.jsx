@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Card, Form, Button , Row , Col} from 'react-bootstrap';
 import { FcCalendar, FcPicture, FcTemplate } from 'react-icons/fc';
 import { useSelector } from 'react-redux';
+import {format} from 'date-fns';
+import { it } from 'date-fns/locale';
 
 const API_URL = 'https://striveschool-api.herokuapp.com/api/posts/';
 
@@ -9,6 +11,7 @@ const MyPostComponents = () => {
   const [posts, setPosts] = useState([]);
   const [newPostText, setNewPostText] = useState('');
   const user = useSelector((state) => state.user.userData);
+
 
   const fetchPosts = () => {
     fetch(API_URL, {
@@ -113,20 +116,21 @@ const MyPostComponents = () => {
       posts.map((data) => (<Col className='col-12' key={data._id}>
         <Card className="mb-2">
             <Row className='p-3 '>
-                <Col xs={1}> <img
+                <Col xs={2}  className='ps-2 pe-0 text-center'> <img
                 src={data.user.image}
                 alt="profile"
                 style={{
-                  height: "35px",
-                  width: "35px",
-                  borderRadius: "10px",
+                  height: "45px",
+                  width: "45px",
+                  borderRadius: "25px",
                 }}
               /></Col>
-              <Col  xs={11}>
-              <p className="fw-bold mb-0" style={{fontSize:'0.9rem'}}>
-              {data.user.username}
+              <Col  xs={10} className='ps-1'>
+              <p className="fw-bold mb-0 " style={{fontSize:'1rem'}}>
+              {data.user.name} {data.user.surname}
               </p>
-              <p className="text-secondary lh-1 mb-0" style={{fontSize:'0.8rem'}}> {data.user.title}</p>
+              <p className="text-secondary lh-1 mb-1" style={{fontSize:'0.8rem'}}> {data.user.title}</p>
+              <p className="text-secondary lh-1 mb-0" style={{fontSize:'0.7rem'}}>{format(new Date(data.createdAt), "dd MMMM yyyy- HH:mm", { locale: it })}</p>
               </Col>
               </Row>
         
