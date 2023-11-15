@@ -1,4 +1,4 @@
-import { Row, Col, DropdownButton, Dropdown, Button } from 'react-bootstrap';
+import { Row, Col, DropdownButton, Dropdown, Button, ListGroup } from 'react-bootstrap';
 import { ImPencil } from 'react-icons/im';
 import { BsPlus } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,7 +12,7 @@ import { it } from 'date-fns/locale';
 
 const Experience = () => {
 	const dispatch = useDispatch();
-	const getExp = useSelector((state) => state.experience.experienceData[0]);
+	const getExp = useSelector((state) => state.experience.experienceData);
 	useEffect(() => {
 		dispatch(getUserExperience());
 	}, []);
@@ -44,26 +44,38 @@ const Experience = () => {
 					</div>
 				</div>
 			</Col>
-			{getExp && (
-				<>
-					<Col className='col-2 display-4'>
-						<img src={getExp.image} alt={getExp.description} width={100} />
-					</Col>
-					<Col className='col-7'>
-						<p className='fw-bold mb-0' style={{ fontSize: '0.9rem' }}>
-							{getExp.role}
-						</p>
-						<p className='mb-0 ' style={{ fontSize: '0.8rem' }}>
-							{getExp.company}
-						</p>
-						<p className='mb-0 text-secondary' style={{ fontSize: '0.8rem' }}>
-							{format(parseISO(getExp.startDate), 'd MMM yyyy ', { locale: it })}
-							<br />
-							{getExp.area} <br />
-						</p>
-					</Col>
-				</>
-			)}
+			<ListGroup>
+				{getExp &&
+					getExp
+						.slice()
+						.reverse()
+						.map((oneExp, i) => {
+							return (
+								<ListGroup.Item key={oneExp._id}>
+									<Row>
+										<Col className='col-2 display-4'>
+											<img src={oneExp.image} alt={i} width={100} />
+										</Col>
+										<Col className='col-7'>
+											<p className='fw-bold mb-0' style={{ fontSize: '0.9rem' }}>
+												{oneExp.role}
+											</p>
+											<p className='mb-0 ' style={{ fontSize: '0.8rem' }}>
+												{oneExp.company}
+											</p>
+											<p className='mb-0 text-secondary' style={{ fontSize: '0.8rem' }}>
+												{format(parseISO(oneExp.startDate), 'd MMM yyyy ', {
+													locale: it,
+												})}
+												<br />
+												{oneExp.area} <br />
+											</p>
+										</Col>
+									</Row>
+								</ListGroup.Item>
+							);
+						})}
+			</ListGroup>
 		</Row>
 	);
 };
