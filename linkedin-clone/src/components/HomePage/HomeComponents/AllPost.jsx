@@ -1,75 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Form, Button, Row, Col } from 'react-bootstrap';
 import { FcCalendar, FcPicture, FcTemplate } from 'react-icons/fc';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ModalImagePost from '../../modal/ModalImagePost';
+import { fetchPostsAction, postImageAction } from '../../../redux/action/post';
+import { personalkey } from '../../../redux/action/index';
+
 const API_URL = 'https://striveschool-api.herokuapp.com/api/posts/';
 
 const MyPostComponents = () => {
-	const [posts, setPosts] = useState([]);
 	const [newPostText, setNewPostText] = useState('');
 	const user = useSelector((state) => state.user.userData);
 	const formImg = useSelector((state) => state.post.postEditor);
-
-	const postImg = async (id_post) => {
-		const userExpApi = `https://striveschool-api.herokuapp.com/api/posts/${id_post}`;
-
-		try {
-			const imageData = await fetch(userExpApi, {
-				method: 'POST',
-				body: formImg,
-				headers: {
-					Authorization:
-						'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTdiYmM1NWU3ZTAwMThmODNiZmIiLCJpYXQiOjE2OTk4NjY1NTYsImV4cCI6MTcwMTA3NjE1Nn0.0n8X0s6yl9NBb7CzEgnDxCdlw4P1RRcSjfwOeqmGSzM',
-				},
-			});
-		} catch (error) {
-			console.log('Errore', error);
-		}
-	};
-
-	const fetchPosts = () => {
-		fetch(API_URL, {
-			headers: {
-				Authorization:
-					'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTdiYmM1NWU3ZTAwMThmODNiZmIiLCJpYXQiOjE2OTk4NjY1NTYsImV4cCI6MTcwMTA3NjE1Nn0.0n8X0s6yl9NBb7CzEgnDxCdlw4P1RRcSjfwOeqmGSzM',
-			},
-		})
-			.then((response) => {
-				if (!response.ok) {
-					throw new Error(`Error: ${response.status}`);
-				}
-				return response.json();
-			})
-			.then((data) => {
-				console.log('Elenco dei post', data);
-				setPosts(data.reverse());
-			})
-			.catch((error) => {
-				console.error('Errore nella fetch', error);
-			});
-	};
+	const posts = useSelector((state) => state.post.posts);
+	const dispatch = useDispatch();
 
 	useEffect(() => {
-		if (!newPostText) {
-			fetchPosts();
-		}
-	}, [newPostText]);
+		dispatch(fetchPostsAction());
+	}, []);
 	const handlePostSubmit = async () => {
 		try {
 			const res = await fetch(API_URL, {
 				method: 'POST',
 				body: JSON.stringify({ text: newPostText }),
 				headers: {
-					Authorization:
-						'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTdiYmM1NWU3ZTAwMThmODNiZmIiLCJpYXQiOjE2OTk4NjY1NTYsImV4cCI6MTcwMTA3NjE1Nn0.0n8X0s6yl9NBb7CzEgnDxCdlw4P1RRcSjfwOeqmGSzM',
+					Authorization: personalkey,
 					'Content-Type': 'application/json',
 				},
 			});
 			if (res.ok) {
 				const post = await res.json();
 				const id_post = post._id;
-				formImg && postImg(id_post);
+				formImg && dispatch(postImageAction(id_post, formImg));
 			}
 		} catch (error) {
 			console.log('Errore', error);

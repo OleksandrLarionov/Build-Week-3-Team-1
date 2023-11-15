@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { key } from '../../redux/action';
+import { personalkey } from '../../redux/action';
 import { format, parseISO } from 'date-fns';
 import { useDispatch } from 'react-redux';
 import { getUserExperience } from '../../redux/action/experience';
@@ -25,7 +25,7 @@ const ExpModalMody = (props) => {
 			const delExp = await fetch(expApiList, {
 				method: 'DELETE',
 				headers: {
-					Authorization: key,
+					Authorization: personalkey,
 				},
 			});
 		} catch (error) {
@@ -41,7 +41,7 @@ const ExpModalMody = (props) => {
 			const postExp = await fetch(expApiList, {
 				method: 'GET',
 				headers: {
-					Authorization: key,
+					Authorization: personalkey,
 				},
 			});
 			if (postExp.ok) {
@@ -75,7 +75,7 @@ const ExpModalMody = (props) => {
 				method: 'PUT',
 				body: JSON.stringify(dataExp),
 				headers: {
-					Authorization: key,
+					Authorization: personalkey,
 					'Content-Type': 'application/json',
 				},
 			});
@@ -97,7 +97,7 @@ const ExpModalMody = (props) => {
 				method: 'POST',
 				body: formImg,
 				headers: {
-					Authorization: key,
+					Authorization: personalkey,
 				},
 			});
 		} catch (error) {
