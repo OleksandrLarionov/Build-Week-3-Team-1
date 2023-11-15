@@ -10,7 +10,7 @@ import { Row } from 'react-bootstrap';
 import MyNavbar from './components/MyNavbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Jobs from './components/Jobs';
-
+import Home from './components/Home'
 function App() {
 	const modal = useSelector((state) => state.profile.modal && state.profile.modal[0]);
 	return (
@@ -20,6 +20,7 @@ function App() {
 					<MyNavbar />
 					<Routes>
 						<Route element={<Jobs />} path='/Jobs' />
+						<Route element={<Home/>} path='/'/>
 					</Routes>
 					<Row className='justify-content-center mx-0'>
 						<MyCentral />

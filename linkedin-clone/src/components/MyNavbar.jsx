@@ -94,7 +94,12 @@ const MyNavbar = () => {
 											className='d-flex justify-content-around align-items-center border-end'
 											style={{ height: '50px' }}>
 											<div className='d-flex flex-column '>
-												<Link to='/' className='nav-link'>
+												<Link className={
+														location.pathname === '/Home'
+															? 'nav-link active'
+															: 'nav-link'
+													}
+													to='/'>
 													<p className='text-center mb-0'>
 														<AiFillHome className='fs-4 text-secondary' />
 														Home
