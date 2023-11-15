@@ -47,6 +47,14 @@ const ExperienceModal = (props) => {
 	const sendAllExp = (e) => {
 		e.preventDefault();
 		postExperience();
+		setDataExp({
+			role: '',
+			company: '',
+			startDate: '',
+			endDate: '',
+			description: '',
+			area: '',
+		});
 	};
 	//   Modello dell'EXPERIENCE:
 	// {
@@ -209,6 +217,38 @@ const ExperienceModal = (props) => {
 											setDataExp({ ...dataExp, description: e.target.value });
 										}}
 									/>
+								</Form.Group>
+								<Form.Group className='mb-3'>
+									<Form.Control
+										type='file'
+										onChange={(e) => {
+											const file = e.target.files[0];
+											if (file) {
+												const formData = new FormData();
+												formData.append('experience', file);
+												setFormImg(formData);
+											}
+										}}
+									/>
+									<Button
+										onClick={async () => {
+											const id = '6551e7bbc55e7e0018f83bfb';
+											const userExpApi = `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences/6553d240dd99ef0019a0948a/picture`;
+
+											try {
+												const imageData = await fetch(userExpApi, {
+													method: 'POST',
+													body: formImg,
+													headers: {
+														Authorization: key,
+													},
+												});
+											} catch (error) {
+												console.log('Errore', error);
+											}
+										}}>
+										carica
+									</Button>
 								</Form.Group>
 							</Form>
 						</Col>

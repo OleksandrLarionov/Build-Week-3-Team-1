@@ -1,9 +1,9 @@
-import { Row, Col } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import { ImPencil } from "react-icons/im";
-import { PiStudent } from "react-icons/pi";
-import {useSelector } from "react-redux/es/hooks/useSelector";
+import { Row, Col } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import { ImPencil } from 'react-icons/im';
+import { PiStudent } from 'react-icons/pi';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 const MainCard = () => {
   const user = useSelector((state)=>state.user.userData )

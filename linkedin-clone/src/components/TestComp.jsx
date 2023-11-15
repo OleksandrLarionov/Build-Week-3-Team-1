@@ -147,22 +147,22 @@ const TestComp = () => {
 	// 			</Form.Group>
 	// 			<Button
 	// 				type='submit'
-	// 				onClick={async () => {
-	// 					const id = '6551e7bbc55e7e0018f83bfb';
-	// 					const userApiList = `https://striveschool-api.herokuapp.com/api/profile/${id}/picture`;
+	// onClick={async () => {
+	// 	const id = '6551e7bbc55e7e0018f83bfb';
+	// 	const userApiList = `https://striveschool-api.herokuapp.com/api/profile/${id}/picture`;
 
-	// 					try {
-	// 						const imageData = await fetch(userApiList, {
-	// 							method: 'POST',
-	// 							body: formImg,
-	// 							headers: {
-	// 								Authorization: key,
-	// 							},
-	// 						});
-	// 					} catch (error) {
-	// 						console.log('Errore', error);
-	// 					}
-	// 				}}>
+	// 	try {
+	// 		const imageData = await fetch(userApiList, {
+	// 			method: 'POST',
+	// 			body: formImg,
+	// 			headers: {
+	// 				Authorization: key,
+	// 			},
+	// 		});
+	// 	} catch (error) {
+	// 		console.log('Errore', error);
+	// 	}
+	// }}>
 	// 				Sub
 	// 			</Button>
 	// 		</Form>

@@ -16,7 +16,7 @@ export const getUserExperience = () => {
 			});
 			if (expData.ok) {
 				const data = await expData.json();
-				console.log(data);
+				// console.log(data);
 				setTimeout(() => {
 					dispatch({
 						type: GET_EXPERIENCE,
