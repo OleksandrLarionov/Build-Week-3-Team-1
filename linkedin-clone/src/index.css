@@ -74,6 +74,10 @@ right:0
 	position: absolute!important;
 	top:35px !important;
 	right:25px !important;
+
+}
+.scrolled{
+	display: none!important;
 }
 }
 
