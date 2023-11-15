@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Form, Button, Row, Col } from 'react-bootstrap';
-import { Card, Form, Button, Row, Col } from 'react-bootstrap';
 import { FcCalendar, FcPicture, FcTemplate } from 'react-icons/fc';
 import { useDispatch, useSelector } from 'react-redux';
 import ModalImagePost from '../../modal/ModalImagePost';
@@ -8,6 +7,7 @@ import { fetchPostsAction, postImageAction } from '../../../redux/action/post';
 import { personalkey } from '../../../redux/action/index';
 import {format} from 'date-fns';
 import { it } from 'date-fns/locale';
+
 
 const API_URL = 'https://striveschool-api.herokuapp.com/api/posts/';
 
@@ -17,15 +17,10 @@ const MyPostComponents = () => {
 	const formImg = useSelector((state) => state.post.postEditor);
 	const posts = useSelector((state) => state.post.posts);
 	const dispatch = useDispatch();
-	const [newPostText, setNewPostText] = useState('');
-	const user = useSelector((state) => state.user.userData);
-	const formImg = useSelector((state) => state.post.postEditor);
-	const posts = useSelector((state) => state.post.posts);
-	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(fetchPostsAction());
-	}, []);
+	},[]);
 	const handlePostSubmit = async () => {
 		try {
 			const res = await fetch(API_URL, {
@@ -103,7 +98,7 @@ const MyPostComponents = () => {
     <Card className="mb-2">
         <Row className='p-3 '>
             <Col xs={2}  className='ps-2 pe-0 text-center'> <img
-            src={data.user.image}
+            src={ data.user.image ? `${data.user.image}`:`${scimmia}`}
             alt="profile"
             style={{
               height: "45px",
