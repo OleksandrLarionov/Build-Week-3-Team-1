@@ -7,7 +7,7 @@ import { getUserDataAction } from "../../../redux/action";
 const ShowProfile = () => {
   const mainUser = useSelector(
     (state) => state.user.userData && state.user.userData[0]
-  );
+  )
 
   const dispatch = useDispatch();
 
@@ -26,4 +26,4 @@ const ShowProfile = () => {
   );
 };
 
-export default ShowProfile;
+export default ShowProfile
