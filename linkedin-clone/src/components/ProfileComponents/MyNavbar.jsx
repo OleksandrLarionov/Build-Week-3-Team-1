@@ -32,7 +32,6 @@ const MyNavbar = () => {
 	const [query, setQuery] = useState('');
 	const dispatch = useDispatch();
 	const location = useLocation();
-	console.log('OGGETTO LOCATION', location);
 	const user = useSelector((state) => state.user.userData);
 
 	const handleChange = (e) => {
@@ -47,24 +46,24 @@ const MyNavbar = () => {
 
   return (
     <Row className="justify-content-cente mb-3 mynav">
-      <Col className="p-0">
+      <Col className="p-0 ">
         <Navbar
           expand="md"
           className="bg-white justify-content-center px-auto align-items-center"
           style={{ fontSize: "0.7rem", height: "60px"}}
         >
           <Row className="d-flex justify-content-center px-2 mx-0 ">
-            <Col className="d-flex align-items-center pe-0">
+            <Col className="d-flex align-items-center pe-0 ">
               <div>
-                <Navbar.Toggle aria-controls="navbarScroll" />
-                <Navbar.Collapse id="navbarScroll">
+                <Navbar.Toggle aria-controls="navbarScroll" className='small'/>
+                <Navbar.Collapse id="navbarScroll" >
                   <Nav
                     className="my-2 "
                     style={{ maxHeight: "100px" }}
                     navbarScroll
                   >
-                    <div className="d-flex justify-content-center align-items-center">
-                      <Navbar.Brand href="#" className="me-0">
+                    <div className="d-flex justify-content-center align-items-center ">
+                      <Navbar.Brand href="#" className="me-0 smallOne">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
@@ -82,7 +81,7 @@ const MyNavbar = () => {
 					                         
 											<Form
 												style={{ width: '99%' }}
-												className='me-5'
+												className='me-5 smallOne'
 												onSubmit={handleSubmit}>
 													<Link to= "/jobs" className='text-decoration-none'>
 												<Form.Control
@@ -101,26 +100,30 @@ const MyNavbar = () => {
 										</div>
 										{/* 2 Div principale Navbar */}
 										<div
-											className='d-flex justify-content-around align-items-center border-end'
+											className='d-flex justify-content-around align-items-center border-end listSmall'
 											style={{ height: '50px' }}>
 											<div className='d-flex flex-column '>
 												<Link className={
-														location.pathname === '/Home'
+														location.pathname === '/'
 															? 'nav-link active'
 															: 'nav-link'
 													}
 													to='/'>
-													<p className='text-center mb-0'>
-														<AiFillHome className='fs-4 text-secondary' />
+													<p className='text-center mb-0 '>
+														<AiFillHome className='fs-4 text-secondary black' />
 														Home
 													</p>
 												</Link>
 											</div>
 
 											<div className='d-flex flex-column '>
-												<Nav.Link href='#'>
-													<p className='text-center mb-0'>
-														<HiMiniUsers className='fs-4 text-secondary' />
+												<Nav.Link href='#' className={
+														location.pathname === '/ret'
+															? 'nav-link active'
+															: 'nav-link'
+													}>
+													<p className='text-center mb-0 py-0 '>
+														<HiMiniUsers className='fs-4 text-secondary black' /><br/>
 														Rete
 													</p>
 												</Nav.Link>
@@ -134,44 +137,56 @@ const MyNavbar = () => {
 															: 'nav-link'
 													}
 													to='/Jobs'>
-													<p className='text-center mb-0'>
-														<PiHandbagSimpleFill className='fs-4 text-secondary' />
+													<p className='text-center mb-0 py-0 '>
+														<PiHandbagSimpleFill className='fs-4 text-secondary black' /><br/>
 														Lavoro
 													</p>
 												</Link>
 											</div>
 
 											<div className='d-flex flex-column  ms-2 '>
-												<Nav.Link href='#'>
-													<p className='text-center mb-0'>
-														<AiFillMessage className='fs-4 text-secondary' />
+												<Nav.Link href='#' className={
+														location.pathname === '/messagistica'
+															? 'nav-link active'
+															: 'nav-link'
+													}>
+													<p className='text-center mb-0 py-0 '>
+														<AiFillMessage className='fs-4 text-secondary black' /><br/>
 														Messaggistica
 													</p>
 												</Nav.Link>
 											</div>
 
-											<div>
-												<Nav.Link href='#'>
-													<p className='text-center mb-0'>
-														<BsFillBellFill className='fs-4 text-secondary' />
+											<div >
+												<Nav.Link href='#' className=
+												'nav-link'
+													>
+													<p className='text-center mb-0 py-0'>
+														<BsFillBellFill className='fs-4 text-secondary black' /><br/>
 														Notifiche
 													</p>
 												</Nav.Link>
 											</div>
 
-											<Nav.Link href='#'>
-												<div className='d-flex flex-column align-items-center me-4 '>
+											<Nav.Link href='#' className={
+														location.pathname === '/MyProfile'
+															? 'py-0 nav-link active'
+															: 'py-0 nav-link'
+													}>
+												<div className='d-flex flex-column align-items-center justify-content-center me-2'>
 													<img
 														src={user[0]?.image}
-														alt='profileImage'
-														className='rounded-pill'
+														alt='profileImage moreBig'
+														className='rounded-pill '
+														id='moreBig'
 														width={25}
 														height={25}
 													/>
 													<NavDropdown
 														title='tu'
 														id='navbarScrollingDropdown'
-														className='custom-dropdown'>
+														className='dropstart goingDown'>
+															
 														<NavDropdown.Item href='#action3'>
 															<div className='d-flex align-items-center'>
 																<p className='fs-1 me-2'>
@@ -204,7 +219,7 @@ const MyNavbar = () => {
 															</Button>
 															</Link>
 														</NavDropdown.Item>
-														<NavDropdown.Item href='#action5'>
+														<NavDropdown.Item href='#action5' >
 															<h6 className='fw-bold border-top pt-2'>Account</h6>
 															<NavLink
 																className='p-1 '
@@ -251,15 +266,15 @@ const MyNavbar = () => {
 											</Nav.Link>
 										</div>
 									</Nav>
-								</Navbar.Collapse>
-							</div>
+				</Navbar.Collapse>
+			  </div>
 			</Col>
 
-			<Col className='col-3 d-flex align-items-center position-relative'>
-							<div className='d-flex justify-content-between align-items-center '>
+			<Col className='col-3 d-flex align-items-center position-relative toHide'>
+							<div className='d-flex justify-content-between align-items-center'>
 								<div className='d-flex justify-content-end mt-3'>
-									<div className='text-center' onClick={toggleOffcanvas}>
-										<BsFillGrid3X3GapFill className='fs-4 text-secondary' />
+									<div className='text-center smallTwo ' onClick={toggleOffcanvas}>
+										<BsFillGrid3X3GapFill className='fs-4 text-secondary black' />
 										<p>
 											Per le aziende
 											<MdArrowDropDown />
@@ -269,7 +284,8 @@ const MyNavbar = () => {
 								<Offcanvas
 									placement='end'
 									show={showOffcanvas}
-									onHide={() => setShowOffcanvas(false)}>
+									onHide={() => setShowOffcanvas(false)}
+									>
 									<Offcanvas.Header closeButton>
 										<Offcanvas.Title className='fw-bold'>Per le aziende</Offcanvas.Title>
 									</Offcanvas.Header>
@@ -407,9 +423,9 @@ const MyNavbar = () => {
 								</Offcanvas>
 							</div>
 
-							<div className=''>
+							<div className='smallOne'>
 								<NavLink
-									className='fw-medium text-center px-1 different '
+									className='fw-medium text-center px-1 different' id='link'
 									style={{ width: '100px' }}>
 									Prova Premium per 0 EUR
 								</NavLink>

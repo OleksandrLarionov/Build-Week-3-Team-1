@@ -9,6 +9,7 @@ import { BsCalendarDate } from 'react-icons/bs';
 import ExperienceModal from '../../modal/ExperienceModal';
 import { parseISO, format } from 'date-fns';
 import { it } from 'date-fns/locale';
+import { Link } from 'react-router-dom';
 
 const Experience = () => {
 	const dispatch = useDispatch();
@@ -40,7 +41,9 @@ const Experience = () => {
 						</Dropdown.Item>
 					</DropdownButton>
 					<div className='justify-content-center align-items-center d-flex'>
-						<ImPencil />
+						<Link to='/detail/experience'>
+							<ImPencil />
+						</Link>
 					</div>
 				</div>
 			</Col>

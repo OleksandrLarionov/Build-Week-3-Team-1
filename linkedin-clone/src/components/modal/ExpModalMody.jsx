@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { key } from '../../redux/action';
-const ExperienceModal = (props) => {
+import { format, parseISO } from 'date-fns';
+import { useDispatch } from 'react-redux';
+import { getUserExperience } from '../../redux/action/experience';
+const ExpModalMody = (props) => {
+	const dispatch = useDispatch();
 	const [formImg, setFormImg] = useState(null);
 	const [dataExp, setDataExp] = useState({
 		role: '',
@@ -13,12 +17,62 @@ const ExperienceModal = (props) => {
 		description: '',
 		area: '',
 	});
-	const postExperience = async () => {
+	const deleteSingleExp = async (e) => {
+		e.preventDefault();
 		const id = '6551e7bbc55e7e0018f83bfb';
-		const expApiList = `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences`;
+		const expApiList = `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences/${props.id}`;
+		try {
+			const delExp = await fetch(expApiList, {
+				method: 'DELETE',
+				headers: {
+					Authorization: key,
+				},
+			});
+		} catch (error) {
+			console.log('Errore', error);
+		}
+		dispatch(getUserExperience());
+	};
+
+	const getSingleExp = async () => {
+		const id = '6551e7bbc55e7e0018f83bfb';
+		const expApiList = `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences/${props.id}`;
 		try {
 			const postExp = await fetch(expApiList, {
-				method: 'POST',
+				method: 'GET',
+				headers: {
+					Authorization: key,
+				},
+			});
+			if (postExp.ok) {
+				const singleExpData = await postExp.json();
+				console.log('singleData', singleExpData);
+				setDataExp({
+					role: singleExpData.role,
+					company: singleExpData.company,
+					startDate: `${format(parseISO(singleExpData.startDate), 'yyyy-MM-dd')}`,
+					endDate: singleExpData.endDate
+						? `${format(parseISO(singleExpData.endDate), 'yyyy-MM-dd')}`
+						: '',
+					description: singleExpData.description,
+					area: singleExpData.area,
+				});
+			}
+		} catch (error) {
+			console.log('Errore', error);
+		}
+	};
+	useEffect(() => {
+		if (props.id) {
+			getSingleExp();
+		}
+	}, [props.id]);
+	const postExperience = async () => {
+		const id = '6551e7bbc55e7e0018f83bfb';
+		const expApiList = `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences/${props.id}`;
+		try {
+			const postExp = await fetch(expApiList, {
+				method: 'PUT',
 				body: JSON.stringify(dataExp),
 				headers: {
 					Authorization: key,
@@ -61,6 +115,7 @@ const ExperienceModal = (props) => {
 			description: '',
 			area: '',
 		});
+		dispatch(getUserExperience());
 	};
 	return (
 		<Modal
@@ -83,7 +138,6 @@ const ExperienceModal = (props) => {
 									<Form.Label>Qualifica*</Form.Label>
 									<Form.Control
 										className='mb-2'
-										required
 										type='text'
 										placeholder='Esempio: Retail Sales Manager'
 										value={dataExp.role}
@@ -97,7 +151,6 @@ const ExperienceModal = (props) => {
 									<Form.Label>Nome azienda*</Form.Label>
 									<Form.Control
 										className='mb-3'
-										required
 										type='text'
 										placeholder='Esempio: Microsoft'
 										value={dataExp.company}
@@ -111,7 +164,6 @@ const ExperienceModal = (props) => {
 									<Form.Label>Località*</Form.Label>
 									<Form.Control
 										className='mb-3'
-										required
 										type='text'
 										placeholder='Esempio: Milano, Italia'
 										value={dataExp.area}
@@ -125,7 +177,6 @@ const ExperienceModal = (props) => {
 								<Form.Group md='12' className='my-3'>
 									<Form.Label>Data di inizio*</Form.Label>
 									<Form.Control
-										required
 										type='date'
 										value={dataExp.startDate}
 										onChange={(e) => {
@@ -148,7 +199,6 @@ const ExperienceModal = (props) => {
 								<Form.Group md='12' className='my-3'>
 									<Form.Label>Descrizione*</Form.Label>
 									<Form.Control
-										required
 										as='textarea'
 										rows={4}
 										placeholder=''
@@ -179,9 +229,12 @@ const ExperienceModal = (props) => {
 			</Modal.Body>
 			<Modal.Footer>
 				<Button onClick={sendAllExp}>Salva</Button>
+				<Button variant='warning' onClick={deleteSingleExp}>
+					Delete
+				</Button>
 			</Modal.Footer>
 		</Modal>
 	);
 };
 
-export default ExperienceModal;
+export default ExpModalMody;
