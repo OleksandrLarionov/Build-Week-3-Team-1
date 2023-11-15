@@ -11,7 +11,7 @@ const Jobs = () => {
   const jobsData = useSelector((state) => state.job.list)
   return (
     <Container>
-      <Row className="mx-0 mt-3 p-3 justify-content-center flex-nowrap">
+      <Row className="mx-0 mt-3 p-3 justify-content-center flex-column flex-lg-row flex-nowrap">
         <Col xs={12} md={3} className=" text-center">
           <SideComponent />
 
