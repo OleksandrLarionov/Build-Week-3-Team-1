@@ -1,6 +1,6 @@
 import { Col, ListGroup, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import OneUser from "../oneUser";
+import OneUser from "./oneUser";
 import { changeModalAction } from "../../redux/action";
 
 const People = () => {

@@ -3,12 +3,12 @@ import { ImPencil } from 'react-icons/im';
 import { BsPlus } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { getUserExperience } from '../../redux/action/experience';
+import { getUserExperience } from '../../../redux/action/experience';
 import { FaBriefcase } from 'react-icons/fa';
 import { BsCalendarDate } from 'react-icons/bs';
-import ExperienceModal from '../modal/ExperienceModal';
-/* import { parseISO, format } from 'date-fns';
-import { it } from 'date-fns/locale'; */
+import ExperienceModal from '../../modal/ExperienceModal';
+import { parseISO, format } from 'date-fns';
+import { it } from 'date-fns/locale';
 
 const Experience = () => {
 	const dispatch = useDispatch();
@@ -44,7 +44,7 @@ const Experience = () => {
 					</div>
 				</div>
 			</Col>
-		{/* 	{getExp && (
+			{getExp && (
 				<>
 					<Col className='col-2 display-4'>
 						<img src={getExp.image} alt={getExp.description} width={100} />
@@ -63,7 +63,7 @@ const Experience = () => {
 						</p>
 					</Col>
 				</>
-			)} */}
+			)}
 		</Row>
 	);
 };

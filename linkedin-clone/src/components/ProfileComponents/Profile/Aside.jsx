@@ -1,8 +1,8 @@
 import { Col } from "react-bootstrap";
-import People from "./AsideComponents/People";
-import Setup from "./AsideComponents/Setup";
-import InLearning from "./AsideComponents/InLearning";
-import Advertising from "./AsideComponents/Advertising";
+import People from "../../AsideComponents/People";
+import Setup from "../../AsideComponents/Setup";
+import InLearning from "../../AsideComponents/InLearning";
+import Advertising from "../../AsideComponents/Advertising";
 
 const Aside = () => {
   return (

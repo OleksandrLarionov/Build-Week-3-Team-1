@@ -20,7 +20,7 @@ import { AiFillHome, AiFillMessage } from 'react-icons/ai';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
-import { handleSubmitAction } from '../redux/action';
+import { handleSubmitAction } from '../../redux/action';
 
 const MyNavbar = () => {
 	const [showOffcanvas, setShowOffcanvas] = useState(false);
@@ -46,16 +46,16 @@ const MyNavbar = () => {
 	};
 
   return (
-    <Row className="justify-content-cente mb-3 mx-auto mynav">
+    <Row className="justify-content-cente mb-3 mynav">
       <Col className="p-0">
         <Navbar
           expand="md"
-          className="bg-white justify-content-center  align-items-center w-100"
-          style={{ fontSize: "0.7rem", height: "60px" }}
+          className="bg-white justify-content-center px-auto align-items-center"
+          style={{ fontSize: "0.7rem", height: "60px"}}
         >
-          <Row className="d-flex justify-content-center ">
-            <Col className="col-9 d-flex align-items-center pe-0">
-              <div className="d-flex align-items-center ">
+          <Row className="d-flex justify-content-center px-2 mx-0 ">
+            <Col className="d-flex align-items-center pe-0">
+              <div>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                   <Nav
@@ -186,12 +186,14 @@ const MyNavbar = () => {
 														</NavDropdown.Item>
 
 														<NavDropdown.Item href='#action4'>
+															<Link to="/MyProfile" className='text-decoration-none'>
 															<Button
 																className=' d-flex justify-content-center align-items-center  rounded-pill w-100 px-auto '
 																variant='outline-primary'
 																style={{ height: '25px' }}>
-																visualizza profilo
+																Visualizza profilo
 															</Button>
+															</Link>
 														</NavDropdown.Item>
 														<NavDropdown.Item href='#action5'>
 															<h6 className='fw-bold border-top pt-2'>Account</h6>
@@ -242,9 +244,9 @@ const MyNavbar = () => {
 									</Nav>
 								</Navbar.Collapse>
 							</div>
-						</Col>
+			</Col>
 
-						<Col className='col-3 d-flex align-items-center position-relative'>
+			<Col className='col-3 d-flex align-items-center position-relative'>
 							<div className='d-flex justify-content-between align-items-center '>
 								<div className='d-flex justify-content-end mt-3'>
 									<div className='text-center' onClick={toggleOffcanvas}>
@@ -403,11 +405,11 @@ const MyNavbar = () => {
 									Prova Premium per 0 EUR
 								</NavLink>
 							</div>
-						</Col>
-					</Row>
-				</Navbar>
 			</Col>
-		</Row>
+		  </Row>
+		</Navbar>
+	  </Col>
+	</Row>
 	);
 };
 
