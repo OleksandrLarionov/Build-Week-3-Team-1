@@ -4,8 +4,8 @@ import { BsFillCaretDownFill } from 'react-icons/bs'
 const FooterHome = () => {
   return (
     <>
-      <Container className="pt-4 footer-text text-secondary text-decoration-none">
-        <Row className="flex-nowrap flex-column lh-sm">
+      <Container className=" pt-4 footer-text text-secondary text-decoration-none">
+        <Row className="flex-nowrap flex-column lh-sm w-100 mx-0">
           <Col className="d-flex flex-wrap justify-content-around">
             <p>Informazioni</p>
             <p>Accessibilità</p>
