@@ -12,7 +12,9 @@ body {
 	width: 100% !important;
 	font-family: 'Proxima Nova', sans-serif !important;
 }
-
+#modalEditor {
+	width: 100px;
+}
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
@@ -56,48 +58,47 @@ code {
 .black:hover {
 	color: black !important;
 	font-size: 30px !important;
-  }
-  #link {color: #5c3b09;
-	text-decoration:underline
-  }
-  #link:hover{
+}
+#link {
+	color: #5c3b09;
+	text-decoration: underline;
+}
+#link:hover {
 	color: black !important;
-	text-decoration:underline !important
-  
-  }
-  #moreBig:hover{
-	width: 30px ;
-	height: 30px ;
-  }
+	text-decoration: underline !important;
+}
+#moreBig:hover {
+	width: 30px;
+	height: 30px;
+}
 
 @media screen and (max-width: 766px) {
-.small{
-position:absolute;
-top:10px;
-left:30px;
-}
-.smallOne,.smallTwo{
-display:none;
-}
-.listSmall{
-width:70%;
-position: absolute;
-top:10px;
-right:0
-
-}
-.toHide{
-	display:none
-}
-.goingDown{
-	position: absolute!important;
-	top:35px !important;
-	right:25px !important;
-
-}
-.scrolled{
-	display: none!important;
-}
+	.small {
+		position: absolute;
+		top: 10px;
+		left: 30px;
+	}
+	.smallOne,
+	.smallTwo {
+		display: none;
+	}
+	.listSmall {
+		width: 70%;
+		position: absolute;
+		top: 10px;
+		right: 0;
+	}
+	.toHide {
+		display: none;
+	}
+	.goingDown {
+		position: absolute !important;
+		top: 35px !important;
+		right: 25px !important;
+	}
+	.scrolled {
+		display: none !important;
+	}
 }
 
 /* ELEMENTO A SCOMPARSA */

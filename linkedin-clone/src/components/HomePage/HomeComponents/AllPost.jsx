@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Card, Form, Button, Row, Col } from 'react-bootstrap';
 import { FcCalendar, FcPicture, FcTemplate } from 'react-icons/fc';
 import { useSelector } from 'react-redux';
+import ModalImagePost from '../../modal/ModalImagePost';
 const API_URL = 'https://striveschool-api.herokuapp.com/api/posts/';
 
 const MyPostComponents = () => {
 	const [posts, setPosts] = useState([]);
 	const [newPostText, setNewPostText] = useState('');
 	const user = useSelector((state) => state.user.userData);
-	const [formImg, setFormImg] = useState(null);
+	const formImg = useSelector((state) => state.post.postEditor);
 
 	const postImg = async (id_post) => {
 		const userExpApi = `https://striveschool-api.herokuapp.com/api/posts/${id_post}`;
@@ -74,9 +75,10 @@ const MyPostComponents = () => {
 			console.log('Errore', error);
 		}
 	};
-
+	const [modalShow, setModalShow] = useState(false);
 	return (
 		<>
+			<ModalImagePost show={modalShow} onHide={() => setModalShow(false)} />
 			<Row className='px-0 mb-1 border rounded-3 m-2 flex-column py-3 elements'>
 				<Col className='d-flex align-items-center'>
 					<img
@@ -102,19 +104,6 @@ const MyPostComponents = () => {
 								Invia Post
 							</Button>
 						</Form.Group>
-						<Form.Group className='mb-3'>
-							<Form.Control
-								type='file'
-								onChange={(e) => {
-									const file = e.target.files[0];
-									if (file) {
-										const formData = new FormData();
-										formData.append('post', file);
-										setFormImg(formData);
-									}
-								}}
-							/>
-						</Form.Group>
 					</Form>
 				</Col>
 
@@ -123,7 +112,7 @@ const MyPostComponents = () => {
 						<Col className='d-flex justify-content-between'>
 							<div className='d-flex align-items-center'>
 								<FcPicture className='mb-3 me-2 fs-4' />
-								<p>Contenuti multimediali</p>
+								<p onClick={() => setModalShow(true)}>Contenuti multimediali</p>
 							</div>
 							<div className='d-flex align-items-center'>
 								<FcCalendar className='mb-3 me-2 fs-4' />
