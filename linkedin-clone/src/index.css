@@ -51,6 +51,32 @@ code {
 	z-index:30;
 }
 
+@media screen and (max-width: 766px) {
+.small{
+position:absolute;
+top:10px;
+left:30px;
+}
+.smallOne,.smallTwo{
+display:none;
+}
+.listSmall{
+width:70%;
+position: absolute;
+top:10px;
+right:0
+
+}
+.toHide{
+	display:none
+}
+.goingDown{
+	position: absolute!important;
+	top:35px !important;
+	right:25px !important;
+}
+}
+
 /* ELEMENTO A SCOMPARSA */
 
 .notVisible{
