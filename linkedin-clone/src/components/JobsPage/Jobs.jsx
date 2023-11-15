@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom'
 import { BsXLg } from 'react-icons/bs'
 import SideComponent from './SideComponent'
 import { LuPenSquare } from 'react-icons/lu'
+import FooterHome from '../HomePage/HomeComponents/FooterHome'
+// \src\components\HomePage\HomeComponents\FooterHome.jsx
 
 const Jobs = () => {
   const jobsData = useSelector((state) => state.job.list)
   return (
     <Container>
-      <Row className="mx-0 mt-3 p-3 justify-content-center">
-        <Col className=" text-center">
+      <Row className="mx-0 mt-3 p-3 justify-content-center flex-nowrap">
+        <Col xs={12} md={3} className=" text-center">
           <SideComponent />
 
           <Button
@@ -74,7 +76,9 @@ const Jobs = () => {
             )
           })}
         </Col>
-        <Col></Col>
+        <Col xs={12} md={3}>
+          <FooterHome />
+        </Col>
       </Row>
     </Container>
   )
