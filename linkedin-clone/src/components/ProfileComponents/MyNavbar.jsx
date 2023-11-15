@@ -116,7 +116,7 @@ const MyNavbar = () => {
 												</Link>
 											</div>
 
-											<div className='d-flex flex-column '>
+											<div className='d-flex flex-column'>
 												<Nav.Link href='#'>
 													<p className='text-center mb-0 py-0'>
 														<HiMiniUsers className='fs-4 text-secondary' /><br/>
