@@ -7,7 +7,12 @@ import { fetchPostsAction, postImageAction } from '../../../redux/action/post';
 import { personalkey } from '../../../redux/action/index';
 import {format} from 'date-fns';
 import { it } from 'date-fns/locale';
-
+import scimmia from '../../../scimmia.jpg'
+import procione from '../../../procione.jpeg'
+import { BiLike } from "react-icons/bi";
+import { MdMessage } from "react-icons/md";
+import { GrPowerCycle } from "react-icons/gr";
+import { IoIosSend } from "react-icons/io";
 
 const API_URL = 'https://striveschool-api.herokuapp.com/api/posts/';
 
@@ -92,10 +97,10 @@ const MyPostComponents = () => {
 				</Col>
 			</Row>
 			<hr className='mx-2' />
-      <Row className='mx-1 mt-3'>
+      <Row className='mx-2 mt-3' >
 {
-  posts.map((data) => (<Col className='col-12' key={data._id}>
-    <Card className="mb-2">
+  posts.map((data) => (<Col className='col-12 elements mb-4' key={data._id} >
+    <Card className="mb-2 border-0" >
         <Row className='p-3 '>
             <Col xs={2}  className='ps-2 pe-0 text-center'> <img
             src={ data.user.image ? `${data.user.image}`:`${scimmia}`}
@@ -108,18 +113,29 @@ const MyPostComponents = () => {
           /></Col>
           <Col  xs={10} className='ps-1'>
           <p className="fw-bold mb-0 " style={{fontSize:'1rem'}}>
-          {data.user.name} {data.user.surname}
+          {data.user.name ? `${data.user.name}`:`${data.user.username}`} {data.user.surname  ? `${data.user.surname}`:``}
           </p>
-          <p className="text-secondary lh-1 mb-1" style={{fontSize:'0.8rem'}}> {data.user.title}</p>
+          <p className="text-secondary lh-1 mb-1" style={{fontSize:'0.8rem'}}> {data.user.title? `${data.user.title}`:`Developer`}</p>
           <p className="text-secondary lh-1 mb-0" style={{fontSize:'0.7rem'}}>{format(new Date(data.createdAt), "dd MMMM yyyy- HH:mm", { locale: it })}</p>
           </Col>
+		  
           </Row>
     
       <Card.Body>
         <Card.Text>{data.text}</Card.Text>
-        <Card.Img className='image-fluid' src={data.image} alt="" />
+        <Card.Img className='image-fluid' src={data.image ? `${data.image}`:`${procione}` } alt="" />
       </Card.Body>
-    </Card></Col>
+    </Card>
+	<Col>
+	<Row className='text-center border-top p-2 align-items-center'>
+		<Col className='iconN d-flex pt-2'><BiLike className='fs-4'/><p style={{fontSize:'0.9rem'}} className='ps-1'>Consiglia</p></Col>
+		<Col className='iconN d-flex pt-2'><MdMessage className='fs-4'/><p style={{fontSize:'0.9rem'}} className='ps-1'>Commenta</p></Col>
+		<Col className='iconN d-flex pt-2'><GrPowerCycle className='fs-4'/><p style={{fontSize:'0.9rem'}} className='ps-1'>Diffondi</p></Col>
+		<Col className='iconN d-flex pt-2'><IoIosSend className='fs-4'/><p style={{fontSize:'0.9rem'}} className='ps-1'>Invia</p></Col>
+	</Row>
+	</Col>
+	</Col>
+	
   ))}</Row>
 		</>
 	);

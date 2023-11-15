@@ -137,3 +137,9 @@ code {
 	text-decoration: underline !important;
 	color: blue !important;
 }
+ /* POST */
+
+ .iconN:hover{
+	scale: 1.1;
+	color: black
+ }
