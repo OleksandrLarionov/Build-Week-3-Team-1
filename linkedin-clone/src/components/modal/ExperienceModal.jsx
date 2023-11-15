@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { key } from '../../redux/action';
+import { personalkey } from '../../redux/action';
 const ExperienceModal = (props) => {
 	const [formImg, setFormImg] = useState(null);
 	const [dataExp, setDataExp] = useState({
@@ -21,7 +21,7 @@ const ExperienceModal = (props) => {
 				method: 'POST',
 				body: JSON.stringify(dataExp),
 				headers: {
-					Authorization: key,
+					Authorization: personalkey,
 					'Content-Type': 'application/json',
 				},
 			});
@@ -43,7 +43,7 @@ const ExperienceModal = (props) => {
 				method: 'POST',
 				body: formImg,
 				headers: {
-					Authorization: key,
+					Authorization: personalkey,
 				},
 			});
 		} catch (error) {

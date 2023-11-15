@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Form, Button, Row, Col } from 'react-bootstrap';
+import { Card, Form, Button, Row, Col } from 'react-bootstrap';
 import { FcCalendar, FcPicture, FcTemplate } from 'react-icons/fc';
 import { useDispatch, useSelector } from 'react-redux';
 import ModalImagePost from '../../modal/ModalImagePost';
@@ -11,6 +12,11 @@ import { it } from 'date-fns/locale';
 const API_URL = 'https://striveschool-api.herokuapp.com/api/posts/';
 
 const MyPostComponents = () => {
+	const [newPostText, setNewPostText] = useState('');
+	const user = useSelector((state) => state.user.userData);
+	const formImg = useSelector((state) => state.post.postEditor);
+	const posts = useSelector((state) => state.post.posts);
+	const dispatch = useDispatch();
 	const [newPostText, setNewPostText] = useState('');
 	const user = useSelector((state) => state.user.userData);
 	const formImg = useSelector((state) => state.post.postEditor);
