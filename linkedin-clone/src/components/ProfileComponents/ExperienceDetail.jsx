@@ -27,7 +27,7 @@ const ExperienceDetail = () => {
 			<ExperienceModal show={modalSnow} onHide={() => setModalSnow(false)} />;<Col md={3}></Col>
 			<Col md={6}>
 				{' '}
-				<Row className='elements mb-1 pb-3'>
+				<Row className='elements '>
 					<Col className='col-12 d-flex align-items-center justify-content-between pb-3'>
 						<span className='fw-bold fs-5 pt-3 mb-0'>
 							<Link to='/MyProfile'>
@@ -61,7 +61,9 @@ const ExperienceDetail = () => {
 								.reverse()
 								.map((oneExp, i) => {
 									return (
-										<ListGroup.Item key={oneExp._id}>
+										<ListGroup.Item
+											key={oneExp._id}
+											className='border-0 border-bottom border-1'>
 											<Row>
 												<Col className='col-2 display-4'>
 													<img src={oneExp.image} alt={i} width={100} />
