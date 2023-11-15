@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import OneUser from '../oneUser';
+import OneUser from '../AsideComponents/oneUser';
 import { ListGroup, Modal } from 'react-bootstrap';
 import { changeModalAction } from '../../redux/action';
 const ModalProfiles = () => {

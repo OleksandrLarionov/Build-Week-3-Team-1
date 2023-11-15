@@ -1,12 +1,12 @@
-import { Row, Col, DropdownButton, Dropdown, Button } from 'react-bootstrap';
+import { Row, Col, DropdownButton, Dropdown} from 'react-bootstrap';
 import { ImPencil } from 'react-icons/im';
 import { BsPlus } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { getUserExperience } from '../../redux/action/experience';
+import { getUserExperience } from '../../../redux/action/experience';
 import { FaBriefcase } from 'react-icons/fa';
 import { BsCalendarDate } from 'react-icons/bs';
-import ExperienceModal from '../modal/ExperienceModal';
+import ExperienceModal from '../../modal/ExperienceModal';
 import { parseISO, format } from 'date-fns';
 import { it } from 'date-fns/locale';
 

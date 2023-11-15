@@ -20,24 +20,12 @@ code {
 	border-radius: 8px;
 }
 
-.modal-content.people {
-	max-width: 600px;
-	min-width: 400px;
-	height: 600px;
+.modal-content {
+	min-width: 600px;
+	height: 700px;
 }
 
-/*  nav dropdown */
-.custom-dropdown .dropdown-menu {
-	left: auto !important;
-	right: -100%;
-	transform-origin: top right;
-}
-.custom-dropdown .dropdown-menu.show {
-	transform: translateX(calc(-5%)), translateY(calc(-100%)) !important;
-	width: 250px;
-}
-
-/* Navbar */
+/* NAVBAR */
 
 #navbarScrollingDropdown {
 	padding-top: 0 !important;
@@ -57,6 +45,35 @@ code {
 	text-decoration: none !important;
 	color: black !important;
 }
+.mynav{
+	position:sticky;
+	top:0;
+	z-index:30;
+}
+
+/* ELEMENTO A SCOMPARSA */
+
+.notVisible{
+	position:absolute;
+	top:0;
+	opacity:0;
+	width:100%;
+	
+}
+.scrolled{
+	position:sticky;
+	top:60px;
+	z-index:20;
+	transition: 1s ease-in-out
+}
+
+/* ASIDE */
+
+.adv{
+	position: sticky;
+	top:110px
+}
+
 /* FOOTER */
 
 .here > a {
