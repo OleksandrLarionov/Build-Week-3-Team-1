@@ -74,7 +74,7 @@ const ExperienceModal = (props) => {
 			<Modal.Header closeButton>
 				<Modal.Title id='contained-modal-title-vcenter'>Aggiungi esperienza</Modal.Title>
 			</Modal.Header>
-			<p>* Indica che è obbligatorio</p>
+			<p className='ps-2 mb-0'> * Indica che è obbligatorio</p>
 			<Modal.Body>
 				<Container>
 					<Row>
@@ -82,8 +82,9 @@ const ExperienceModal = (props) => {
 							<Form onSubmit={sendAllExp}>
 								{' '}
 								<Form.Group md='12'>
-									<Form.Label>Qualifica*</Form.Label>
+									<Form.Label className='mb-0'>Qualifica*</Form.Label>
 									<Form.Control
+									    className='mb-2'
 										required
 										type='text'
 										placeholder='Esempio: Retail Sales Manager'
@@ -94,7 +95,7 @@ const ExperienceModal = (props) => {
 										}}
 									/>
 								</Form.Group>
-								<p>Tipo di impiego</p>
+								<p className='mb-0'>Tipo di impiego</p>
 								<Form.Select aria-label='tipo di impiego'>
 									<option>seleziona</option>
 									<option value='1'>A tempo pieno</option>
@@ -105,13 +106,14 @@ const ExperienceModal = (props) => {
 									<option value='6'>Apprendistato</option>
 									<option value='7'>Stagionale</option>
 								</Form.Select>
-								<p>
+								<p className='mb-3' style={{fontSize:'0.8rem'}}>
 									Scopri di più sui{' '}
 									<span className='fw-bold text-primary'>tipi di impiego</span>
 								</p>
 								<Form.Group md='12'>
-									<Form.Label>Nome azienda*</Form.Label>
+									<Form.Label className='mb-0'>Nome azienda*</Form.Label>
 									<Form.Control
+									className='mb-3'
 										required
 										type='text'
 										placeholder='Esempio: Microsoft'
@@ -123,8 +125,9 @@ const ExperienceModal = (props) => {
 									/>
 								</Form.Group>
 								<Form.Group md='12'>
-									<Form.Label>Località*</Form.Label>
+									<Form.Label className='mb-0'>Località*</Form.Label>
 									<Form.Control
+									className='mb-3'
 										required
 										type='text'
 										placeholder='Esempio: Milano, Italia'
@@ -135,23 +138,25 @@ const ExperienceModal = (props) => {
 										}}
 									/>
 								</Form.Group>
-								<p>Tipo di impiego</p>
+								<p className='mb-0'>Tipo di impiego</p>
 								<Form.Select aria-label='tipo di impiego'>
 									<option>seleziona</option>
 									<option value='1'>In sede</option>
 									<option value='2'>Ibrida</option>
 									<option value='3'>Da remoto</option>
 								</Form.Select>
-								<p>Scopri di più sui Scegli un tipo di località (es. da remoto)</p>
+								<p style={{fontSize:'0.8rem'}}>Scopri di più sui Scegli un tipo di località (es. da remoto)</p>
 								<Form.Check // prettier-ignore
+									className='mb-3'
 									type='checkbox'
 									label='Attualmente ricopro questo ruolo'
 								/>
 								<Row>
 									<Col>
 										<Form.Group md='12'>
-											<Form.Label>Data di inizio*</Form.Label>
+											<Form.Label className='mb-0'>Data di inizio*</Form.Label>
 											<Form.Control
+											className='mb-3'
 												required
 												type='date'
 												placeholder='Esempio: Milano, Italia'
@@ -165,8 +170,8 @@ const ExperienceModal = (props) => {
 									</Col>
 								</Row>
 								<Row>
-									<p>Data di fine*</p>
-									<Col>
+									<p className='mb-0'>Data di fine*</p>
+									<Col  className='mb-3'>
 										{' '}
 										<Form.Select aria-label='tipo di impiego'>
 											<option>Mese</option>
@@ -192,7 +197,7 @@ const ExperienceModal = (props) => {
 									</Col>
 								</Row>
 								<Form.Group md='12'>
-									<Form.Label>Descrizione*</Form.Label>
+									<Form.Label  className='mb-0'>Descrizione*</Form.Label>
 									<Form.Control
 										required
 										as='textarea'
