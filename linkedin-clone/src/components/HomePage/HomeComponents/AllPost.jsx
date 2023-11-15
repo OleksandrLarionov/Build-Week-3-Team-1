@@ -107,16 +107,35 @@ const MyPostComponents = () => {
         </Row>
       </Col>
     </Row>
-
+    <hr className='mx-2'/>
+    <Row className='mx-1 mt-3'>
     {
-      posts.map((post) => (
-        <Card key={post._id} className="mb-3">
+      posts.map((data) => (<Col className='col-12' key={data._id}>
+        <Card className="mb-2">
+            <Row className='p-3 '>
+                <Col xs={1}> <img
+                src={data.user.image}
+                alt="profile"
+                style={{
+                  height: "35px",
+                  width: "35px",
+                  borderRadius: "10px",
+                }}
+              /></Col>
+              <Col  xs={11}>
+              <p className="fw-bold mb-0" style={{fontSize:'0.9rem'}}>
+              {data.user.username}
+              </p>
+              <p className="text-secondary lh-1 mb-0" style={{fontSize:'0.8rem'}}> {data.user.title}</p>
+              </Col>
+              </Row>
+        
           <Card.Body>
-            <Card.Title>{post.username}</Card.Title>
-            <Card.Text>{post.text}</Card.Text>
+            <Card.Text>{data.text}</Card.Text>
+            <Card.Img className='image-fluid' src={data.image} alt="" />
           </Card.Body>
-        </Card>
-      ))}
+        </Card></Col>
+      ))}</Row>
     </>
   );
 };
