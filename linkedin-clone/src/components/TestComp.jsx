@@ -131,7 +131,7 @@ const TestComp = () => {
 	// 						setDataUser({ ...dataUser, area: e.target.value });
 	// 					}}
 	// 				/>
-	// 			</Form.Group>
+	// </Form.Group>
 	// 			<Form.Group className='mb-3'>
 	// 				<Form.Control
 	// 					type='file'
@@ -166,7 +166,7 @@ const TestComp = () => {
 	// 				Sub
 	// 			</Button>
 	// 		</Form>
-	// 	</Container>
+	// // 	</Container>
 	// );
 };
 
