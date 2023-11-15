@@ -31,7 +31,7 @@ const MyPostComponents = () => {
 
   useEffect(() => {
     fetchPosts();
-  }, []); 
+  }, [newPostText]); 
     
   const handlePostSubmit = () => {
     fetch(API_URL, {
@@ -69,7 +69,7 @@ const MyPostComponents = () => {
         </Button>
       </Form>
 
-      {posts.map((post) => (
+      {!newPostText && posts.map((post) => (
         <Card key={post._id} className="mb-3">
           <Card.Body>
             <Card.Title>{post.username}</Card.Title>
