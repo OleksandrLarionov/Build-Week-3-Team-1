@@ -254,7 +254,7 @@ const MyNavbar = () => {
 																	<br /> offerte di lavoro
 																</p>
 															</NavLink>
-															<h6 className='pt-3 fw-bold border-top pt-2'>Esci</h6>
+															<Link to='/Access' className='pt-3 fw-bold border-top pt-2'>Esci</Link>
 														</NavDropdown.Item>
 													</NavDropdown>
 												</div>

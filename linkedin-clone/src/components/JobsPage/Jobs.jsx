@@ -5,10 +5,13 @@ import { BsXLg } from 'react-icons/bs'
 import SideComponent from './SideComponent'
 import { LuPenSquare } from 'react-icons/lu'
 import FooterHome from '../HomePage/HomeComponents/FooterHome'
+import MyNavbar from '../ProfileComponents/MyNavbar'
 
 const Jobs = () => {
   const jobsData = useSelector((state) => state.job.list)
   return (
+ <>
+ <MyNavbar/> 
  
       <Row className="mx-0 mt-3 pt-3 justify-content-center">
         <Col xs={12} sm={10} md={4} lg={3} xl={2} className=" text-center me-md-2">
@@ -83,7 +86,7 @@ const Jobs = () => {
         </Col>
       </Row>
 
-  )
+      </>)
 }
 
 export default Jobs

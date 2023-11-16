@@ -6,14 +6,16 @@ export const changeModalAction = (state) => ({
 	type: SET_MODAL,
 	payload: state,
 });
+ 
 // Profile Data
 // Per Cambiare il profilo sostituire i dati dell'export con quelli del profilo desiderato in 'Users'
 // Per adesso va bene cosi XD ...
-export const personalUserID = '6551ed02c55e7e0018f83c08';
+/* export const personalUserID = '6551ed02c55e7e0018f83c08';
 export const personalkey =
-	'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZWQwMmM1NWU3ZTAwMThmODNjMDgiLCJpYXQiOjE2OTk4Njc5MDYsImV4cCI6MTcwMTA3NzUwNn0.Q_UCqIM2owNxT5H9RkciUy-DDltNMR2UqPnh6aI11oo';
+	'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZWQwMmM1NWU3ZTAwMThmODNjMDgiLCJpYXQiOjE2OTk4Njc5MDYsImV4cCI6MTcwMTA3NzUwNn0.Q_UCqIM2owNxT5H9RkciUy-DDltNMR2UqPnh6aI11oo'; */
 
-const Users = {
+/* const Users = {
+
 	alex: {
 		personalUserID: '6551e7bbc55e7e0018f83bfb',
 		personalkey:
@@ -40,9 +42,10 @@ const Users = {
 			'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZWQwMmM1NWU3ZTAwMThmODNjMDgiLCJpYXQiOjE2OTk4Njc5MDYsImV4cCI6MTcwMTA3NzUwNn0.Q_UCqIM2owNxT5H9RkciUy-DDltNMR2UqPnh6aI11oo',
 	},
 };
-
+ */
 // end profile data
-export const getAllProfilesDataAction = (me = '') => {
+export const getAllProfilesDataAction = (me = '', personalkey) => {
+    
 	return async (dispatch) => {
 		const profileApiList = `https://striveschool-api.herokuapp.com/api/profile/${me}`;
 		try {
@@ -64,11 +67,11 @@ export const getAllProfilesDataAction = (me = '') => {
 				throw new Error('Errore nel download dei dati profilo');
 			}
 		} catch (error) {
-			console.log('Errore', error);
+			console.log('Errore', error,);
 		}
 	};
 };
-export const modifyUserAction = (form) => {
+export const modifyUserAction = (form, personalkey) => {
 	return async (dispatch) => {
 		const userModify = `https://striveschool-api.herokuapp.com/api/profile/`;
 		try {
@@ -92,7 +95,8 @@ export const modifyUserAction = (form) => {
 	};
 };
 
-export const getUserDataAction = () => {
+export const getUserDataAction = (personalUserID, personalkey) => {
+	
 	return async (dispatch) => {
 		const userApiList = `https://striveschool-api.herokuapp.com/api/profile/${personalUserID}`;
 		try {

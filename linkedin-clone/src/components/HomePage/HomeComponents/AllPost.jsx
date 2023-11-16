@@ -4,7 +4,6 @@ import { FcCalendar, FcPicture, FcTemplate } from 'react-icons/fc';
 import { useDispatch, useSelector } from 'react-redux';
 import ModalImagePost from '../../modal/ModalImagePost';
 import { fetchPostsAction, postImageAction } from '../../../redux/action/post';
-import { personalkey } from '../../../redux/action/index';
 import { format } from 'date-fns';
 import { it } from 'date-fns/locale';
 import scimmia from '../../../scimmia.jpg';
@@ -18,6 +17,7 @@ import AddComment from '../HomeComponents/AddComment';
 const API_URL = 'https://striveschool-api.herokuapp.com/api/posts/';
 
 const MyPostComponents = () => {
+  const personalkey = useSelector(state => state.access.key)
   const [newPostText, setNewPostText] = useState('');
   const [showComment, setShowComment] = useState(false); 
   const user = useSelector((state) => state.user.userData);
@@ -26,7 +26,7 @@ const MyPostComponents = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPostsAction());
+    dispatch(fetchPostsAction(personalkey));
   }, []);
 
   const handlePostSubmit = async () => {
@@ -42,7 +42,7 @@ const MyPostComponents = () => {
       if (res.ok) {
         const post = await res.json();
         const id_post = post._id;
-        formImg && dispatch(postImageAction(id_post, formImg));
+        formImg && dispatch(postImageAction(id_post, formImg, personalkey));
       }
     } catch (error) {
       console.log('Errore', error);

@@ -8,15 +8,16 @@ import Modal from 'react-bootstrap/Modal';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { modifyUserAction } from '../../../redux/action';
-import { personalkey } from '../../../redux/action';
-import { personalUserID } from '../../../redux/action';
+
 
 const MainCard = () => {
+	const personalkey = useSelector(state => state.access.key)
+	const personalUserID = useSelector(state => state.access.id)
 	// modal
 	const dispatch = useDispatch();
 	const handreSubmit = async (e) => {
 		e.preventDefault();
-		dispatch(modifyUserAction(dataUser));
+		dispatch(modifyUserAction(dataUser, personalkey));
 	};
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);

@@ -2,9 +2,12 @@ import { useState } from 'react';
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { personalkey } from '../../redux/action';
-import { personalUserID } from '../../redux/action';
+import {  useSelector } from 'react-redux/es/hooks/useSelector';
+
+
 const ExperienceModal = (props) => {
+	const personalkey = useSelector(state => state.access.key)
+	const personalUserID = useSelector(state => state.access.id)
 	const [formImg, setFormImg] = useState(null);
 	const [dataExp, setDataExp] = useState({
 		role: '',

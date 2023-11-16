@@ -12,10 +12,12 @@ import { it } from 'date-fns/locale';
 import { Link } from 'react-router-dom';
 
 const Experience = () => {
+	const personalkey = useSelector(state => state.access.key)
+	const personalUserID = useSelector(state => state.access.id)
 	const dispatch = useDispatch();
 	const getExp = useSelector((state) => state.experience.experienceData);
 	useEffect(() => {
-		dispatch(getUserExperience());
+		dispatch(getUserExperience(personalkey, personalUserID));
 	}, []);
 	const [modalShow, setModalShow] = useState(false);
 	return (
