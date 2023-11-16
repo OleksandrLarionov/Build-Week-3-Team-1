@@ -125,6 +125,15 @@ code {
 	top: 110px;
 }
 
+.hidden {
+	display: none;
+  }
+
+.rotate-icon {
+	transform: rotate(180deg);
+  }
+  
+
 /* FOOTER */
 
 .here > a {

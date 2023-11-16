@@ -217,13 +217,10 @@ const MyNavbar = () => {
 																</Button>
 															</Link>
 														</NavDropdown.Item>
-														<NavDropdown.Item href='#action5'>
-															<h6 className='fw-bold border-top pt-2'>Account</h6>
-															<NavLink
-																className='p-1 '
-																style={{ fontSize: '0.9rem' }}>
-																<p className='lh-1 mb-0'>Prova Premium per 0 EUR</p>
-															</NavLink>
+														<a href='https://premium.linkedin.com/' target='_blank'>
+                                                           Vai a LinkedIn Premium
+                                                        </a>
+														<NavDropdown.Item  >
 															<NavLink
 																className='p-1 '
 																style={{ fontSize: '0.9rem' }}>
@@ -421,12 +418,14 @@ const MyNavbar = () => {
 							</div>
 
 							<div className='smallOne'>
-								<NavLink
-									className='fw-medium text-center px-1 different'
-									id='link'
-									style={{ width: '100px' }}>
-									Prova Premium per 0 EUR
-								</NavLink>
+							<a className='fw-medium text-center px-1 different' id='link'
+                              style={{ width: '100px' }}
+                              href='https://premium.linkedin.com/'
+                              target='_blank'
+                              rel='noopener noreferrer'>
+                             Prova Premium per 0 EUR
+                            </a>
+
 							</div>
 						</Col>
 					</Row>
