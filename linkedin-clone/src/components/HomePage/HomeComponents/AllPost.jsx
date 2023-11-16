@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { Card, Form, Button, Row, Col } from 'react-bootstrap';
-import { FcCalendar, FcPicture, FcTemplate } from 'react-icons/fc';
-import { useDispatch, useSelector } from 'react-redux';
-import ModalImagePost from '../../modal/ModalImagePost';
-import { fetchPostsAction, postImageAction } from '../../../redux/action/post';
-import { personalkey } from '../../../redux/action/index';
-import {format} from 'date-fns';
-import { it } from 'date-fns/locale';
+import React, { useEffect, useState } from 'react'
+import { Card, Form, Button, Row, Col } from 'react-bootstrap'
+import { FcCalendar, FcPicture, FcTemplate } from 'react-icons/fc'
+import { useDispatch, useSelector } from 'react-redux'
+import ModalImagePost from '../../modal/ModalImagePost'
+import { fetchPostsAction, postImageAction } from '../../../redux/action/post'
+import { personalkey } from '../../../redux/action/index'
+import { format } from 'date-fns'
+import { it } from 'date-fns/locale'
 import scimmia from '../../../scimmia.jpg'
 import procione from '../../../procione.jpeg'
-import { BiLike } from "react-icons/bi";
-import { MdMessage } from "react-icons/md";
-import { GrPowerCycle } from "react-icons/gr";
-import { IoIosSend } from "react-icons/io";
+import { BiLike } from 'react-icons/bi'
+import { MdMessage } from 'react-icons/md'
+import { GrPowerCycle } from 'react-icons/gr'
+import { IoIosSend } from 'react-icons/io'
 
-const API_URL = 'https://striveschool-api.herokuapp.com/api/posts/';
+const API_URL = 'https://striveschool-api.herokuapp.com/api/posts/'
 
 const MyPostComponents = () => {
-	const [newPostText, setNewPostText] = useState('');
-	const user = useSelector((state) => state.user.userData);
-	const formImg = useSelector((state) => state.post.postEditor);
-	const posts = useSelector((state) => state.post.posts);
-	const dispatch = useDispatch();
+  const [newPostText, setNewPostText] = useState('')
+  const user = useSelector((state) => state.user.userData)
+  const formImg = useSelector((state) => state.post.postEditor)
+  const posts = useSelector((state) => state.post.posts)
+  const dispatch = useDispatch()
 
 	useEffect(() => {
 		dispatch(fetchPostsAction());
@@ -49,7 +49,7 @@ const MyPostComponents = () => {
 	return (
 		<>
 			<ModalImagePost show={modalShow} onHide={() => setModalShow(false)} />
-			<Row className='px-0 mb-1 border rounded-3 m-2 flex-column py-3 elements'>
+			<Row className='px-0 mb-1 border rounded-3 m-2 flex-column py-3 elements mx-0'>
 				<Col className='d-flex align-items-center'>
 					<img
 						src={user[0]?.image}
@@ -61,43 +61,44 @@ const MyPostComponents = () => {
 							border: '3px solid white',
 						}}
 					/>
-					<Form>
-						<Form.Group className='d-flex'>
+					<Form className='flex-grow-1'>
+						<Form.Group className='d-flex align-items-center justify-content-between grow-1' >
 							<Form.Control
+							style={{height:'40px', fontSize:'1rem'}}
 								type='text'
 								placeholder='Avvia un post'
-								className='rounded-pill w-100 ms-2'
+								className='rounded-pill  ms-2 py-0 pe-5 '
 								value={newPostText}
 								onChange={(e) => setNewPostText(e.target.value)}
 							/>
-							<Button variant='primary' onClick={handlePostSubmit}>
-								Invia Post
+							<Button variant='primary' onClick={handlePostSubmit} className='rounded-pill ms-2'>
+								Pubblica 
 							</Button>
 						</Form.Group>
 					</Form>
 				</Col>
 
-				<Col className='d-flex  w-100 justify-content-center pt-3'>
+				<Col className='d-flex  w-100 justify-content-around pt-3'>
 					<Row className='w-100 text-secondary'>
-						<Col className='d-flex justify-content-between'>
+						<Col className='d-flex fw-bold justify-content-between'>
 							<div className='d-flex align-items-center'>
-								<FcPicture className='mb-3 me-2 fs-4' />
-								<p onClick={() => setModalShow(true)}>Contenuti multimediali</p>
+								<FcPicture className='mb-3 me-2 fs-4 ' />
+								<p className='lh-1 iconN' onClick={() => setModalShow(true)}>Contenuti multimediali</p>
 							</div>
 							<div className='d-flex align-items-center'>
-								<FcCalendar className='mb-3 me-2 fs-4' />
-								<p>Evento</p>
+								<FcCalendar className='mb-3 me-2 fs-4 ' />
+								<p className='lh-1 iconN'>Evento</p>
 							</div>
 							<div className='d-flex align-items-center'>
-								<FcTemplate className='mb-3 me-2 fs-4' />
-								<p>Scrivi un articolo</p>
+								<FcTemplate className='mb-3 me-2 fs-4 ' />
+								<p className='lh-1 iconN'>Scrivi un articolo</p>
 							</div>
 						</Col>
 					</Row>
 				</Col>
 			</Row>
 			<hr className='mx-2' />
-      <Row className='mx-2 mt-3' >
+      <Row className='mt-3 mx-0' >
 {
   posts.map((data) => (<Col className='col-12 elements mb-4' key={data._id} >
     <Card className="mb-2 border-0" >
@@ -141,10 +142,4 @@ const MyPostComponents = () => {
 	);
 };
 
-export default MyPostComponents;
-
-
-
-
-
-
+export default MyPostComponents

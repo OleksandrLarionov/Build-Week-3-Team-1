@@ -95,9 +95,19 @@ code {
 	}
 	.goingDown {
 		position: absolute !important;
-		top: 35px !important;
+		top: 28px !important;
 		right: 25px !important;
 	}
+	.goingDown:hover {
+		width: 30px;
+	    height: 30px;
+	}
+	.goingDown2 {
+		position: absolute !important;
+		top: 5px !important;
+		right: 20px !important;
+	}
+	
 	.scrolled {
 		display: none !important;
 	}
@@ -115,7 +125,7 @@ code {
 	position: sticky;
 	top: 60px;
 	z-index: 20;
-	transition: 1s ease-in-out;
+	transition: 1.5s ease-in-out;
 }
 
 /* ASIDE */

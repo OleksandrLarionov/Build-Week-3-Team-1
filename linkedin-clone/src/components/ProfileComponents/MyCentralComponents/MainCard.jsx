@@ -239,7 +239,8 @@ const MainCard = () => {
 										<PiStudent className='fs-5 ' />
 									</Col>
 									<Col>
-										<p> SCHOOL </p>
+										<p> Istituto di sanità mentale<br/>
+											Laurea con lode </p>
 									</Col>
 								</Row>
 							</Col>

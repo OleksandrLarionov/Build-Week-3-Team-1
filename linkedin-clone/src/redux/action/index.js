@@ -9,9 +9,9 @@ export const changeModalAction = (state) => ({
 // Profile Data
 // Per Cambiare il profilo sostituire i dati dell'export con quelli del profilo desiderato in 'Users'
 // Per adesso va bene cosi XD ...
-export const personalUserID = '6555d9701588010018642c81';
+export const personalUserID = '6551ed02c55e7e0018f83c08';
 export const personalkey =
-	'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTU1ZDk3MDE1ODgwMTAwMTg2NDJjODEiLCJpYXQiOjE3MDAxMjUwNDAsImV4cCI6MTcwMTMzNDY0MH0.azwLh0YiJzuA7zdCnVxC3ngpenHXP12ENW8i_qBpo38';
+	'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZWQwMmM1NWU3ZTAwMThmODNjMDgiLCJpYXQiOjE2OTk4Njc5MDYsImV4cCI6MTcwMTA3NzUwNn0.Q_UCqIM2owNxT5H9RkciUy-DDltNMR2UqPnh6aI11oo';
 
 const Users = {
 	alex: {

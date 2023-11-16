@@ -19,10 +19,10 @@ const Education = () => {
         </Col>
         <Col className="col-7">
         <p className="fw-bold mb-0" style={{ fontSize: "0.9rem" }}>
-            SCHOOL
+            Pazza, laureata con lode
           </p>
         <p className="mb-0" style={{ fontSize: "0.8rem" }}>
-            Indirizzo di studi
+            Istituto di sanità mentale
           </p>
         <p className="mb-0 text-secondary" style={{ fontSize: "0.8rem" }}>
            sett 2012 - mar 2017
