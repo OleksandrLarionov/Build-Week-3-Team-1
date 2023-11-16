@@ -45,14 +45,14 @@ const MyNavbar = () => {
 	};
 
 	return (
-		<Row className='justify-content-cente mb-3 mynav'>
+		<Row className='justify-content-cente mb-3 mynav col-12'>
 			<Col className='p-0 '>
 				<Navbar
 					expand='md'
 					className='bg-white justify-content-center px-auto align-items-center'
 					style={{ fontSize: '0.7rem', height: '60px' }}>
 					<Row className='d-flex justify-content-center px-2 mx-0 '>
-						<Col className='d-flex align-items-center pe-0 '>
+						<Col className='d-flex align-items-center pe-0'>
 							<div>
 								<Navbar.Toggle aria-controls='navbarScroll' className='small' />
 								<Navbar.Collapse id='navbarScroll'>
@@ -74,7 +74,7 @@ const MyNavbar = () => {
 											</Navbar.Brand>
 
 											<Form
-												style={{ width: '99%' }}
+												// style={{ width: '99%' }}
 												className='me-5 smallOne'
 												onSubmit={handleSubmit}>
 												<Link to='/jobs' className='text-decoration-none'>
