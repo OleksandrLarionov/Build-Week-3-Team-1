@@ -149,7 +149,9 @@ code {
 .here > a {
 	text-decoration: none !important;
 	display: block;
-	line-height: 1.8rem;
+	line-height: 1rem;
+	margin-bottom: 1rem;
+
 	color: rgb(99, 105, 113) !important;
 }
 .here > a:hover {

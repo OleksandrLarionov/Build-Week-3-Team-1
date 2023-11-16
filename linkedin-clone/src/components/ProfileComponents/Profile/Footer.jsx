@@ -8,8 +8,9 @@ import {
 
 const Footer = () => {
   return (
-        <Row className="mx-0 mt-5 text-secondary" style={{fontSize:'0.8rem'}}>
-          <Col className='col-7 lh-1' >
+    <>
+        <Row  className="mx-0 mt-5 text-secondary justify-content-center" style={{fontSize:'0.8rem'}}>
+          <Col  className=' lh-1 me-5' xs={11} sm={5} lg={5} xxl={3} >
             <Row className='justify-content-around fw-bold '>
               <Col sm={4} className='here'>
                 <a href='#'>Informazioni</a>
@@ -35,7 +36,7 @@ const Footer = () => {
               </Col>
             </Row>
           </Col>
-          <Col className='col-5 '>
+          <Col xs={12} sm={5} md={4} >
             <Row className="flex-column flex-md-row">
               <Col>
                 <div className="d-flex">
@@ -88,11 +89,14 @@ const Footer = () => {
             </Row>
           </Col>
           <br/>
-          <Col className="mt-2 ps-5">
-            <p>LinkedIn Corporation © {new Date().getFullYear()}</p>
+          
+        </Row>
+        <Row className='mx-0 mb-3 me-5 justify-content-center'>
+          <Col xs={11} sm={10}  lg={9} xxl={7} className="mt-2 ">
+            <p style={{fontSize:'0.8rem'}}>LinkedIn Corporation © {new Date().getFullYear()}</p>
           </Col>
         </Row>
-  )
+        </> )
 }
 
 export default Footer
