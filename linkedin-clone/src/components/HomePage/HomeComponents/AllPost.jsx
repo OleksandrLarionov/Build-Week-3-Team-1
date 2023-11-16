@@ -1,31 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Form, Button, Row, Col } from 'react-bootstrap';
+import { Form, Button, Row, Col } from 'react-bootstrap';
 import { FcCalendar, FcPicture, FcTemplate } from 'react-icons/fc';
 import { useDispatch, useSelector } from 'react-redux';
 import ModalImagePost from '../../modal/ModalImagePost';
 import { fetchPostsAction, postImageAction } from '../../../redux/action/post';
 import { personalkey } from '../../../redux/action/index';
-import { format } from 'date-fns';
-import { it } from 'date-fns/locale';
-import scimmia from '../../../scimmia.jpg';
-import procione from '../../../procione.jpeg';
-import { BiLike } from 'react-icons/bi';
-import { MdMessage } from 'react-icons/md';
-import { GrPowerCycle } from 'react-icons/gr';
-import { IoIosSend } from 'react-icons/io';
-import { commentsAction } from '../../../redux/action/commentsAction';
-import AddComment from '../HomeComponents/AddComment';
+import SinglePost from './SinglePost';
 
 const API_URL = 'https://striveschool-api.herokuapp.com/api/posts/';
 
 const MyPostComponents = () => {
 	const [newPostText, setNewPostText] = useState('');
-	const [showComment, setShowComment] = useState(false);
+
 	const user = useSelector((state) => state.user.userData);
 	const formImg = useSelector((state) => state.post.postEditor);
 	const posts = useSelector((state) => state.post.posts);
 	const dispatch = useDispatch();
-
 	useEffect(() => {
 		dispatch(fetchPostsAction());
 	}, []);
@@ -110,82 +100,9 @@ const MyPostComponents = () => {
 			</Row>
 			<hr className='mx-2' />
 			<Row className='mt-3 mx-0'>
-				{posts.map((data) => (
-					<Col className='col-12 elements mb-4' key={data._id}>
-						<Card className='mb-2 border-0'>
-							<Row className='p-3 '>
-								<Col xs={2} className='ps-2 pe-0 text-center'>
-									{' '}
-									<img
-										src={data.user.image ? `${data.user.image}` : `${scimmia}`}
-										alt='profile'
-										style={{
-											height: '45px',
-											width: '45px',
-											borderRadius: '25px',
-										}}
-									/>
-								</Col>
-								<Col xs={10} className='ps-1'>
-									<p className='fw-bold mb-0 ' style={{ fontSize: '1rem' }}>
-										{data.user.name ? `${data.user.name}` : `${data.user.username}`}{' '}
-										{data.user.surname ? `${data.user.surname}` : ``}
-									</p>
-									<p className='text-secondary lh-1 mb-1' style={{ fontSize: '0.8rem' }}>
-										{data.user.title ? `${data.user.title}` : `Developer`}
-									</p>
-									<p className='text-secondary lh-1 mb-0' style={{ fontSize: '0.7rem' }}>
-										{format(new Date(data.createdAt), 'dd MMMM yyyy- HH:mm', {
-											locale: it,
-										})}
-									</p>
-								</Col>
-							</Row>
-
-							<Card.Body>
-								<Card.Text>{data.text}</Card.Text>
-								<Card.Img
-									className='image-fluid'
-									src={data.image ? `${data.image}` : `${procione}`}
-									alt=''
-								/>
-							</Card.Body>
-						</Card>
-						<Col>
-							<Row className='text-center border-top p-2 align-items-center'>
-								<Col className='iconN d-flex pt-2'>
-									<BiLike className='fs-4' />
-									<p style={{ fontSize: '0.9rem' }} className='ps-1'>
-										Consiglia
-									</p>
-								</Col>
-								<Col
-									className='iconN d-flex pt-2'
-									onClick={() => setShowComment(!showComment)}
-									style={{ cursor: 'pointer' }}>
-									<MdMessage className='fs-4' />
-									<p style={{ fontSize: '0.9rem' }} className='ps-1'>
-										Commenta
-									</p>
-								</Col>
-
-								<Col className='iconN d-flex pt-2'>
-									<GrPowerCycle className='fs-4' />
-									<p style={{ fontSize: '0.9rem' }} className='ps-1'>
-										Diffondi
-									</p>
-								</Col>
-								<Col className='iconN d-flex pt-2'>
-									<IoIosSend className='fs-4' />
-									<p style={{ fontSize: '0.9rem' }} className='ps-1'>
-										Invia
-									</p>
-								</Col>
-							</Row>
-							{showComment && <AddComment />}
-						</Col>
-					</Col>
-				))}
+				{posts.map((post) => {
+					return <SinglePost data={post} />;
+				})}
 			</Row>
 		</>
 	);
