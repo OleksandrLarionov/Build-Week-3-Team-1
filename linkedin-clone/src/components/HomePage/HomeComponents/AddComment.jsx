@@ -28,7 +28,7 @@ const CommentList = ({ idPost }) => {
 				const data = await commentData.json();
 				setTimeout(() => {
 					console.log(data);
-					setComment(data.filter((comment) => comment.elementId === idPost));
+					setComment(data.filter((comment) => comment.elementId === idPost).reverse());
 				}, 500);
 			} else {
 				throw new Error('Errore nel download dei dati profilo');
@@ -39,7 +39,6 @@ const CommentList = ({ idPost }) => {
 	};
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-
 		try {
 			const response = await fetch('https://striveschool-api.herokuapp.com/api/comments', {
 				method: 'POST',
@@ -51,12 +50,14 @@ const CommentList = ({ idPost }) => {
 				},
 			});
 			if (response.ok) {
+				singleComment();
 			} else {
 				throw new Error('errore nel salvataggio del commento');
 			}
 		} catch (error) {
 			console.log('error', error);
 		}
+		setPersonalComment({ comment: '', rate: 1, elementId: idPost });
 	};
 
 	useEffect(() => {

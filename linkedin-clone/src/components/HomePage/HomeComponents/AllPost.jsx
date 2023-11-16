@@ -34,6 +34,9 @@ const MyPostComponents = () => {
 				const post = await res.json();
 				const id_post = post._id;
 				formImg && dispatch(postImageAction(id_post, formImg));
+				setInterval(() => {
+					dispatch(fetchPostsAction());
+				}, 500);
 			}
 		} catch (error) {
 			console.log('Errore', error);
