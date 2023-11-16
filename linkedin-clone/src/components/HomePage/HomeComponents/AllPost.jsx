@@ -13,6 +13,7 @@ import { BiLike } from 'react-icons/bi'
 import { MdMessage } from 'react-icons/md'
 import { GrPowerCycle } from 'react-icons/gr'
 import { IoIosSend } from 'react-icons/io'
+import AddComment from '../HomeComponents/AddComment'
 
 const API_URL = 'https://striveschool-api.herokuapp.com/api/posts/'
 
@@ -130,10 +131,13 @@ const MyPostComponents = () => {
 	<Col>
 	<Row className='text-center border-top p-2 align-items-center'>
 		<Col className='iconN d-flex pt-2'><BiLike className='fs-4'/><p style={{fontSize:'0.9rem'}} className='ps-1'>Consiglia</p></Col>
-		<Col className='iconN d-flex pt-2'><MdMessage className='fs-4'/><p style={{fontSize:'0.9rem'}} className='ps-1'>Commenta</p></Col>
+		<Col className='iconN d-flex pt-2'><MdMessage className='fs-4'/><p style={{fontSize:'0.9rem'}} className='ps-1'>Commenta</p>
+		</Col>
+		
 		<Col className='iconN d-flex pt-2'><GrPowerCycle className='fs-4'/><p style={{fontSize:'0.9rem'}} className='ps-1'>Diffondi</p></Col>
 		<Col className='iconN d-flex pt-2'><IoIosSend className='fs-4'/><p style={{fontSize:'0.9rem'}} className='ps-1'>Invia</p></Col>
 	</Row>
+	<AddComment></AddComment>
 	</Col>
 	</Col>
 	
