@@ -61,13 +61,13 @@ const MyPostComponents = () => {
 							border: '3px solid white',
 						}}
 					/>
-					<Form>
+					<Form className='flex-grow-1'>
 						<Form.Group className='d-flex align-items-center justify-content-between grow-1' >
 							<Form.Control
 							style={{height:'40px', fontSize:'1rem'}}
 								type='text'
 								placeholder='Avvia un post'
-								className='rounded-pill w-100 ms-2 py-0 pe-5 '
+								className='rounded-pill  ms-2 py-0 pe-5 '
 								value={newPostText}
 								onChange={(e) => setNewPostText(e.target.value)}
 							/>
