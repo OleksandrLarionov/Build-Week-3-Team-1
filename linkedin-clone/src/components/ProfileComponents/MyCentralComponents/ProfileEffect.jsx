@@ -8,7 +8,7 @@ const ProfileEffect = () => {
 
 	useEffect(() => {
 		const handleScroll = () => {
-			if (window.scrollY > 600) {
+			if (window.scrollY > 300) {
 				setScrolled(true);
 			} else {
 				setScrolled(false);

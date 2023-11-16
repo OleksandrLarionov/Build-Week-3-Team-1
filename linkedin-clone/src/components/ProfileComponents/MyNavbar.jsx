@@ -45,7 +45,7 @@ const MyNavbar = () => {
 	};
 
 	return (
-		<Row className='justify-content-cente mb-3 mynav'>
+		<Row className='justify-content-cente mb-3 mynav border-bottom'>
 			<Col className='p-0 '>
 				<Navbar
 					expand='md'
@@ -101,7 +101,7 @@ const MyNavbar = () => {
 													}
 													to='/'>
 													<p className='text-center mb-0 '>
-														<AiFillHome className='fs-4 text-secondary black' />
+														<AiFillHome className='fs-4 text-secondary black' /><br/>
 														Home
 													</p>
 												</Link>
@@ -175,8 +175,8 @@ const MyNavbar = () => {
 												<div className='d-flex flex-column align-items-center justify-content-center me-2'>
 													<img
 														src={user[0]?.image}
-														alt='profileImage moreBig'
-														className='rounded-pill '
+														alt='profileImage moreBig '
+														className='rounded-pill goingDown2'
 														id='moreBig'
 														width={25}
 														height={25}
@@ -198,7 +198,7 @@ const MyNavbar = () => {
 																</p>
 																<div className='d-flex flex-column'>
 																	<p
-																		className='d-flex lh-1 align-items-center mt-1 mb-1 fw-bold'
+																		className='d-flex lh-1 align-items-center fw-bold'
 																		style={{ fontSize: '1.2rem' }}>
 																		{user[0]?.name} {user[0]?.surname}
 																	</p>
