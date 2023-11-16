@@ -102,8 +102,9 @@ const MyNavbar = () => {
 													to='/'>
 													<p className='text-center mb-0 '>
 														<AiFillHome className='fs-4 text-secondary black' />
-														Home
+														
 													</p>
+													<p className='m-0'>Home</p>
 												</Link>
 											</div>
 
@@ -165,7 +166,7 @@ const MyNavbar = () => {
 												</Nav.Link>
 											</div>
 
-											<Nav.Link
+											<div
 												href='#'
 												className={
 													location.pathname === '/MyProfile'
@@ -217,7 +218,7 @@ const MyNavbar = () => {
 																</Button>
 															</Link>
 														</NavDropdown.Item>
-														<a href='https://premium.linkedin.com/' target='_blank'>
+														<a className='ms-4' href='https://premium.linkedin.com/' target='_blank' id='link'>
                                                            Vai a LinkedIn Premium
                                                         </a>
 														<NavDropdown.Item  >
@@ -258,7 +259,7 @@ const MyNavbar = () => {
 														</NavDropdown.Item>
 													</NavDropdown>
 												</div>
-											</Nav.Link>
+											</div>
 										</div>
 									</Nav>
 								</Navbar.Collapse>
