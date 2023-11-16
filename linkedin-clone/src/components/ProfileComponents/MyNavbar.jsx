@@ -101,9 +101,9 @@ const MyNavbar = () => {
 													}
 													to='/'>
 													<p className='text-center mb-0 '>
-														<AiFillHome className='fs-4 text-secondary black' /><br/>
-														Home
+														<AiFillHome className='fs-4 text-secondary black' />
 													</p>
+													<p className='m-0'>Home</p>
 												</Link>
 											</div>
 
@@ -165,7 +165,7 @@ const MyNavbar = () => {
 												</Nav.Link>
 											</div>
 
-											<Nav.Link
+											<div
 												href='#'
 												className={
 													location.pathname === '/MyProfile'
@@ -217,13 +217,10 @@ const MyNavbar = () => {
 																</Button>
 															</Link>
 														</NavDropdown.Item>
-														<NavDropdown.Item href='#action5'>
-															<h6 className='fw-bold border-top pt-2'>Account</h6>
-															<NavLink
-																className='p-1 '
-																style={{ fontSize: '0.9rem' }}>
-																<p className='lh-1 mb-0'>Prova Premium per 0 EUR</p>
-															</NavLink>
+														<a className='ms-4' href='https://premium.linkedin.com/' target='_blank' id='link'>
+                                                           Vai a LinkedIn Premium
+                                                        </a>
+														<NavDropdown.Item  >
 															<NavLink
 																className='p-1 '
 																style={{ fontSize: '0.9rem' }}>
@@ -261,7 +258,7 @@ const MyNavbar = () => {
 														</NavDropdown.Item>
 													</NavDropdown>
 												</div>
-											</Nav.Link>
+											</div>
 										</div>
 									</Nav>
 								</Navbar.Collapse>
@@ -421,12 +418,14 @@ const MyNavbar = () => {
 							</div>
 
 							<div className='smallOne'>
-								<NavLink
-									className='fw-medium text-center px-1 different'
-									id='link'
-									style={{ width: '100px' }}>
-									Prova Premium per 0 EUR
-								</NavLink>
+							<a className='fw-medium text-center px-1 different' id='link'
+                              style={{ width: '100px' }}
+                              href='https://premium.linkedin.com/'
+                              target='_blank'
+                              rel='noopener noreferrer'>
+                             Prova Premium per 0 EUR
+                            </a>
+
 							</div>
 						</Col>
 					</Row>
