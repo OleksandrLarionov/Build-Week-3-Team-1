@@ -45,7 +45,7 @@ const MyNavbar = () => {
 	};
 
 	return (
-		<Row className='justify-content-cente mb-3 mynav col-12'>
+		<Row className='justify-content-cente mb-3 mynav border-bottom'>
 			<Col className='p-0 '>
 				<Navbar
 					expand='md'
@@ -102,8 +102,8 @@ const MyNavbar = () => {
 													to='/'>
 													<p className='text-center mb-0 '>
 														<AiFillHome className='fs-4 text-secondary black' />
-														Home
 													</p>
+													<p className='m-0'>Home</p>
 												</Link>
 											</div>
 
@@ -165,7 +165,7 @@ const MyNavbar = () => {
 												</Nav.Link>
 											</div>
 
-											<Nav.Link
+											<div
 												href='#'
 												className={
 													location.pathname === '/MyProfile'
@@ -175,8 +175,8 @@ const MyNavbar = () => {
 												<div className='d-flex flex-column align-items-center justify-content-center me-2'>
 													<img
 														src={user[0]?.image}
-														alt='profileImage moreBig'
-														className='rounded-pill '
+														alt='profileImage moreBig '
+														className='rounded-pill goingDown2'
 														id='moreBig'
 														width={25}
 														height={25}
@@ -198,7 +198,7 @@ const MyNavbar = () => {
 																</p>
 																<div className='d-flex flex-column'>
 																	<p
-																		className='d-flex lh-1 align-items-center mt-1 mb-1 fw-bold'
+																		className='d-flex lh-1 align-items-center fw-bold'
 																		style={{ fontSize: '1.2rem' }}>
 																		{user[0]?.name} {user[0]?.surname}
 																	</p>
@@ -217,13 +217,14 @@ const MyNavbar = () => {
 																</Button>
 															</Link>
 														</NavDropdown.Item>
-														<NavDropdown.Item href='#action5'>
-															<h6 className='fw-bold border-top pt-2'>Account</h6>
-															<NavLink
-																className='p-1 '
-																style={{ fontSize: '0.9rem' }}>
-																<p className='lh-1 mb-0'>Prova Premium per 0 EUR</p>
-															</NavLink>
+														<a
+															className='ms-4'
+															href='https://premium.linkedin.com/'
+															target='_blank'
+															id='link'>
+															Vai a LinkedIn Premium
+														</a>
+														<NavDropdown.Item>
 															<NavLink
 																className='p-1 '
 																style={{ fontSize: '0.9rem' }}>
@@ -261,7 +262,7 @@ const MyNavbar = () => {
 														</NavDropdown.Item>
 													</NavDropdown>
 												</div>
-											</Nav.Link>
+											</div>
 										</div>
 									</Nav>
 								</Navbar.Collapse>
@@ -421,12 +422,15 @@ const MyNavbar = () => {
 							</div>
 
 							<div className='smallOne'>
-								<NavLink
+								<a
 									className='fw-medium text-center px-1 different'
 									id='link'
-									style={{ width: '100px' }}>
+									style={{ width: '100px' }}
+									href='https://premium.linkedin.com/'
+									target='_blank'
+									rel='noopener noreferrer'>
 									Prova Premium per 0 EUR
-								</NavLink>
+								</a>
 							</div>
 						</Col>
 					</Row>

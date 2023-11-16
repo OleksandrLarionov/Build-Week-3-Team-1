@@ -7,21 +7,21 @@ import AllPost from "./HomeComponents/AllPost";
 
 const Home = () => {
   return (
-    <Container>
-      <Row>
-        <Col sm={12} md={3} className="d-flex flex-column align-items-center">
+   
+      <Row className="justify-content-center">
+        <Col sm={11} md={4} lg={3} className="d-flex flex-column align-items-center">
           <ShowProfile/>
           <DiscoverMore />
         </Col>
-        <Col sm={12} md={6}>
+        <Col sm={11} md={7} lg={5}>
           <AllPost/>
         </Col>
-        <Col sm={12} md={3}>
+        <Col sm={11} md={11} lg={3}>
           <News />
           <FooterHome />
         </Col>
       </Row>
-    </Container>
+  
   );
 };
 

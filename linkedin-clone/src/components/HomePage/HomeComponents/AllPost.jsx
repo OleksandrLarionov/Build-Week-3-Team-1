@@ -14,16 +14,13 @@ import { MdMessage } from 'react-icons/md';
 import { GrPowerCycle } from 'react-icons/gr';
 import { IoIosSend } from 'react-icons/io';
 import { commentsAction } from '../../../redux/action/commentsAction';
+import AddComment from '../HomeComponents/AddComment';
 
 const API_URL = 'https://striveschool-api.herokuapp.com/api/posts/';
 
 const MyPostComponents = () => {
-	// {
-	// 	"comment": string
-	// 	"rate": string,
-	// 	"postId": string
-	// }
 	const [newPostText, setNewPostText] = useState('');
+	const [showComment, setShowComment] = useState(false);
 	const user = useSelector((state) => state.user.userData);
 	const formImg = useSelector((state) => state.post.postEditor);
 	const posts = useSelector((state) => state.post.posts);
@@ -31,14 +28,7 @@ const MyPostComponents = () => {
 
 	useEffect(() => {
 		dispatch(fetchPostsAction());
-		dispatch(commentsAction());
 	}, []);
-	const allComments = useSelector(
-		(state) => state.comments.commentData && state.comments.commentData
-	);
-	// useEffect(() => {
-	// 	dispatch(commentsAction());
-	// }, [posts]);
 
 	const handlePostSubmit = async () => {
 		try {
@@ -59,11 +49,13 @@ const MyPostComponents = () => {
 			console.log('Errore', error);
 		}
 	};
+
 	const [modalShow, setModalShow] = useState(false);
+
 	return (
 		<>
 			<ModalImagePost show={modalShow} onHide={() => setModalShow(false)} />
-			<Row className='px-0 mb-1 border rounded-3 m-2 flex-column py-3 elements'>
+			<Row className='px-0 mb-1 border rounded-3 m-2 flex-column py-3 elements mx-0'>
 				<Col className='d-flex align-items-center'>
 					<img
 						src={user[0]?.image}
@@ -75,43 +67,49 @@ const MyPostComponents = () => {
 							border: '3px solid white',
 						}}
 					/>
-					<Form>
-						<Form.Group className='d-flex'>
+					<Form className='flex-grow-1'>
+						<Form.Group className='d-flex align-items-center justify-content-between grow-1'>
 							<Form.Control
+								style={{ height: '40px', fontSize: '1rem' }}
 								type='text'
 								placeholder='Avvia un post'
-								className='rounded-pill w-100 ms-2'
+								className='rounded-pill  ms-2 py-0 pe-5 '
 								value={newPostText}
 								onChange={(e) => setNewPostText(e.target.value)}
 							/>
-							<Button variant='primary' onClick={handlePostSubmit}>
-								Invia Post
+							<Button
+								variant='primary'
+								onClick={handlePostSubmit}
+								className='rounded-pill ms-2'>
+								Pubblica
 							</Button>
 						</Form.Group>
 					</Form>
 				</Col>
 
-				<Col className='d-flex  w-100 justify-content-center pt-3'>
+				<Col className='d-flex w-100 justify-content-around pt-3'>
 					<Row className='w-100 text-secondary'>
-						<Col className='d-flex justify-content-between'>
+						<Col className='d-flex fw-bold justify-content-between'>
 							<div className='d-flex align-items-center'>
-								<FcPicture className='mb-3 me-2 fs-4' />
-								<p onClick={() => setModalShow(true)}>Contenuti multimediali</p>
+								<FcPicture className='mb-3 me-2 fs-4 ' />
+								<p className='lh-1 iconN' onClick={() => setModalShow(true)}>
+									Contenuti multimediali
+								</p>
 							</div>
 							<div className='d-flex align-items-center'>
-								<FcCalendar className='mb-3 me-2 fs-4' />
-								<p>Evento</p>
+								<FcCalendar className='mb-3 me-2 fs-4 ' />
+								<p className='lh-1 iconN'>Evento</p>
 							</div>
 							<div className='d-flex align-items-center'>
-								<FcTemplate className='mb-3 me-2 fs-4' />
-								<p>Scrivi un articolo</p>
+								<FcTemplate className='mb-3 me-2 fs-4 ' />
+								<p className='lh-1 iconN'>Scrivi un articolo</p>
 							</div>
 						</Col>
 					</Row>
 				</Col>
 			</Row>
 			<hr className='mx-2' />
-			<Row className='mx-2 mt-3'>
+			<Row className='mt-3 mx-0'>
 				{posts.map((data) => (
 					<Col className='col-12 elements mb-4' key={data._id}>
 						<Card className='mb-2 border-0'>
@@ -134,7 +132,6 @@ const MyPostComponents = () => {
 										{data.user.surname ? `${data.user.surname}` : ``}
 									</p>
 									<p className='text-secondary lh-1 mb-1' style={{ fontSize: '0.8rem' }}>
-										{' '}
 										{data.user.title ? `${data.user.title}` : `Developer`}
 									</p>
 									<p className='text-secondary lh-1 mb-0' style={{ fontSize: '0.7rem' }}>
@@ -162,20 +159,16 @@ const MyPostComponents = () => {
 										Consiglia
 									</p>
 								</Col>
-								<Col className='iconN d-flex pt-2'>
+								<Col
+									className='iconN d-flex pt-2'
+									onClick={() => setShowComment(!showComment)}
+									style={{ cursor: 'pointer' }}>
 									<MdMessage className='fs-4' />
 									<p style={{ fontSize: '0.9rem' }} className='ps-1'>
 										Commenta
 									</p>
 								</Col>
-								{/* <Row>
-									{allComments &&
-										allComments
-											.map((comment, i) => {
-												return <Col key={comment._id}>{comment.comment}</Col>;
-											})
-											.slice(0, 6)}
-								</Row> */}
+
 								<Col className='iconN d-flex pt-2'>
 									<GrPowerCycle className='fs-4' />
 									<p style={{ fontSize: '0.9rem' }} className='ps-1'>
@@ -189,6 +182,7 @@ const MyPostComponents = () => {
 									</p>
 								</Col>
 							</Row>
+							{showComment && <AddComment />}
 						</Col>
 					</Col>
 				))}
