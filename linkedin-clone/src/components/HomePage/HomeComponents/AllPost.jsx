@@ -61,7 +61,7 @@ const MyPostComponents = () => {
               border: '3px solid white',
             }}
           />
-          <Form>
+          <Form className="flex-grow-1">
             <Form.Group className="d-flex">
               <Form.Control
                 type="text"
@@ -70,7 +70,11 @@ const MyPostComponents = () => {
                 value={newPostText}
                 onChange={(e) => setNewPostText(e.target.value)}
               />
-              <Button variant="primary" onClick={handlePostSubmit}>
+              <Button
+                variant="primary"
+                onClick={handlePostSubmit}
+                className="ms-2 w-25"
+              >
                 Invia Post
               </Button>
             </Form.Group>
