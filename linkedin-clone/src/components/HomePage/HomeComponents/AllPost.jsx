@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { Card, Form, Button, Row, Col } from 'react-bootstrap';
-import { FcCalendar, FcPicture, FcTemplate } from 'react-icons/fc';
-import { useDispatch, useSelector } from 'react-redux';
-import ModalImagePost from '../../modal/ModalImagePost';
-import { fetchPostsAction, postImageAction } from '../../../redux/action/post';
-import { personalkey } from '../../../redux/action/index';
-import {format} from 'date-fns';
-import { it } from 'date-fns/locale';
+import React, { useEffect, useState } from 'react'
+import { Card, Form, Button, Row, Col } from 'react-bootstrap'
+import { FcCalendar, FcPicture, FcTemplate } from 'react-icons/fc'
+import { useDispatch, useSelector } from 'react-redux'
+import ModalImagePost from '../../modal/ModalImagePost'
+import { fetchPostsAction, postImageAction } from '../../../redux/action/post'
+import { personalkey } from '../../../redux/action/index'
+import { format } from 'date-fns'
+import { it } from 'date-fns/locale'
 import scimmia from '../../../scimmia.jpg'
 import procione from '../../../procione.jpeg'
-import { BiLike } from "react-icons/bi";
-import { MdMessage } from "react-icons/md";
-import { GrPowerCycle } from "react-icons/gr";
-import { IoIosSend } from "react-icons/io";
+import { BiLike } from 'react-icons/bi'
+import { MdMessage } from 'react-icons/md'
+import { GrPowerCycle } from 'react-icons/gr'
+import { IoIosSend } from 'react-icons/io'
 
-const API_URL = 'https://striveschool-api.herokuapp.com/api/posts/';
+const API_URL = 'https://striveschool-api.herokuapp.com/api/posts/'
 
 const MyPostComponents = () => {
-	const [newPostText, setNewPostText] = useState('');
-	const user = useSelector((state) => state.user.userData);
-	const formImg = useSelector((state) => state.post.postEditor);
-	const posts = useSelector((state) => state.post.posts);
-	const dispatch = useDispatch();
+  const [newPostText, setNewPostText] = useState('')
+  const user = useSelector((state) => state.user.userData)
+  const formImg = useSelector((state) => state.post.postEditor)
+  const posts = useSelector((state) => state.post.posts)
+  const dispatch = useDispatch()
 
 	useEffect(() => {
 		dispatch(fetchPostsAction());
@@ -142,10 +142,4 @@ const MyPostComponents = () => {
 	);
 };
 
-export default MyPostComponents;
-
-
-
-
-
-
+export default MyPostComponents
