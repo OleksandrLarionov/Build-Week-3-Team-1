@@ -3,6 +3,7 @@ import { Col, Container, Form, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { personalkey } from '../../redux/action';
+import { personalUserID } from '../../redux/action';
 const ExperienceModal = (props) => {
 	const [formImg, setFormImg] = useState(null);
 	const [dataExp, setDataExp] = useState({
@@ -14,8 +15,7 @@ const ExperienceModal = (props) => {
 		area: '',
 	});
 	const postExperience = async () => {
-		const id = '6551e7bbc55e7e0018f83bfb';
-		const expApiList = `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences`;
+		const expApiList = `https://striveschool-api.herokuapp.com/api/profile/${personalUserID}/experiences`;
 		try {
 			const postExp = await fetch(expApiList, {
 				method: 'POST',
@@ -35,8 +35,7 @@ const ExperienceModal = (props) => {
 		}
 	};
 	const postImg = async (id_experience) => {
-		const id = '6551e7bbc55e7e0018f83bfb';
-		const userExpApi = `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences/${id_experience}/picture`;
+		const userExpApi = `https://striveschool-api.herokuapp.com/api/profile/${personalUserID}/experiences/${id_experience}/picture`;
 
 		try {
 			const imageData = await fetch(userExpApi, {

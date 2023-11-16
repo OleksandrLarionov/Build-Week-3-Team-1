@@ -3,6 +3,7 @@ import { Col, Container, Form, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { personalkey } from '../../redux/action';
+import { personalUserID } from '../../redux/action';
 import { format, parseISO } from 'date-fns';
 import { useDispatch } from 'react-redux';
 import { getUserExperience } from '../../redux/action/experience';
@@ -19,8 +20,7 @@ const ExpModalMody = (props) => {
 	});
 	const deleteSingleExp = async (e) => {
 		e.preventDefault();
-		const id = '6551e7bbc55e7e0018f83bfb';
-		const expApiList = `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences/${props.id}`;
+		const expApiList = `https://striveschool-api.herokuapp.com/api/profile/${personalUserID}/experiences/${props.id}`;
 		try {
 			const delExp = await fetch(expApiList, {
 				method: 'DELETE',
@@ -35,8 +35,7 @@ const ExpModalMody = (props) => {
 	};
 
 	const getSingleExp = async () => {
-		const id = '6551e7bbc55e7e0018f83bfb';
-		const expApiList = `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences/${props.id}`;
+		const expApiList = `https://striveschool-api.herokuapp.com/api/profile/${personalUserID}/experiences/${props.id}`;
 		try {
 			const postExp = await fetch(expApiList, {
 				method: 'GET',
@@ -68,8 +67,7 @@ const ExpModalMody = (props) => {
 		}
 	}, [props.id]);
 	const postExperience = async () => {
-		const id = '6551e7bbc55e7e0018f83bfb';
-		const expApiList = `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences/${props.id}`;
+		const expApiList = `https://striveschool-api.herokuapp.com/api/profile/${personalUserID}/experiences/${props.id}`;
 		try {
 			const postExp = await fetch(expApiList, {
 				method: 'PUT',
@@ -89,8 +87,7 @@ const ExpModalMody = (props) => {
 		}
 	};
 	const postImg = async (id_experience) => {
-		const id = '6551e7bbc55e7e0018f83bfb';
-		const userExpApi = `https://striveschool-api.herokuapp.com/api/profile/${id}/experiences/${id_experience}/picture`;
+		const userExpApi = `https://striveschool-api.herokuapp.com/api/profile/${personalUserID}/experiences/${id_experience}/picture`;
 
 		try {
 			const imageData = await fetch(userExpApi, {

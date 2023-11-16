@@ -53,7 +53,6 @@ export const fetchPostsAction = () => {
 			if (apiData.ok) {
 				const data = await apiData.json();
 				const reverseData = data.reverse();
-				// console.log(data);
 				setTimeout(() => {
 					dispatch({
 						type: FETCH_POSTS_SUCCESS,

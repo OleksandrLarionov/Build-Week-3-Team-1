@@ -6,9 +6,13 @@ export const changeModalAction = (state) => ({
 	type: SET_MODAL,
 	payload: state,
 });
+// Profile Data
+
 export const personalkey =
 	'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTdiYmM1NWU3ZTAwMThmODNiZmIiLCJpYXQiOjE2OTk4NjY1NTYsImV4cCI6MTcwMTA3NjE1Nn0.0n8X0s6yl9NBb7CzEgnDxCdlw4P1RRcSjfwOeqmGSzM';
+export const personalUserID = '6551e7bbc55e7e0018f83bfb';
 
+// end profile data
 export const getAllProfilesDataAction = (me = '') => {
 	return async (dispatch) => {
 		const profileApiList = `https://striveschool-api.herokuapp.com/api/profile/${me}`;
@@ -17,7 +21,6 @@ export const getAllProfilesDataAction = (me = '') => {
 				method: 'GET',
 				headers: {
 					Authorization: personalkey,
-					// 'Content-Type': 'application/json'
 				},
 			});
 			if (profileData.ok) {
@@ -62,8 +65,7 @@ export const modifyUserAction = (form) => {
 
 export const getUserDataAction = () => {
 	return async (dispatch) => {
-		const id = '6551e7bbc55e7e0018f83bfb';
-		const userApiList = `https://striveschool-api.herokuapp.com/api/profile/${id}`;
+		const userApiList = `https://striveschool-api.herokuapp.com/api/profile/${personalUserID}`;
 		try {
 			const userData = await fetch(userApiList, {
 				method: 'GET',
