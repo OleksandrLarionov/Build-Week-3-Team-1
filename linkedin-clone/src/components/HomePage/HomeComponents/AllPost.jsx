@@ -168,14 +168,14 @@ const MyPostComponents = () => {
 										Commenta
 									</p>
 								</Col>
-								<Row>
+								{/* <Row>
 									{allComments &&
 										allComments
 											.map((comment, i) => {
 												return <Col key={comment._id}>{comment.comment}</Col>;
 											})
 											.slice(0, 6)}
-								</Row>
+								</Row> */}
 								<Col className='iconN d-flex pt-2'>
 									<GrPowerCycle className='fs-4' />
 									<p style={{ fontSize: '0.9rem' }} className='ps-1'>
