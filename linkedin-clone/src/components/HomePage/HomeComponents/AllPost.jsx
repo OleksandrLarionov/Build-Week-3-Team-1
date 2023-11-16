@@ -101,8 +101,8 @@ const MyPostComponents = () => {
         {posts.map((data) => (
           <Col className="col-12 elements mb-4" key={data._id}>
             <Card className="mb-2 border-0">
-              <Row className="p-3 ">
-                <Col xs={2} className="ps-2 pe-0 text-center">
+              <Row className="pt-3 ">
+                <Col xs={2} className="ps-0 pt-1 pe-0 text-center">
                   {' '}
                   <img
                     src={data.user.image ? `${data.user.image}` : `${scimmia}`}
