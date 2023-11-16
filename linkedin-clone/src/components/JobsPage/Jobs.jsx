@@ -9,22 +9,25 @@ import FooterHome from '../HomePage/HomeComponents/FooterHome'
 const Jobs = () => {
   const jobsData = useSelector((state) => state.job.list)
   return (
-    <Container>
-      <Row className="mx-0 mt-3 p-3 justify-content-center flex-column flex-md-row flex-nowrap">
-        <Col xs={12} md={3} className=" text-center">
+ 
+      <Row className="mx-0 mt-3 pt-3 justify-content-center">
+        <Col xs={12} sm={10} md={4} lg={3} xl={2} className=" text-center me-md-2">
           <SideComponent />
 
           <Button
-            className="mt-3 p-3 px-5 fw-bold rounded-pill"
+            className="mt-3 p-3 px-5 fw-bold text-center rounded-pill"
             variant="outline-primary"
           >
-            <LuPenSquare className="me-3 fs-4" />
+            <LuPenSquare className="fs-4 me-2" />
             Pubblica offerta gratuita
           </Button>
         </Col>
         <Col
           xs={12}
-          md={6}
+          sm={10}
+          md={7}
+          lg={5}
+          xl={6} 
           className="elements m-2 p-2  rounded-3 d-flex flex-column justify-content-between "
           style={{ border: '1px solid #00000033', borderRadius: 4 }}
         >
@@ -75,11 +78,11 @@ const Jobs = () => {
             )
           })}
         </Col>
-        <Col xs={12} md={3}>
+        <Col xs={12} sm={10} md={11} lg={3} xl={2} className='ms-md-2'>
           <FooterHome />
         </Col>
       </Row>
-    </Container>
+
   )
 }
 
