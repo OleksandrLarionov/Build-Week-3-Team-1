@@ -102,7 +102,6 @@ const MyNavbar = () => {
 													to='/'>
 													<p className='text-center mb-0 '>
 														<AiFillHome className='fs-4 text-secondary black' />
-														
 													</p>
 													<p className='m-0'>Home</p>
 												</Link>
