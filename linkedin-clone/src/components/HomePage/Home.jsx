@@ -9,14 +9,14 @@ const Home = () => {
   return (
    
       <Row className="justify-content-center">
-        <Col sm={11} md={4} lg={3} className="d-flex flex-column align-items-center">
+        <Col sm={11} md={4} lg={2} xl={2} className="d-flex flex-column align-items-center">
           <ShowProfile/>
           <DiscoverMore />
         </Col>
-        <Col sm={11} md={7} lg={5}>
+        <Col sm={11} md={7} lg={5} xl={5}>
           <AllPost/>
         </Col>
-        <Col sm={11} md={11} lg={3}>
+        <Col sm={11} md={11} lg={3} xl={3}>
           <News />
           <FooterHome />
         </Col>
