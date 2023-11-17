@@ -18,7 +18,6 @@ const Experience = () => {
 	const getExp = useSelector((state) => state.experience.experienceData);
 	const [specificUserData, setSpecificUserData] = useState([]);
 	const params = useParams();
-	console.log(params.userId);
 	const [modalShow, setModalShow] = useState(false);
 	let selectedUser = params.userId ? specificUserData : getExp;
 	// Get specific exp

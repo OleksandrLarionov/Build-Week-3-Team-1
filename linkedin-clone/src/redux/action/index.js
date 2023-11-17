@@ -10,7 +10,7 @@ export const changeModalAction = (state) => ({
 
 export const personalkey = localStorage.getItem('personalkey');
 export const personalUserID = localStorage.getItem('personalUserID');
-console.log(personalkey);
+// console.log(personalkey);
 
 // Profile Data
 // Per Cambiare il profilo sostituire i dati dell'export con quelli del profilo desiderato in 'Users'

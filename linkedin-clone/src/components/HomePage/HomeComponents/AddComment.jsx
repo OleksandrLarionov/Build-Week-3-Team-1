@@ -15,7 +15,7 @@ const CommentList = ({ idPost }) => {
 		rate: '1',
 		elementId: idPost,
 	});
-	console.log(personalComment);
+	// console.log(personalComment);
 	const singleComment = async () => {
 		const commentApi = `https://striveschool-api.herokuapp.com/api/comments/`;
 		try {
@@ -28,7 +28,7 @@ const CommentList = ({ idPost }) => {
 			if (commentData.ok) {
 				const data = await commentData.json();
 				setTimeout(() => {
-					console.log(data);
+					// console.log(data);
 					setComment(data.filter((comment) => comment.elementId === idPost).reverse());
 				}, 500);
 			} else {

@@ -16,7 +16,6 @@ const MyPostComponents = () => {
 	const posts = useSelector((state) => state.post.posts);
 	const dispatch = useDispatch();
 
-	
 	useEffect(() => {
 		dispatch(fetchPostsAction());
 	}, []);
@@ -104,8 +103,8 @@ const MyPostComponents = () => {
 			</Row>
 			<hr className='mx-2' />
 			<Row className='mt-3 mx-0'>
-				{posts.map((post) => {
-					return <SinglePost data={post} />;
+				{posts.map((post, i) => {
+					return <SinglePost data={post} key={i} />;
 				})}
 			</Row>
 		</>
@@ -113,9 +112,3 @@ const MyPostComponents = () => {
 };
 
 export default MyPostComponents;
-
-
-
-
-
-
