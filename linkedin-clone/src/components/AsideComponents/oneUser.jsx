@@ -1,6 +1,7 @@
 import { Button } from 'react-bootstrap';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { BsPersonAdd } from 'react-icons/bs';
+import { Link, useLocation } from 'react-router-dom';
 
 const OneUser = ({ user }) => {
 	return (
@@ -12,14 +13,14 @@ const OneUser = ({ user }) => {
 					</div>
 				</div>
 				<div className='lh-1 flex-column'>
-					<div>
+					<Link to={'/user/' + user._id}>
 						<p className='fw-bold mb-1'>
 							{user.name} {user.surname}
 						</p>
-						<p className='lh-1'>{user.title}</p>
-					</div>
+					</Link>
+					<p className='lh-1'>{user.title}</p>
 					<div>
-						<div >
+						<div>
 							<Button
 								variant='light'
 								className='text-secondary bg-white border border-black rounded-pill px-3'

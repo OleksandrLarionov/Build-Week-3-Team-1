@@ -7,11 +7,47 @@ import { useSelector } from 'react-redux/es/hooks/useSelector';
 import Modal from 'react-bootstrap/Modal';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { modifyUserAction } from '../../../redux/action';
+import { getAllProfilesDataAction, modifyUserAction } from '../../../redux/action';
 import { personalkey } from '../../../redux/action';
 import { personalUserID } from '../../../redux/action';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const MainCard = () => {
+	const [specificUserData, setSpecificUserData] = useState([]);
+	// Params
+	const params = useParams();
+	const navigate = useNavigate();
+	// const dispatch = useDispatch();
+	console.log(params.userId);
+
+	const getUserData = async (userId) => {
+		const profileApiList = `https://striveschool-api.herokuapp.com/api/profile/${userId}`;
+		try {
+			const profileData = await fetch(profileApiList, {
+				method: 'GET',
+				headers: {
+					Authorization: personalkey,
+				},
+			});
+			if (profileData.ok) {
+				const data = await profileData.json();
+				setTimeout(() => {
+					setSpecificUserData(data);
+				}, 500);
+			} else {
+				throw new Error('Errore nel download dei dati profilo');
+			}
+		} catch (error) {
+			console.log('Errore', error);
+		}
+	};
+	useEffect(() => {
+		const specificUserID = params.userId;
+		if (specificUserID) {
+			getUserData(specificUserID);
+		}
+	}, [params.userId]);
+	// Params end
 	// modal
 	const dispatch = useDispatch();
 	const handreSubmit = async (e) => {
@@ -193,7 +229,11 @@ const MainCard = () => {
 					style={{ border: '1px solid rgb(223,222,219)' }}>
 					<Card.Img
 						variant='top'
-						src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s'
+						src={
+							params.userId
+								? 'https://www.donnad.it/sites/default/files/styles/r_visual_d/public/202236/sfondi-desktop-farfalle-gratis-6.jpg?itok=L9Ph5emn'
+								: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ItjUjmdyS3oifHWUhSGsSpNphIZ38hZ3Obdz2FjU&s'
+						}
 						style={{ height: '200px' }}
 					/>
 					<Card.Body className='mt-5'>
@@ -204,7 +244,7 @@ const MainCard = () => {
 								style={{ position: 'absolute', right: '20px', top: '220px' }}
 							/>
 							<img
-								src={user[0]?.image}
+								src={params.userId ? specificUserData.image : user[0]?.image}
 								alt='profile'
 								style={{
 									height: '150px',
@@ -220,13 +260,18 @@ const MainCard = () => {
 						<Row>
 							<Col className='col-8 lh-1'>
 								<Card.Title className='fw-bold mb-0' style={{ fontSize: '1.4rem' }}>
-									{user[0]?.name} {user[0]?.surname}
+									{params.userId
+										? `${specificUserData.name} ${specificUserData.surname}`
+										: `${user[0]?.name} ${user[0]?.surname}`}
+									{/* {user[0]?.name} {user[0]?.surname} */}
 								</Card.Title>
 								<Card.Text className='mb-0' style={{ fontSize: '0.9rem' }}>
-									{user[0]?.title}
+									{params.userId ? specificUserData.title : user[0]?.title}
+									{/* {user[0]?.title} */}
 								</Card.Text>
 								<Card.Text className='mb-0 text-secondary' style={{ fontSize: '0.8rem' }}>
-									{user[0]?.area} <span className='fs-5'>· </span>
+									{params.userId ? specificUserData.area : user[0]?.area}{' '}
+									<span className='fs-5'>· </span>
 									<span className='text-primary fw-bold'>Informazioni di contatto</span>
 								</Card.Text>
 								<Card.Text className='text-primary fw-bold' style={{ fontSize: '0.8rem' }}>
@@ -239,8 +284,12 @@ const MainCard = () => {
 										<PiStudent className='fs-5 ' />
 									</Col>
 									<Col>
-										<p> Istituto di sanità mentale<br/>
-											Laurea con lode </p>
+										<p>
+											{' '}
+											Istituto di sanità mentale
+											<br />
+											Laurea con lode{' '}
+										</p>
 									</Col>
 								</Row>
 							</Col>

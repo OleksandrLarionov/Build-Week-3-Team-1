@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { IoMdHappy } from 'react-icons/io';
 import { IoIosImage } from 'react-icons/io';
 import { useEffect, useState } from 'react';
+import { personalCommentKey } from '../../../redux/action';
 
 const CommentList = ({ idPost }) => {
 	const user = useSelector((state) => state.user.userData);
@@ -44,8 +45,7 @@ const CommentList = ({ idPost }) => {
 				method: 'POST',
 				body: JSON.stringify(personalComment),
 				headers: {
-					Authorization:
-						'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTU1ZjdiYTE1ODgwMTAwMTg2NDJjYmQiLCJpYXQiOjE3MDAxMzI3OTUsImV4cCI6MTcwMTM0MjM5NX0.kIpOi5hXgT7IbuGh6RIit4L6T9Q6SVXmrOOMpKRCLj4',
+					Authorization: personalCommentKey,
 					'Content-Type': 'application/json',
 				},
 			});
@@ -91,7 +91,7 @@ const CommentList = ({ idPost }) => {
 								}}
 							/>
 						</Form.Group>
-						<Button type='submit'></Button>
+						{/* <Button type='submit'></Button> */}
 					</Form>
 				</Col>
 				<Col md={2}>

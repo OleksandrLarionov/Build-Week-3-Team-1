@@ -34,7 +34,7 @@ const MyPostComponents = () => {
 				const post = await res.json();
 				const id_post = post._id;
 				formImg && dispatch(postImageAction(id_post, formImg));
-				setInterval(() => {
+				setTimeout(() => {
 					dispatch(fetchPostsAction());
 				}, 500);
 			}

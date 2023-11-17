@@ -29,6 +29,7 @@ function App() {
 							<Route element={<Home />} path='/' />
 							<Route element={<ExperienceDetail />} path='/detail/experience' />
 							<Route element={<MyProfile />} path='/MyProfile' />
+							<Route element={<MyProfile />} path='/user/:userId' />
 						</Routes>
 						<Row className='justify-content-center mx-0'></Row>
 
