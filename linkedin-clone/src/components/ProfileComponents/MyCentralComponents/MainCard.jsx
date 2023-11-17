@@ -75,7 +75,7 @@ const MainCard = () => {
 				<Modal.Body>
 					<Container>
 						<Form onSubmit={handreSubmit}>
-							<Form.Group md='12'>
+							<Form.Group md='12' className='my-2'>
 								<Form.Control
 									required
 									type='text'
@@ -87,7 +87,7 @@ const MainCard = () => {
 									}}
 								/>
 							</Form.Group>
-							<Form.Group md='12'>
+							<Form.Group md='12' className='my-2'>
 								<Form.Control
 									required
 									type='text'
@@ -99,7 +99,7 @@ const MainCard = () => {
 									}}
 								/>
 							</Form.Group>
-							<Form.Group md='12'>
+							<Form.Group md='12' className='my-2'>
 								<Form.Control
 									required
 									type='email'
@@ -111,7 +111,7 @@ const MainCard = () => {
 									}}
 								/>
 							</Form.Group>
-							<Form.Group md='12'>
+							<Form.Group md='12' className='my-2'>
 								<Form.Control
 									required
 									type='text'
@@ -123,7 +123,7 @@ const MainCard = () => {
 									}}
 								/>
 							</Form.Group>
-							<Form.Group md='12'>
+							<Form.Group md='12' className='my-2'>
 								<Form.Control
 									required
 									as='textarea'
@@ -136,7 +136,7 @@ const MainCard = () => {
 									}}
 								/>
 							</Form.Group>
-							<Form.Group md='12'>
+							<Form.Group md='12' className='my-2'>
 								<Form.Control
 									required
 									type='text'
@@ -149,7 +149,7 @@ const MainCard = () => {
 								/>
 							</Form.Group>
 
-							<Form.Group md='12'>
+							<Form.Group md='12' className='my-2'>
 								<Form.Control
 									required
 									type='text'
