@@ -243,7 +243,7 @@ const MyNavbar = () => {
                                 </Button>
                               </Link>
                             </NavDropdown.Item>
-                         
+
                             <Link
                               className="ms-4 nav-link"
                               to="https://premium.linkedin.com/"
@@ -252,7 +252,7 @@ const MyNavbar = () => {
                             >
                               Vai a LinkedIn Premium
                             </Link>
-                          
+
                             <NavDropdown.Item>
                               <NavLink
                                 className="p-1 "
@@ -296,10 +296,10 @@ const MyNavbar = () => {
                                 </p>
                               </NavLink>
                               <NavLink
-                                onClick={()=>{
-                                  localStorage.removeItem('personalkey')
-                                  localStorage.removeItem('personalUserID')
-                                  window.location.assign('/Access')
+                                onClick={() => {
+                                  localStorage.removeItem("personalkey");
+                                  localStorage.removeItem("personalUserID");
+                                  window.location.assign("/");
                                 }}
                                 className="pt-3 fw-bold border-top pt-2"
                               >
