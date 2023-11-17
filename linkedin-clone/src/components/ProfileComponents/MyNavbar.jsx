@@ -519,11 +519,10 @@ const MyNavbar = () => {
                 </Offcanvas>
               </div>
 
-              <div className="smallOne">
+              <div className="smallOne text-center">
                 <a
-                  className="fw-medium text-center px-1 different"
+                  className="fw-medium px-1 different"
                   id="link"
-                  style={{ width: "100px" }}
                   href="https://premium.linkedin.com/"
                   target="_blank"
                   rel="noopener noreferrer"
