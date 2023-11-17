@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getUserDataAction } from "../../../redux/action";
 
 const ShowProfile = () => {
+  
   const mainUser = useSelector(
     (state) => state.user.userData && state.user.userData[0]
   )

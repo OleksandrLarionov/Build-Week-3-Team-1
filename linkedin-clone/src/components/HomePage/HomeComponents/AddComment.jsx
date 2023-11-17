@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import { IoMdHappy } from 'react-icons/io';
 import { IoIosImage } from 'react-icons/io';
 import { useEffect, useState } from 'react';
+import { MdOutlinePublish } from "react-icons/md";
+import { personalAccess } from '../../../redux/action/commentsAction';
 
 const CommentList = ({ idPost }) => {
 	const user = useSelector((state) => state.user.userData);
@@ -21,7 +23,7 @@ const CommentList = ({ idPost }) => {
 				method: 'GET',
 				headers: {
 					Authorization:
-						'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTU1ZjdiYTE1ODgwMTAwMTg2NDJjYmQiLCJpYXQiOjE3MDAxMzI3OTUsImV4cCI6MTcwMTM0MjM5NX0.kIpOi5hXgT7IbuGh6RIit4L6T9Q6SVXmrOOMpKRCLj4',
+					personalAccess,
 				},
 			});
 			if (commentData.ok) {
@@ -45,7 +47,7 @@ const CommentList = ({ idPost }) => {
 				body: JSON.stringify(personalComment),
 				headers: {
 					Authorization:
-						'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTU1ZjdiYTE1ODgwMTAwMTg2NDJjYmQiLCJpYXQiOjE3MDAxMzI3OTUsImV4cCI6MTcwMTM0MjM5NX0.kIpOi5hXgT7IbuGh6RIit4L6T9Q6SVXmrOOMpKRCLj4',
+						personalAccess,
 					'Content-Type': 'application/json',
 				},
 			});
@@ -67,17 +69,20 @@ const CommentList = ({ idPost }) => {
 	return (
 		<Container>
 			<Row className='mb-3'>
-				<Col md={1}>
+				<Col xs={1} className='d-flex justify-content-end pe-0'>
 					<img
 						src={user[0]?.image}
 						alt='User'
-						style={{ width: '50px', height: '50px', borderRadius: '50%' }}
+						style={{ width: '45px', height: '45px', borderRadius: '50%' }}
 					/>
 				</Col>
-				<Col md={9}>
+				<Col xs={11} className='ps-0'>
 					<Form onSubmit={handleSubmit}>
-						<Form.Group controlId='commentText'>
+						<Row>
+						<Form.Group controlId='commentText' >
 							<Form.Control
+							    className='rounded-pill'
+							    style={{height:'45px'}}
 								value={personalComment.comment}
 								as='textarea'
 								rows={2}
@@ -91,12 +96,18 @@ const CommentList = ({ idPost }) => {
 								}}
 							/>
 						</Form.Group>
-						<Button type='submit'></Button>
+						</Row>
+						<Row className=' mt-2'>
+						<Col className='d-flex justify-content-end'>
+							<IoIosImage className='me-2' size={25} />
+							<IoMdHappy className='me-2'  size={25} />
+							<Button type='submit' className='ps-1 pe-2 py-0'>
+								<MdOutlinePublish size={25}/>Pubblica</Button>
+								</Col>
+						</Row>
 					</Form>
-				</Col>
-				<Col md={2}>
-					<IoMdHappy className='mr-2' size={20} />
-					<IoIosImage className='mr-2' size={20} />
+				
+					
 				</Col>
 			</Row>
 

@@ -80,6 +80,7 @@ code {
 	height: 30px;
 }
 
+
 @media screen and (max-width: 766px) {
 	.small {
 		position: absolute;
@@ -102,12 +103,9 @@ code {
 	.goingDown {
 		position: absolute !important;
 		top: 28px !important;
-		right: 25px !important;
+		right: 20px !important;
 	}
-	.goingDown:hover {
-		width: 30px;
-	    height: 30px;
-	}
+	
 	.goingDown2 {
 		position: absolute !important;
 		top: 5px !important;

@@ -1,5 +1,6 @@
 export const GET_COMMENTS = 'GET_COMMENTS';
 export const GET_ONE_COMMENT = 'GET_ONE_COMMENT';
+export const personalAccess = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTU3M2EzNjgyMGJjZjAwMTg4NWZmZTQiLCJpYXQiOjE3MDAyMTUzODksImV4cCI6MTcwMTQyNDk4OX0.R4JxJiUjNR8OGCtGYZQkhBikqU5Jjq1H8zYI95ui4zI'
 
 export const commentsAction = (commentID) => {
 	return async (dispatch) => {
@@ -9,7 +10,7 @@ export const commentsAction = (commentID) => {
 				method: 'GET',
 				headers: {
 					Authorization:
-						'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTU1ZjdiYTE1ODgwMTAwMTg2NDJjYmQiLCJpYXQiOjE3MDAxMzI3OTUsImV4cCI6MTcwMTM0MjM5NX0.kIpOi5hXgT7IbuGh6RIit4L6T9Q6SVXmrOOMpKRCLj4',
+					personalAccess,
 				},
 			});
 			if (commentData.ok) {

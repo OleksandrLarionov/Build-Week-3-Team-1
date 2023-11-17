@@ -2,6 +2,7 @@ import { Container, Form } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import { useDispatch } from 'react-redux';
 import { getImageAction } from '../../redux/action/post';
+
 const ModalImagePost = (props) => {
 	const dispatch = useDispatch();
 	return (

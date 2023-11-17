@@ -4,18 +4,19 @@ import { FcCalendar, FcPicture, FcTemplate } from 'react-icons/fc';
 import { useDispatch, useSelector } from 'react-redux';
 import ModalImagePost from '../../modal/ModalImagePost';
 import { fetchPostsAction, postImageAction } from '../../../redux/action/post';
-import { personalkey } from '../../../redux/action/index';
+import { personalkey } from '../../../redux/action';
 import SinglePost from './SinglePost';
 
 const API_URL = 'https://striveschool-api.herokuapp.com/api/posts/';
 
 const MyPostComponents = () => {
 	const [newPostText, setNewPostText] = useState('');
-
 	const user = useSelector((state) => state.user.userData);
 	const formImg = useSelector((state) => state.post.postEditor);
 	const posts = useSelector((state) => state.post.posts);
 	const dispatch = useDispatch();
+
+	
 	useEffect(() => {
 		dispatch(fetchPostsAction());
 	}, []);
@@ -34,7 +35,7 @@ const MyPostComponents = () => {
 				const post = await res.json();
 				const id_post = post._id;
 				formImg && dispatch(postImageAction(id_post, formImg));
-				setInterval(() => {
+				setTimeout(() => {
 					dispatch(fetchPostsAction());
 				}, 500);
 			}
@@ -112,3 +113,9 @@ const MyPostComponents = () => {
 };
 
 export default MyPostComponents;
+
+
+
+
+
+

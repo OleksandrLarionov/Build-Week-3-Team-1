@@ -6,6 +6,8 @@ import experienceReducer from '../reducers/experience';
 import postsReducer from '../reducers/post';
 import commentReducer from '../reducers/comments';
 
+
+
 const allReducers = combineReducers({
 	profile: profileDataReducer,
 	user: userDataReducer,
@@ -13,6 +15,7 @@ const allReducers = combineReducers({
 	experience: experienceReducer,
 	post: postsReducer,
 	comments: commentReducer,
+
 });
 const store = configureStore({
 	reducer: allReducers,

@@ -7,14 +7,20 @@ export const changeModalAction = (state) => ({
 	type: SET_MODAL,
 	payload: state,
 });
+
+export const personalkey= localStorage.getItem('personalkey')
+export const personalUserID= localStorage.getItem('personalUserID')
+console.log(personalkey)
+
 // Profile Data
 // Per Cambiare il profilo sostituire i dati dell'export con quelli del profilo desiderato in 'Users'
 // Per adesso va bene cosi XD ...
-export const personalUserID = '6551e7bbc55e7e0018f83bfb';
+/* export const personalUserID = '6551ed02c55e7e0018f83c08';
 export const personalkey =
-	'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZTdiYmM1NWU3ZTAwMThmODNiZmIiLCJpYXQiOjE2OTk4NjY1NTYsImV4cCI6MTcwMTA3NjE1Nn0.0n8X0s6yl9NBb7CzEgnDxCdlw4P1RRcSjfwOeqmGSzM';
+	'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZWQwMmM1NWU3ZTAwMThmODNjMDgiLCJpYXQiOjE2OTk4Njc5MDYsImV4cCI6MTcwMTA3NzUwNn0.Q_UCqIM2owNxT5H9RkciUy-DDltNMR2UqPnh6aI11oo'; */
 
-const Users = {
+/* const Users = {
+
 	alex: {
 		personalUserID: '6551e7bbc55e7e0018f83bfb',
 		personalkey:
@@ -44,9 +50,10 @@ const Users = {
 			'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTUxZWQwMmM1NWU3ZTAwMThmODNjMDgiLCJpYXQiOjE2OTk4Njc5MDYsImV4cCI6MTcwMTA3NzUwNn0.Q_UCqIM2owNxT5H9RkciUy-DDltNMR2UqPnh6aI11oo',
 	},
 };
-
+ */
 // end profile data
 export const getAllProfilesDataAction = (me = '') => {
+    
 	return async (dispatch) => {
 		const profileApiList = `https://striveschool-api.herokuapp.com/api/profile/${me}`;
 		try {
@@ -68,7 +75,7 @@ export const getAllProfilesDataAction = (me = '') => {
 				throw new Error('Errore nel download dei dati profilo');
 			}
 		} catch (error) {
-			console.log('Errore', error);
+			console.log('Errore', error,);
 		}
 	};
 };
@@ -97,6 +104,7 @@ export const modifyUserAction = (form) => {
 };
 
 export const getUserDataAction = () => {
+	
 	return async (dispatch) => {
 		const userApiList = `https://striveschool-api.herokuapp.com/api/profile/${personalUserID}`;
 		try {
