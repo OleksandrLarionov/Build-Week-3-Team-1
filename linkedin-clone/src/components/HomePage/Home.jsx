@@ -12,8 +12,7 @@ const Home = () => {
    <> 
    <MyNavbar/> 
    <ProfileEffect/>
-  
-      <Row className="justify-content-center">
+       <Row className="justify-content-center">
         <Col sm={11} md={4} lg={2} xl={2} className="d-flex flex-column align-items-center">
           <ShowProfile/>
           <DiscoverMore />
@@ -26,7 +25,6 @@ const Home = () => {
           <FooterHome />
         </Col>
       </Row>
-  
       </>);
 };
 

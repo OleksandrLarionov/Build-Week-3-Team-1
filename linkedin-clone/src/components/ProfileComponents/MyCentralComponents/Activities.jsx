@@ -9,14 +9,16 @@ import { fetchPostsAction } from '../../../redux/action/post';
 import { format } from 'date-fns';
 import { it } from 'date-fns/locale';
 import scimmia from '../../../../src/scimmia.jpg';
+import { personalUserID } from '../../../redux/action';
 
 const Activities = () => {
 	const user = useSelector((state) => state.user.userData);
 	const params = useParams();
 	const dispatch = useDispatch();
 	const allPost = useSelector((state) => state.post.posts && state.post.posts);
+	// const posts = allPost.filter((post) => post.user._id === personalUserID).reverse();
 	const singleUserPosts = allPost.filter((post) => post.user._id === params.userId).reverse();
-	console.log(singleUserPosts);
+
 	useEffect(() => {
 		const userId = params.userId;
 		if (userId) dispatch(fetchPostsAction());
@@ -54,7 +56,6 @@ const Activities = () => {
 											locale: it,
 										})}
 									</p>{' '}
-									
 									<Row>
 										<Col className='col-5'>
 											<img
@@ -64,12 +65,11 @@ const Activities = () => {
 											/>
 										</Col>
 										<Col className='col-7'>
-											<p className='pt-2'>{post.text} </p>
+											<p className='pt-2 mb-0'>{post.text} </p>
 											<p
 												className='mb-0 text-secondary lh-1'
 												style={{ fontSize: '0.7rem' }}>
-												Ecco alcuni consigli utili...<span className='fs-5'>·</span>2
-												min di lettura
+												1 minuto di lettura
 											</p>
 										</Col>
 									</Row>

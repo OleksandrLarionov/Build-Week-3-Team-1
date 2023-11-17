@@ -1,5 +1,6 @@
 import { Row,Col,Form,Button} from "react-bootstrap";
 import { useState } from 'react';
+import linkedIn from '../../../src/linkedIn.png'
 
 /* SVUOTA LO STORE IN CASO DI ERRORI DI DIGITAZIONE */
 /* const remove=()=>{
@@ -28,11 +29,18 @@ const Access = () => {
       };
 
     return ( 
-    <div className="d-flex justify-content-center ">
+    <div className="d-flex justify-content-center align-items-center" >
     <Row className="jusify-content-center elements m-5 p-4" style={{width:'50%'}}>
-    <Form noValidate validated={validated} onSubmit={handleSubmit}  >
+      <Col xs={12}><img src={linkedIn} alt="logo" className="img-fluid"/></Col>
+      <Col xs={12} className="d-flex flex-column">
+        
+        <p className="text-center fs-5 fw-bold my-3">Inscerisci le tue credenziali per accedere</p>
+        
+        <Form noValidate validated={validated} onSubmit={handleSubmit} className="mt-3" >
+      
       <Row className="mb-3">
-        <Form.Group className="mb-3" as={Col} xs={11}  controlId="validationCustom01">
+      
+        <Form.Group className="mb-3" as={Col} xs={12}  controlId="validationCustom01">
           <Form.Label >AccessKey</Form.Label>
           <Form.Control
             required
@@ -44,7 +52,7 @@ const Access = () => {
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
-        <Form.Group as={Col} xs={11} controlId="validationCustom02">
+        <Form.Group as={Col} xs={12} controlId="validationCustom02">
           <Form.Label className="mb-0">Your ID</Form.Label>
           <Form.Control
             required
@@ -58,9 +66,10 @@ const Access = () => {
         </Form.Group>
       </Row>
    
-      <Button type="submit">Submit form</Button>
+      <Button type="submit" className="fw-bold">Accedi</Button>
     
-      </Form>
+      </Form></Col>
+      
       </Row>
       </div>
      );
