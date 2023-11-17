@@ -64,12 +64,11 @@ const Activities = () => {
 											/>
 										</Col>
 										<Col className='col-7'>
-											<p className='pt-2'>{post.text} </p>
+											<p className='pt-2 mb-0'>{post.text} </p>
 											<p
 												className='mb-0 text-secondary lh-1'
 												style={{ fontSize: '0.7rem' }}>
-												Ecco alcuni consigli utili...<span className='fs-5'>·</span>2
-												min di lettura
+												1 minuto di lettura
 											</p>
 										</Col>
 									</Row>
