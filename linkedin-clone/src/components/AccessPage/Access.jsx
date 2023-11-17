@@ -32,7 +32,7 @@ const Access = () => {
     <Row className="jusify-content-center elements m-5 p-4" style={{width:'50%'}}>
     <Form noValidate validated={validated} onSubmit={handleSubmit}  >
       <Row className="mb-3">
-        <Form.Group className="mb-3" as={Col} xs="11" lg={3} controlId="validationCustom01">
+        <Form.Group className="mb-3" as={Col} xs={11} lg={3} controlId="validationCustom01">
           <Form.Label >AccessKey</Form.Label>
           <Form.Control
             required
@@ -44,7 +44,7 @@ const Access = () => {
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
-        <Form.Group as={Col} xs="11" lg={3} controlId="validationCustom02">
+        <Form.Group as={Col} xs={11} lg={3} controlId="validationCustom02">
           <Form.Label className="mb-0">Your ID</Form.Label>
           <Form.Control
             required
@@ -61,7 +61,7 @@ const Access = () => {
       <Button type="submit">Submit form</Button>
       </Form>
       <Row className="justify-content-center mt-5">
-        <Link to='/MyProfile'>
+        <Link to='/Home'>
       <Button className="w-50 btn-success">Go to Profile</Button></Link>
       </Row>
       </Row>

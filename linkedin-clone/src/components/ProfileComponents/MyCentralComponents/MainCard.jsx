@@ -8,6 +8,7 @@ import Modal from 'react-bootstrap/Modal';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { modifyUserAction } from '../../../redux/action';
+import { Link } from'react-router-dom';
 
 
 const MainCard = () => {
@@ -180,9 +181,11 @@ const MainCard = () => {
 					</Container>
 				</Modal.Body>
 				<Modal.Footer>
+				<Link to ='/MyProfile'>
 					<Button variant='secondary' onClick={handleClose}>
 						Close
 					</Button>
+					</Link>
 					<Button variant='primary' onClick={handleClose}>
 						Save Changes
 					</Button>

@@ -8,6 +8,7 @@ import { key } from '../redux/action';
 
 const TestComp = () => {
 	const personalkey = useSelector(state => state.access.key)
+	const personalUserID = useSelector(state => state.access.ID)
 	const prevviuousDataUser = useSelector((state) => state.user.userData && state.user.userData[0]);
 	const [dataUser, setDataUser] = useState({
 		name: '',
@@ -35,7 +36,7 @@ const TestComp = () => {
 		}
 	}, [prevviuousDataUser]);
 	useEffect(() => {
-		dispatch(getUserDataAction());
+		dispatch(getUserDataAction(personalUserID, personalkey));
 		dispatch(getAllProfilesDataAction(personalkey));
 	}, []);
 	const dispatch = useDispatch();

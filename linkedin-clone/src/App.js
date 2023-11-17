@@ -24,7 +24,7 @@ function App() {
 							<Route element={<Access/>} path='/Access'/>
 							<Route element={<Access/>} path='/Access' />
 							<Route element={<Jobs />} path='/Jobs' />
-							<Route element={<Home />} path='/' />
+							<Route element={<Home />} path='/Home' />
 							<Route element={<ExperienceDetail />} path='/detail/experience' />
 							<Route element={<MyProfile />} path='/MyProfile' />
 						</Routes>
