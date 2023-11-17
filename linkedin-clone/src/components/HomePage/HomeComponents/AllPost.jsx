@@ -44,6 +44,11 @@ const MyPostComponents = () => {
 	};
 
 	const [modalShow, setModalShow] = useState(false);
+	useEffect(() => {
+		if (formImg) {
+			setModalShow(false);
+		}
+	}, [formImg]);
 
 	return (
 		<>
