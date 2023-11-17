@@ -7,19 +7,15 @@ import { useSelector } from 'react-redux/es/hooks/useSelector';
 import Modal from 'react-bootstrap/Modal';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getAllProfilesDataAction, modifyUserAction } from '../../../redux/action';
+import { modifyUserAction } from '../../../redux/action';
 import { personalkey } from '../../../redux/action';
 import { personalUserID } from '../../../redux/action';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const MainCard = () => {
 	const [specificUserData, setSpecificUserData] = useState([]);
 	// Params
 	const params = useParams();
-	const navigate = useNavigate();
-	// const dispatch = useDispatch();
-	console.log(params.userId);
-
 	const getUserData = async (userId) => {
 		const profileApiList = `https://striveschool-api.herokuapp.com/api/profile/${userId}`;
 		try {

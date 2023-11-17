@@ -1,4 +1,4 @@
-import { Row, Col, DropdownButton, Dropdown, Button, ListGroup } from 'react-bootstrap';
+import { Row, Col, DropdownButton, Dropdown, ListGroup } from 'react-bootstrap';
 import { ImPencil } from 'react-icons/im';
 import { BsPlus } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,15 +9,49 @@ import { BsCalendarDate } from 'react-icons/bs';
 import ExperienceModal from '../../modal/ExperienceModal';
 import { parseISO, format } from 'date-fns';
 import { it } from 'date-fns/locale';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { personalkey } from '../../../redux/action';
 
 const Experience = () => {
 	const dispatch = useDispatch();
 	const getExp = useSelector((state) => state.experience.experienceData);
+	const [specificUserData, setSpecificUserData] = useState([]);
+	const params = useParams();
+	console.log(params.userId);
+	const [modalShow, setModalShow] = useState(false);
+	let selectedUser = params.userId ? specificUserData : getExp;
+	// Get specific exp
+	const getUserExpData = async (userId) => {
+		const userExpApi = `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`;
+		try {
+			const expData = await fetch(userExpApi, {
+				method: 'GET',
+				headers: {
+					Authorization: personalkey,
+				},
+			});
+			if (expData.ok) {
+				const data = await expData.json();
+				setTimeout(() => {
+					setSpecificUserData(data);
+				}, 500);
+			} else {
+				throw new Error('Errore nel download dei dati profilo');
+			}
+		} catch (error) {
+			console.log('Errore', error);
+		}
+	};
+
+	useEffect(() => {
+		const specificUserID = params.userId;
+		if (specificUserID) {
+			getUserExpData(specificUserID);
+		}
+	}, [params.userId]);
 	useEffect(() => {
 		dispatch(getUserExperience());
 	}, []);
-	const [modalShow, setModalShow] = useState(false);
 	return (
 		<Row className='elements mb-1 pb-3'>
 			<ExperienceModal show={modalShow} onHide={() => setModalShow(false)} />
@@ -48,8 +82,8 @@ const Experience = () => {
 				</div>
 			</Col>
 			<ListGroup>
-				{getExp &&
-					getExp
+				{selectedUser &&
+					selectedUser
 						.slice()
 						.reverse()
 						.map((oneExp, i) => {
