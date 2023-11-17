@@ -243,14 +243,16 @@ const MyNavbar = () => {
                                 </Button>
                               </Link>
                             </NavDropdown.Item>
-                            <a
-                              className="ms-4"
-                              href="https://premium.linkedin.com/"
+                         
+                            <Link
+                              className="ms-4 nav-link"
+                              to="https://premium.linkedin.com/"
                               target="_blank"
                               id="link"
                             >
                               Vai a LinkedIn Premium
-                            </a>
+                            </Link>
+                          
                             <NavDropdown.Item>
                               <NavLink
                                 className="p-1 "
