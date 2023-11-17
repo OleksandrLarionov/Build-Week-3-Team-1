@@ -5,6 +5,7 @@ import { IoMdHappy } from 'react-icons/io';
 import { IoIosImage } from 'react-icons/io';
 import { useEffect, useState } from 'react';
 import { MdOutlinePublish } from "react-icons/md";
+import { personalAccess } from '../../../redux/action/commentsAction';
 
 const CommentList = ({ idPost }) => {
 	const user = useSelector((state) => state.user.userData);
@@ -22,7 +23,7 @@ const CommentList = ({ idPost }) => {
 				method: 'GET',
 				headers: {
 					Authorization:
-						'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTU1ZjdiYTE1ODgwMTAwMTg2NDJjYmQiLCJpYXQiOjE3MDAxMzI3OTUsImV4cCI6MTcwMTM0MjM5NX0.kIpOi5hXgT7IbuGh6RIit4L6T9Q6SVXmrOOMpKRCLj4',
+					personalAccess,
 				},
 			});
 			if (commentData.ok) {
@@ -46,7 +47,7 @@ const CommentList = ({ idPost }) => {
 				body: JSON.stringify(personalComment),
 				headers: {
 					Authorization:
-						'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTU1ZjdiYTE1ODgwMTAwMTg2NDJjYmQiLCJpYXQiOjE3MDAxMzI3OTUsImV4cCI6MTcwMTM0MjM5NX0.kIpOi5hXgT7IbuGh6RIit4L6T9Q6SVXmrOOMpKRCLj4',
+						personalAccess,
 					'Content-Type': 'application/json',
 				},
 			});

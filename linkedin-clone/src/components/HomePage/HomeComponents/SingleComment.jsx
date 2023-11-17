@@ -4,6 +4,7 @@ import scimmia from "../../../../src/scimmia.jpg";
 import { useDispatch } from "react-redux";
 import { fetchPostsAction } from "../../../redux/action/post";
 import {useSelector } from "react-redux/es/hooks/useSelector";
+import { personalAccess } from "../../../redux/action/commentsAction";
 
 const SingleComment = ({ data }) => {
 	const user = useSelector((state) => state.user.userData && state.user.userData[0]);
@@ -36,7 +37,7 @@ const SingleComment = ({ data }) => {
               method: "DELETE",
               headers: {
                 Authorization:
-                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTU1ZjdiYTE1ODgwMTAwMTg2NDJjYmQiLCJpYXQiOjE3MDAxMzI3OTUsImV4cCI6MTcwMTM0MjM5NX0.kIpOi5hXgT7IbuGh6RIit4L6T9Q6SVXmrOOMpKRCLj4",
+                personalAccess,
               },
             });
           } catch (error) {
