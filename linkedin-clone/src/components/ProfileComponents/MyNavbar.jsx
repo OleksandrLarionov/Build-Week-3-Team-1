@@ -295,13 +295,16 @@ const MyNavbar = () => {
                                   <br /> offerte di lavoro
                                 </p>
                               </NavLink>
-                              <NavLink
+                             
+                            </NavDropdown.Item>
+                            <NavDropdown.Item>
+                               <NavLink
                                 onClick={() => {
                                   localStorage.removeItem("personalkey");
                                   localStorage.removeItem("personalUserID");
                                   window.location.assign("/");
                                 }}
-                                className="pt-3 fw-bold border-top pt-2"
+                                className="fw-bold border-top pt-2"
                               >
                                 Esci
                               </NavLink>
