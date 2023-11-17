@@ -10,6 +10,7 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	background-color: rgb(242, 240, 236) !important;
 	width: 100% !important;
+	height: 100% !important;
 	font-family: 'Proxima Nova', sans-serif !important;
 }
 #modalEditor {
@@ -85,14 +86,15 @@ code {
 	.small {
 		position: absolute;
 		top: 10px;
-		left: 30px;
+		left: 10px;
 	}
 	.smallOne,
 	.smallTwo {
 		display: none;
 	}
 	.listSmall {
-		width: 70%;
+		padding-right:10px;
+		width: 80%;
 		position: absolute;
 		top: 10px;
 		right: 0;
@@ -103,13 +105,13 @@ code {
 	.goingDown {
 		position: absolute !important;
 		top: 28px !important;
-		right: 20px !important;
+		right: 15px !important;
 	}
 	
 	.goingDown2 {
 		position: absolute !important;
 		top: 5px !important;
-		right: 20px !important;
+		right: 10px !important;
 	}
 	
 	.scrolled {
@@ -175,3 +177,56 @@ code {
    background-color: #EBEBEB;
    border-radius: 8px;
  }
+
+ /* NotFound */
+ #notFound {
+	background-image: url('../src/Screenshot\ 2023-11-17\ 145540.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+  }
+  
+  .full-height {
+	height: 100vh;
+  }
+  
+  .logo {
+	width: 100%;
+	max-width: 200px; 
+  }
+  
+  .contenuto {
+	text-align: center;
+	color: black;
+}
+
+#bb{
+    background-color: transparent;
+    border: 0;
+    border-radius: 2px;
+    box-sizing: border-box;
+    color: #0073b1;
+	box-shadow: #0073b1;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-family: inherit;
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden;
+    outline-width: 2px;
+    padding: 0 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition-duration: 167ms;
+    transition-timing-function: cubic-bezier(0,0,.2,1);
+    vertical-align: middle;
+    z-index: 0;
+    box-shadow: inset 0 0 0 1px #0073b1, inset 0 0 0 2px transparent, inset 0 0 0 1px transparent;
+}
+
+#bb:hover{
+	background-color: #0073b13b;
+}

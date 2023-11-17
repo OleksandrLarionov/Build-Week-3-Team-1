@@ -10,6 +10,7 @@ import Jobs from './components/JobsPage/Jobs';
 import Home from './components/HomePage/Home';
 import MyProfile from './components/ProfileComponents/MyProfile';
 import ExperienceDetail from './components/ProfileComponents/ExperienceDetail';
+import NotFound from './components/NotFound';
 
 
 function App() {
@@ -21,13 +22,13 @@ function App() {
 					<div className={modal ? 'active-modal' : ''}>
 					  
 						<Routes>
-							<Route element={<Access/>} path='/Access'/>
-							<Route element={<Access/>} path='/Access' />
+							<Route element={<Access/>} path='/'/>
 							<Route element={<Jobs />} path='/Jobs' />
 							<Route element={<Home />} path='/Home' />
 							<Route element={<ExperienceDetail />} path='/detail/experience' />
 							<Route element={<MyProfile />} path='/MyProfile' />
 							<Route element={<MyProfile />} path='/user/:userId' />
+							<Route path='*' element={<NotFound />} />
 						</Routes>
 						<Row className='justify-content-center mx-0'></Row>
 
