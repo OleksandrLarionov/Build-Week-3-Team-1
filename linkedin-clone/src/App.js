@@ -21,8 +21,7 @@ function App() {
 					<div className={modal ? 'active-modal' : ''}>
 					  
 						<Routes>
-							<Route element={<Access/>} path='/Access'/>
-							<Route element={<Access/>} path='/Access' />
+							<Route element={<Access/>} path='/'/>
 							<Route element={<Jobs />} path='/Jobs' />
 							<Route element={<Home />} path='/Home' />
 							<Route element={<ExperienceDetail />} path='/detail/experience' />
