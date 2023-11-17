@@ -50,7 +50,7 @@ const MyNavbar = () => {
   };
 
   return (
-    <Row className="justify-content-center mb-3 mynav border-bottom">
+    <Row className="justify-content-center mb-3 mx-0 mynav border-bottom">
       <Col className="p-0 ">
         <Navbar
           expand="md"
