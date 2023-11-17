@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 import { fetchPostsAction } from '../../../redux/action/post';
 import { format } from 'date-fns';
 import { it } from 'date-fns/locale';
+import scimmia from '../../../../src/scimmia.jpg';
 
 const Activities = () => {
 	const user = useSelector((state) => state.user.userData);
@@ -57,7 +58,7 @@ const Activities = () => {
 									<Row>
 										<Col className='col-5'>
 											<img
-												src={post.image}
+												src={post.image ? post.image : scimmia}
 												alt='post'
 												className='mb-2 rounded img-fluid'
 											/>
