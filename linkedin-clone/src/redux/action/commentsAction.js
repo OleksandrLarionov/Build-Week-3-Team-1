@@ -1,6 +1,6 @@
 export const GET_COMMENTS = 'GET_COMMENTS';
 export const GET_ONE_COMMENT = 'GET_ONE_COMMENT';
-export const personalAccess = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTU3M2EzNjgyMGJjZjAwMTg4NWZmZTQiLCJpYXQiOjE3MDAyMTUzODksImV4cCI6MTcwMTQyNDk4OX0.R4JxJiUjNR8OGCtGYZQkhBikqU5Jjq1H8zYI95ui4zI'
+export const personalAccess = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTU3NDJmYTgyMGJjZjAwMTg4NjAwMDQiLCJpYXQiOjE3MDAyMTc1OTUsImV4cCI6MTcwMTQyNzE5NX0.fd-UjSh-Oxls3iCCintTnILCLPLSwSgk7CvJ6GumS1U'
 
 export const commentsAction = (commentID) => {
 	return async (dispatch) => {
