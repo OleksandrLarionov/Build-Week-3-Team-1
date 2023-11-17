@@ -69,6 +69,12 @@ code {
 	color: black !important;
 	text-decoration: underline !important;
 }
+
+#link_2{
+	color: black;}
+
+#link_2:hover{ 
+	color:#0A66C2}
 #moreBig:hover {
 	width: 30px;
 	height: 30px;
@@ -163,4 +169,11 @@ code {
  .iconN:hover{
 	scale: 1.1;
 	color: black
+ }
+
+ /* Home  */
+
+ .hoverDiv:hover{
+   background-color: #EBEBEB;
+   border-radius: 8px;
  }

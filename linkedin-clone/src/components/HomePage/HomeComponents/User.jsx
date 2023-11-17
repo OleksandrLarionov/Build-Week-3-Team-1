@@ -51,11 +51,17 @@ const User = ({ user }) => {
                   <p className="text-secondary mb-0 text-start lh-1">
                     Accedi a strumenti e informazioni in esclusiva
                   </p>
-                  <div className="d-flex justify-content-start">
+                  <div className="d-flex justify-content-start text-center mb-2">
                     <FcPackage className="mt-1" />
-                    <p className=" ms-1 text-decoration-underline fw-bold">
-                      Prova Premium per 0 EUR
-                    </p>
+                    <a
+                    id='link_2'
+									className='fw-medium text-center px-1 different '
+									style={{ width: '150px' }}
+									href='https://premium.linkedin.com/'
+									target='_blank'
+									rel='noopener noreferrer'>
+									Prova Premium Gratis
+								</a>
                   </div>
                 </Col>
                 <hr className="m-0" />
