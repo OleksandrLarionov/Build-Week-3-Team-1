@@ -29,7 +29,7 @@ const Access = () => {
       };
 
     return ( 
-    <div className="d-flex justify-content-center align-items-center" style={{height:'100%'}}>
+    <div className="d-flex justify-content-center align-items-center" >
     <Row className="jusify-content-center elements m-5 p-4" style={{width:'50%'}}>
       <Col xs={12}><img src={linkedIn} alt="logo" className="img-fluid"/></Col>
       <Col xs={12} className="d-flex flex-column">
