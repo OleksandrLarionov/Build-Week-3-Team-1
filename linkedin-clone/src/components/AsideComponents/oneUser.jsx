@@ -13,7 +13,7 @@ const OneUser = ({ user }) => {
 					</div>
 				</div>
 				<div className='lh-1 flex-column'>
-					<Link to={'/user/' + user._id}>
+					<Link to={'/user/' + user._id} className='text-decoration-none text-black'>
 						<p className='fw-bold mb-1'>
 							{user.name} {user.surname}
 						</p>
