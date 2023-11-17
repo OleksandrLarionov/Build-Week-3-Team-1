@@ -8,9 +8,10 @@ import Modal from 'react-bootstrap/Modal';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { modifyUserAction } from '../../../redux/action';
-import { personalkey } from '../../../redux/action';
+import { Link } from 'react-router-dom';
 import { personalUserID } from '../../../redux/action';
 import { useParams } from 'react-router-dom';
+import { personalkey } from '../../../redux/action';
 
 const MainCard = () => {
 	const [specificUserData, setSpecificUserData] = useState([]);
@@ -48,7 +49,7 @@ const MainCard = () => {
 	const dispatch = useDispatch();
 	const handreSubmit = async (e) => {
 		e.preventDefault();
-		dispatch(modifyUserAction(dataUser));
+		dispatch(modifyUserAction(dataUser, personalkey));
 	};
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
@@ -211,9 +212,11 @@ const MainCard = () => {
 					</Container>
 				</Modal.Body>
 				<Modal.Footer>
-					<Button variant='secondary' onClick={handleClose}>
-						Close
-					</Button>
+					<Link to='/MyProfile'>
+						<Button variant='secondary' onClick={handleClose}>
+							Close
+						</Button>
+					</Link>
 					<Button variant='primary' onClick={handleClose}>
 						Save Changes
 					</Button>

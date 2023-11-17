@@ -54,14 +54,14 @@ const SinglePost = ({ data }) => {
 			</Card>
 			<Col>
 				<Row className='text-center border-top p-2 align-items-center'>
-					<Col className='iconN d-flex pt-2'>
+					<Col className='iconN d-flex  pt-2 hoverDiv'>
 						<BiLike className='fs-4' />
 						<p style={{ fontSize: '0.9rem' }} className='ps-1'>
 							Consiglia
 						</p>
 					</Col>
 					<Col
-						className='iconN d-flex pt-2'
+						className='iconN d-flex pt-2 hoverDiv'
 						onClick={() => {
 							setShowComment(!showComment);
 						}}
@@ -72,13 +72,13 @@ const SinglePost = ({ data }) => {
 						</p>
 					</Col>
 
-					<Col className='iconN d-flex pt-2'>
+					<Col className='iconN d-flex pt-2 hoverDiv'>
 						<GrPowerCycle className='fs-4' />
 						<p style={{ fontSize: '0.9rem' }} className='ps-1'>
 							Diffondi
 						</p>
 					</Col>
-					<Col className='iconN d-flex pt-2'>
+					<Col className='iconN d-flex pt-2 hoverDiv'>
 						<IoIosSend className='fs-4' />
 						<p style={{ fontSize: '0.9rem' }} className='ps-1'>
 							Invia

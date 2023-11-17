@@ -2,12 +2,15 @@ import { useEffect, useState } from 'react';
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { personalkey } from '../../redux/action';
 import { personalUserID } from '../../redux/action';
+import { personalkey } from '../../redux/action';
 import { format, parseISO } from 'date-fns';
 import { useDispatch } from 'react-redux';
 import { getUserExperience } from '../../redux/action/experience';
+
+
 const ExpModalMody = (props) => {
+
 	const dispatch = useDispatch();
 	const [formImg, setFormImg] = useState(null);
 	const [dataExp, setDataExp] = useState({

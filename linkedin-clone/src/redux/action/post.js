@@ -1,4 +1,5 @@
-import { personalkey } from '../action/index';
+import { personalkey } from "../action/index";
+
 export const FETCH_POSTS_REQUEST = 'FETCH_POSTS_REQUEST';
 export const FETCH_POSTS_SUCCESS = 'FETCH_POSTS_SUCCESS';
 export const FETCH_POSTS_FAILURE = 'FETCH_POSTS_FAILURE';
@@ -40,14 +41,13 @@ export const postImageAction = (id_post, formImg) => {
 
 export const fetchPostsAction = () => {
 	const API_URL = 'https://striveschool-api.herokuapp.com/api/posts/';
-	const key = personalkey;
 
 	return async (dispatch) => {
 		const postApi = API_URL;
 		try {
 			const apiData = await fetch(postApi, {
 				headers: {
-					Authorization: key,
+					Authorization: personalkey,
 				},
 			});
 			if (apiData.ok) {

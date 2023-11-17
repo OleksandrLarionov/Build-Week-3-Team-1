@@ -4,18 +4,19 @@ import { FcCalendar, FcPicture, FcTemplate } from 'react-icons/fc';
 import { useDispatch, useSelector } from 'react-redux';
 import ModalImagePost from '../../modal/ModalImagePost';
 import { fetchPostsAction, postImageAction } from '../../../redux/action/post';
-import { personalkey } from '../../../redux/action/index';
+import { personalkey } from '../../../redux/action';
 import SinglePost from './SinglePost';
 
 const API_URL = 'https://striveschool-api.herokuapp.com/api/posts/';
 
 const MyPostComponents = () => {
 	const [newPostText, setNewPostText] = useState('');
-
 	const user = useSelector((state) => state.user.userData);
 	const formImg = useSelector((state) => state.post.postEditor);
 	const posts = useSelector((state) => state.post.posts);
 	const dispatch = useDispatch();
+
+	
 	useEffect(() => {
 		dispatch(fetchPostsAction());
 	}, []);
@@ -83,19 +84,19 @@ const MyPostComponents = () => {
 				<Col className='d-flex w-100 justify-content-around pt-3'>
 					<Row className='w-100 text-secondary'>
 						<Col className='d-flex fw-bold justify-content-between'>
-							<div className='d-flex align-items-center'>
-								<FcPicture className='mb-3 me-2 fs-4 ' />
-								<p className='lh-1 iconN' onClick={() => setModalShow(true)}>
+							<div className='d-flex align-items-center hoverDiv mx-2 '>
+								<FcPicture className='me-1 fs-4 ' />
+								<p className='lh-1 text-center mt-3' onClick={() => setModalShow(true)}>
 									Contenuti multimediali
 								</p>
 							</div>
-							<div className='d-flex align-items-center'>
-								<FcCalendar className='mb-3 me-2 fs-4 ' />
-								<p className='lh-1 iconN'>Evento</p>
+							<div className='d-flex align-items-center hoverDiv mx-2'>
+								<FcCalendar className='me-1 fs-4 ' />
+								<p className='lh-1 text-center mt-3 '>Evento</p>
 							</div>
-							<div className='d-flex align-items-center'>
-								<FcTemplate className='mb-3 me-2 fs-4 ' />
-								<p className='lh-1 iconN'>Scrivi un articolo</p>
+							<div className='d-flex align-items-center hoverDiv mx-2'>
+								<FcTemplate className='me-1 fs-4  ' />
+								<p className='lh-1 text-center mt-3'>Scrivi un articolo</p>
 							</div>
 						</Col>
 					</Row>
@@ -112,3 +113,9 @@ const MyPostComponents = () => {
 };
 
 export default MyPostComponents;
+
+
+
+
+
+

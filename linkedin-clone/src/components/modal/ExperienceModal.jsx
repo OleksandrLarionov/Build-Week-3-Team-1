@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import { personalkey } from '../../redux/action';
 import { personalUserID } from '../../redux/action';
+import { personalkey } from '../../redux/action';
+
+
 const ExperienceModal = (props) => {
 	const [formImg, setFormImg] = useState(null);
 	const [dataExp, setDataExp] = useState({

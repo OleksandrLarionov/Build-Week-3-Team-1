@@ -2,15 +2,20 @@ import MyCentral from "./Profile/MyCentral";
 import Aside from "./Profile/Aside";
 import Footer from "./Profile/Footer";
 import { Row } from "react-bootstrap";
+import ProfileEffect from "../ProfileComponents/MyCentralComponents/ProfileEffect";
+import MyNavbar from "../ProfileComponents/MyNavbar";
 
 const MyProfile = () => {
   return (
-    <Row className="justify-content-center">
+    <>
+    <MyNavbar/> 
+     <ProfileEffect/>
+      <Row className="justify-content-center mx-0">
       <MyCentral />
       <Aside />
       <Footer />
     </Row>
-  );
+</>  );
 };
 
 export default MyProfile;

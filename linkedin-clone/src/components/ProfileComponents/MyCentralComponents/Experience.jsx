@@ -10,6 +10,7 @@ import ExperienceModal from '../../modal/ExperienceModal';
 import { parseISO, format } from 'date-fns';
 import { it } from 'date-fns/locale';
 import { Link, useParams } from 'react-router-dom';
+import { personalUserID } from '../../../redux/action';
 import { personalkey } from '../../../redux/action';
 
 const Experience = () => {
@@ -50,7 +51,7 @@ const Experience = () => {
 		}
 	}, [params.userId]);
 	useEffect(() => {
-		dispatch(getUserExperience());
+		dispatch(getUserExperience(personalkey, personalUserID));
 	}, []);
 	return (
 		<Row className='elements mb-1 pb-3'>

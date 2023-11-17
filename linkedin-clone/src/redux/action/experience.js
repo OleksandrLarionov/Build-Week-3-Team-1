@@ -1,6 +1,10 @@
-import { personalUserID } from '../action/index';
-import { personalkey } from '../action/index';
+import { personalUserID } from "./index";
+import { personalkey } from "./index";
+
 export const GET_EXPERIENCE = 'GET_EXPERIENCE';
+
+
+
 export const getUserExperience = () => {
 	return async (dispatch) => {
 		const userExpApi = `https://striveschool-api.herokuapp.com/api/profile/${personalUserID}/experiences`;
