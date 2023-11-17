@@ -22,8 +22,8 @@ const Activities = () => {
 		if (userId) dispatch(fetchPostsAction());
 	}, [params.userId]);
 	return (
-		<Row className='elements mb-1 '>
-			<Row>
+		<Row className='elements mb-1 justify-content-center'>
+			<Row className='mx-0'>
 				<Col className='col-4'>
 					<p className='fw-bold fs-5 pt-3 mb-0'>Attività</p>
 					<p className='text-primary fw-bold' style={{ fontSize: '0.8rem' }}>
@@ -39,11 +39,11 @@ const Activities = () => {
 					</Button>{' '}
 					<ImPencil className='text-secondary' />
 				</Col>
-				<Row>
+				<Row className='justify-content-center mx-0 '>
 					{singleUserPosts &&
 						singleUserPosts.map((post) => {
 							return (
-								<Col key={post._id} xs={12}>
+								<Col key={post._id} xs={12} className='border p-1 mb-2'>
 									<p className='mb-0 text-secondary' style={{ fontSize: '0.8rem' }}>
 										<span className='fw-bold'> {post.user.name}</span> ha pubblicato
 										questo post
@@ -54,7 +54,7 @@ const Activities = () => {
 											locale: it,
 										})}
 									</p>{' '}
-									<p className='pt-2'>{post.text} 😎</p>
+									
 									<Row>
 										<Col className='col-5'>
 											<img
@@ -64,9 +64,7 @@ const Activities = () => {
 											/>
 										</Col>
 										<Col className='col-7'>
-											<p className='fw-bold mb-0' style={{ fontSize: '0.9rem' }}>
-												Ti senti stanco/a?
-											</p>
+											<p className='pt-2'>{post.text} </p>
 											<p
 												className='mb-0 text-secondary lh-1'
 												style={{ fontSize: '0.7rem' }}>

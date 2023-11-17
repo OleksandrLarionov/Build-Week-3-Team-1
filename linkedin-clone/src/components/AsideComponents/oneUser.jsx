@@ -1,7 +1,7 @@
 import { Button } from 'react-bootstrap';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { BsPersonAdd } from 'react-icons/bs';
-import { Link, useLocation } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 const OneUser = ({ user }) => {
 	return (

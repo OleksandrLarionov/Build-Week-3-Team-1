@@ -5,7 +5,7 @@ import { FcPackage } from 'react-icons/fc'
 const User = ({ user }) => {
   return (
     <>
-      <Row className="mb-2 mt-2">
+      <Row className="my-2 ">
         <Col>
           <Card
             className=" border text-size overflow-hidden"

@@ -81,19 +81,19 @@ const Experience = () => {
 					</div>
 				</div>
 			</Col>
-			<ListGroup>
+			<ListGroup className='justify-content-center ps-2'>
 				{selectedUser &&
 					selectedUser
 						.slice()
 						.reverse()
 						.map((oneExp, i) => {
 							return (
-								<ListGroup.Item key={oneExp._id}>
-									<Row>
-										<Col className='col-2 display-4'>
-											<img src={oneExp.image} alt={i} width={100} />
+								<ListGroup.Item key={oneExp._id} className='mb-2 border ' >
+									<Row className='align-items-center mx-0 '>
+										<Col className='col-3 '>
+											<img src={oneExp.image} alt={i} width={70} height={70} />
 										</Col>
-										<Col className='col-7'>
+										<Col className='col-9'>
 											<p className='fw-bold mb-0' style={{ fontSize: '0.9rem' }}>
 												{oneExp.role}
 											</p>
