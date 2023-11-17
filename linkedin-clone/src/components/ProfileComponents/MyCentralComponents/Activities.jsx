@@ -45,7 +45,7 @@ const Activities = () => {
 								<Col key={post._id} xs={12}>
 									<p className='mb-0 text-secondary' style={{ fontSize: '0.8rem' }}>
 										<span className='fw-bold'> {post.user.name}</span> ha pubblicato
-										questo post <span className='fs-5'>·</span>
+										questo post
 										{}
 									</p>
 									<p style={{ fontSize: '0.8rem' }} className='text-secondary'>
