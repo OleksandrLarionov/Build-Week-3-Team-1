@@ -9,11 +9,11 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { modifyUserAction } from '../../../redux/action';
 import { Link } from'react-router-dom';
+import { personalUserID } from '../../../redux/action';
+import { personalkey } from '../../../redux/action';
 
 
 const MainCard = () => {
-	const personalkey = useSelector(state => state.access.key)
-	const personalUserID = useSelector(state => state.access.id)
 	// modal
 	const dispatch = useDispatch();
 	const handreSubmit = async (e) => {

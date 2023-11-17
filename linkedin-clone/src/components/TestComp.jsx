@@ -4,11 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Container } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
-import { key } from '../redux/action';
 
 const TestComp = () => {
-	const personalkey = useSelector(state => state.access.key)
-	const personalUserID = useSelector(state => state.access.ID)
 	const prevviuousDataUser = useSelector((state) => state.user.userData && state.user.userData[0]);
 	const [dataUser, setDataUser] = useState({
 		name: '',
@@ -36,8 +33,8 @@ const TestComp = () => {
 		}
 	}, [prevviuousDataUser]);
 	useEffect(() => {
-		dispatch(getUserDataAction(personalUserID, personalkey));
-		dispatch(getAllProfilesDataAction(personalkey));
+		dispatch(getUserDataAction());
+		dispatch(getAllProfilesDataAction());
 	}, []);
 	const dispatch = useDispatch();
 	const handreSubmit = async (e) => {

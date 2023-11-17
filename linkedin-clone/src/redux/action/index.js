@@ -7,7 +7,11 @@ export const changeModalAction = (state) => ({
 	type: SET_MODAL,
 	payload: state,
 });
- 
+
+export const personalkey= localStorage.getItem('personalkey')
+export const personalUserID= localStorage.getItem('personalUserID')
+console.log(personalkey)
+
 // Profile Data
 // Per Cambiare il profilo sostituire i dati dell'export con quelli del profilo desiderato in 'Users'
 // Per adesso va bene cosi XD ...
@@ -48,7 +52,7 @@ export const personalkey =
 };
  */
 // end profile data
-export const getAllProfilesDataAction = (me = '', personalkey) => {
+export const getAllProfilesDataAction = (me = '') => {
     
 	return async (dispatch) => {
 		const profileApiList = `https://striveschool-api.herokuapp.com/api/profile/${me}`;
@@ -75,7 +79,7 @@ export const getAllProfilesDataAction = (me = '', personalkey) => {
 		}
 	};
 };
-export const modifyUserAction = (form, personalkey) => {
+export const modifyUserAction = (form) => {
 	return async (dispatch) => {
 		const userModify = `https://striveschool-api.herokuapp.com/api/profile/`;
 		try {
@@ -99,7 +103,7 @@ export const modifyUserAction = (form, personalkey) => {
 	};
 };
 
-export const getUserDataAction = (personalUserID, personalkey) => {
+export const getUserDataAction = () => {
 	
 	return async (dispatch) => {
 		const userApiList = `https://striveschool-api.herokuapp.com/api/profile/${personalUserID}`;

@@ -1,4 +1,4 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import ShowProfile from "./HomeComponents/ShowProfile";
 import DiscoverMore from "./HomeComponents/DiscoverMore";
 import News from "./HomeComponents/News";

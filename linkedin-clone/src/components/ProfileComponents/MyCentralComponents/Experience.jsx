@@ -1,4 +1,4 @@
-import { Row, Col, DropdownButton, Dropdown, Button, ListGroup } from 'react-bootstrap';
+import { Row, Col, DropdownButton, Dropdown, ListGroup } from 'react-bootstrap';
 import { ImPencil } from 'react-icons/im';
 import { BsPlus } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,10 +10,11 @@ import ExperienceModal from '../../modal/ExperienceModal';
 import { parseISO, format } from 'date-fns';
 import { it } from 'date-fns/locale';
 import { Link } from 'react-router-dom';
+import { personalUserID } from '../../../redux/action';
+import { personalkey } from '../../../redux/action';
 
 const Experience = () => {
-	const personalkey = useSelector(state => state.access.key)
-	const personalUserID = useSelector(state => state.access.id)
+
 	const dispatch = useDispatch();
 	const getExp = useSelector((state) => state.experience.experienceData);
 	useEffect(() => {
