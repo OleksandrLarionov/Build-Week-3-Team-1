@@ -28,7 +28,6 @@ const ProfileDropDown = () => {
 				</div>
 			</NavDropdown.Item>
 
-			{/* questo elemento crea il problema di annidamento */}
 			<div className='dropdown-item'>
 				<Link to='/MyProfile' className='text-decoration-none '>
 					<Button
@@ -39,7 +38,6 @@ const ProfileDropDown = () => {
 					</Button>
 				</Link>
 			</div>
-			{/* fine dropDown */}
 			<a
 				className='ms-4 nav-link'
 				href='https://premium.linkedin.com/'
