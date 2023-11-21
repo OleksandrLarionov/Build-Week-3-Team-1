@@ -312,11 +312,11 @@ const MainCard = () => {
 									Altro
 								</Button>
 							</div>
-							<Card.Text
-								className='d-flex justify-content-between mt-3 ms-2 rounded py-2 '
+							<div
+								className='d-flex justify-content-between mt-3 ms-2 rounded py-2 card-text'
 								style={{
 									fontSize: '0.9rem',
-									backgroundColor: 'rgb(223,231,240',
+									backgroundColor: 'rgb(223,231,240)',
 									width: '60%',
 								}}>
 								<div className='d-flex flex-column' style={{ fontSize: '0.8rem' }}>
@@ -327,7 +327,7 @@ const MainCard = () => {
 								<div>
 									<ImPencil />
 								</div>
-							</Card.Text>
+							</div>
 						</Row>
 					</Card.Body>
 				</Card>
