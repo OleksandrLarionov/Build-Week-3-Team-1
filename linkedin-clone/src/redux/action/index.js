@@ -137,7 +137,6 @@ export const handleSubmitAction = (query) => {
 			);
 			if (res.ok) {
 				const { data } = await res.json();
-				console.log(data);
 				dispatch({
 					type: GET_JOBS,
 					payload: data,
