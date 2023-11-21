@@ -9,7 +9,7 @@ import { fetchPostsAction } from '../../../redux/action/post';
 import { format } from 'date-fns';
 import { it } from 'date-fns/locale';
 import scimmia from '../../../../src/scimmia.jpg';
-import { personalUserID } from '../../../redux/action';
+import { personalUserID, personalkey } from '../../../redux/action';
 
 const Activities = () => {
 	const user = useSelector((state) => state.user.userData);
@@ -19,6 +19,9 @@ const Activities = () => {
 	const singleUserPosts = allPost.filter((post) => post.user._id === params.userId);
 	const posts = allPost.filter((post) => post.user._id === personalUserID);
 	const activity = params.userId ? singleUserPosts : posts;
+	useEffect(() => {
+		dispatch(fetchPostsAction());
+	}, []);
 	useEffect(() => {
 		const userId = params.userId;
 		if (userId) dispatch(fetchPostsAction());
@@ -64,13 +67,33 @@ const Activities = () => {
 												className='mb-2 rounded img-fluid'
 											/>
 										</Col>
-										<Col className='col-7'>
+										<Col className='col-7 d-flex flex-column justify-content-between'>
 											<p className='pt-2 mb-0'>{post.text} </p>
 											<p
 												className='mb-0 text-secondary lh-1'
 												style={{ fontSize: '0.7rem' }}>
 												1 minuto di lettura
 											</p>
+											<Col className='d-flex align-items-end justify-content-end'>
+												<Button
+													onClick={async (e) => {
+														e.preventDefault();
+														const commentApi = `https://striveschool-api.herokuapp.com/api/posts/${post._id}`;
+														try {
+															const commentData = await fetch(commentApi, {
+																method: 'DELETE',
+																headers: {
+																	Authorization: personalkey,
+																},
+															});
+														} catch (error) {
+															console.log('Errore', error);
+														}
+														dispatch(fetchPostsAction());
+													}}>
+													Remove Post
+												</Button>
+											</Col>
 										</Col>
 									</Row>
 								</Col>
