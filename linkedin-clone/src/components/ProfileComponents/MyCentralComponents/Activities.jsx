@@ -16,9 +16,9 @@ const Activities = () => {
 	const params = useParams();
 	const dispatch = useDispatch();
 	const allPost = useSelector((state) => state.post.posts && state.post.posts);
-	// const posts = allPost.filter((post) => post.user._id === personalUserID).reverse();
-	const singleUserPosts = allPost.filter((post) => post.user._id === params.userId).reverse();
-
+	const singleUserPosts = allPost.filter((post) => post.user._id === params.userId);
+	const posts = allPost.filter((post) => post.user._id === personalUserID);
+	const activity = params.userId ? singleUserPosts : posts;
 	useEffect(() => {
 		const userId = params.userId;
 		if (userId) dispatch(fetchPostsAction());
@@ -42,8 +42,8 @@ const Activities = () => {
 					<ImPencil className='text-secondary' />
 				</Col>
 				<Row className='justify-content-center mx-0 '>
-					{singleUserPosts &&
-						singleUserPosts.map((post) => {
+					{activity &&
+						activity.map((post) => {
 							return (
 								<Col key={post._id} xs={12} className='border p-1 mb-2'>
 									<p className='mb-0 text-secondary' style={{ fontSize: '0.8rem' }}>
